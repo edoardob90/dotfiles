@@ -1,25 +1,23 @@
-#!/usr/bin/zsh
+#!/usr/bin/env zsh
 # Functions
 open_something () {
     xdg-open ${1:-$PWD}
 }
 
 deneb_cluster () {
-    local SSH="ssh -Y -F $HOME/.ssh/config"
-    local ID=${1:-1}
-    $SSH deneb$ID
+    ssh -X -F ${HOME}/.ssh/config deneb${1:-'1'}
 }
 
 #alias cdlocal='cd /local/scratch/ebaldi/ ; pwd'
-alias open="open_something"
-alias rm="rm -i"
-alias rmf="rm -f"
+alias open='open_something'
+alias rm='rm -i'
+alias rmf='rm -f'
 
 # Clusters
-alias deneb="deneb_cluster" # uses SSH per-user config file
-alias accessrv="ssh -X ebaldi@accessrv2.epfl.ch"
-alias bellatrix="ssh -X ebaldi@bellatrix.epfl.ch"
-alias aries="ssh -X ebaldi@aries.epfl.ch"
-alias lsmx2="ssh lsmx2"
-alias lsmx1="ssh lsmx1"
-alias fidis="ssh fidis"
+alias deneb='deneb_cluster'
+alias accessrv='ssh -X ebaldi@accessrv2.epfl.ch'
+alias bellatrix='ssh -X ebaldi@bellatrix.epfl.ch'
+alias aries='ssh -X ebaldi@aries.epfl.ch'
+alias lsmx2='ssh lsmx2'
+alias lsmx1='ssh lsmx1'
+alias fidis='ssh fidis'
