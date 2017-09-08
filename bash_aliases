@@ -5,9 +5,7 @@ open_something () {
 }
 
 deneb_cluster () {
-    local SSH="ssh -Y -F $HOME/.ssh/config"
-    local ID=${1:-1}
-    $SSH deneb$ID
+    ssh -Y -F "${HOME}/.ssh/config" deneb${1:-1}
 }
 
 #alias cdlocal='cd /local/scratch/ebaldi/ ; pwd'

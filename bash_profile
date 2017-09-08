@@ -7,9 +7,8 @@
 #        export SHELL=$(which zsh); exec $(which zsh)
 #fi
 
-# inherit all the settings and customizations present in .bashrc
-#export FROM_LOGIN="yes"
-#source ${HOME}/.bashrc
+# Inherit all the settings and customizations present in .bashrc
+source ${HOME}/.bashrc
 
 # if exists, source .bash_login
 if [ -f ${HOME}/.bash_login ]; then
