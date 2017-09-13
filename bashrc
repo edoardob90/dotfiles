@@ -6,6 +6,9 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# Define folder where actual files reside
+BASHCONFDIR="${HOME}/.dotfiles"
+
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoredups:ignorespace
@@ -94,8 +97,13 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f "$HOME/.bash_aliases" ]; then
-    source ${HOME}/.bash_aliases
+if [ -f "$BASHCONFDIR/bash_aliases" ]; then
+    source $BASHCONFDIR/bash_aliases
+fi
+
+# Custom functions
+if [ -f "$BASHCONFDIR/functions" ]; then
+    source $BASHCONFDIR/functions
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -220,6 +228,5 @@ export PGI=${HOME}/scratch/apps/compilers_and_tools/pgi
 export PATH=${PGI}/linux86-64/17.4/bin:${PATH}
 export MANPATH=$MANPATH:${PGI}/linux86-64/17.4/man
 export LM_LICENSE_FILE=$LM_LICENSE_FILE:${PGI}/license.dat
-
 
 ### END OF BASHRC ###
