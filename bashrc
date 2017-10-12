@@ -124,18 +124,6 @@ fi
 #    export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
 #fi
 
-################## Intel Software environment scripts ##################
-### Intel C/C++ compiler
-source $HOME/scratch/intel/bin/compilervars.sh -arch intel64
-### Intel MKL libraries
-source ${HOME}/scratch/intel/mkl/bin/mklvars.sh intel64 ilp64
-### Intel Fortran compiler
-#source $HOME/scratch/apps/intel/bin/ifortvars.sh -arch intel64
-### MPI library
-#source $HOME/scratch/apps/intel/compilers_and_libraries_2016.2.181/linux/mpi/intel64/bin/mpivars.sh release
-### Intel VTune
-#source /home/ebaldi/scratch/intel_2016/vtune_amplifier_xe/amplxe-vars.sh
-
 # Addition for TeX Live
 sutlmgr () {
    if [[ -z "$@" ]]
@@ -162,21 +150,15 @@ export PLUMED_VIMPATH=/home/ebaldi/apps/plumed2/lib/plumed/vim
 #export LD_LIBRARY_PATH=/home/ebaldi/apps/plumed2/lib:${LD_LIBRARY_PATH}
 #export PLUMED_KERNEL="/home/ebaldi/apps/plumed2/lib/libplumedKernel.so"
 
-
 # Source module-environment init file
 #source /etc/profile.d/modules.sh
-
-
-# CUDA toolkit
-#export PATH=${PATH}:/usr/local/cuda-7.5/bin
-#export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda-7.5/lib64
 
 # HDF5 library
 #export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/ebaldi/lib/hdf5-1.8.16/lib
 #export PATH=${PATH}:/home/ebaldi/lib/hdf5-1.8.16/bin
 
 # Default editor: vim
-export VISUAL=vim
+export VISUAL=$(which gvim)
 export EDITOR="$VISUAL"
 
 # XRD lib dir
@@ -211,15 +193,15 @@ source ~/.dotfiles/custom_prompt.sh
 export LAMMPS_POTENTIALS=${HOME}/workspace/EAMs
 
 ### INTEL software ###
+export INTEL_PATH=/usr/local/intel
 export COMPILERVARS_ARCHITECTURE="intel64"
 export COMPILERVARS_PLATFORM="linux"
-source /home/ebaldi/scratch/intel/bin/compilervars.sh
-
-# added by Anaconda3 4.4.0 installer
-#export PATH="/home/ebaldi/apps/anaconda3/bin:$PATH"
+source ${INTEL_PATH}/bin/compilervars.sh
+#source /opt/intel/intelpython3/bin/activate root
+source ${INTEL_PATH}/vtune_amplifier_xe/amplxe-vars.sh
 
 # CUDA
-export CUDA_PATH=/usr/local/cuda-8.0
+export CUDA_PATH=/usr/local/cuda
 export PATH=${CUDA_PATH}/bin:${PATH}
 export LD_LIBRARY_PATH=${CUDA_PATH}/lib64:${LD_LIBRARY_PATH}
 
