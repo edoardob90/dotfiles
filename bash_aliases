@@ -23,17 +23,6 @@ alias lsmx2='ssh lsmx2'
 alias lsmx1='ssh lsmx1'
 alias fidis='ssh fidis'
 
-# Pacman (every command is starting with caps 'P')
-#alias Pacup='sudo pacman -Syu' # perform full system upgrade
-#alias Pacin='sudo pacman -S' # install
-#alias Pacss='pacman -Ss' # search
-#alias Pacsi='pacman -Si' # info
-#alias Pacrm='sudo pacman -Rn' # remove package & unused dep
-#alias Paclo='pacman -Qdt' # list orphans
-#alias Pacro='Paclo && sudo pacman -Rns $(pacman -Qtdq)' # remove orphans
-#alias Pacc='pacman -Scc' # clean cache
-#alias Paclf='pacman -Ql' # list files
-
 # Copying remotely
 remote_copy () {
     # From/to
