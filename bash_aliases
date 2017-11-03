@@ -1,14 +1,9 @@
 #!/bin/bash
 # Functions
-open_something () {
-    xdg-open ${1:-$PWD}
-}
-
 deneb_cluster () {
     ssh -Y -F "${HOME}/.ssh/config" deneb${1:-1}
 }
 
-alias open='open_something'
 alias vi='vim'
 alias rm='rm -i'
 alias rmf='rm -f'
