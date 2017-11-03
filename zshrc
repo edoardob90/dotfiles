@@ -7,7 +7,7 @@ export ZSH=/home/ebaldi/.dotfiles/oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="ys"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -69,7 +69,9 @@ export COMPILERVARS_ARCHITECTURE="intel64"
 export COMPILERVARS_PLATFORM="linux"
 source ${INTEL_PATH}/bin/compilervars.sh
 #source /opt/intel/intelpython3/bin/activate root
-source ${INTEL_PATH}/vtune_amplifier_xe/amplxe-vars.sh
+if [[ $(uname -m) == "x86_64" ]]; then
+    export PATH="/usr/local/intel/vtune_amplifier_xe_2017.5.0.526192/bin64":${PATH}
+fi
 
 # CUDA
 export CUDA_PATH=/usr/local/cuda
@@ -109,3 +111,20 @@ export LM_LICENSE_FILE=$LM_LICENSE_FILE:${PGI}/license.dat
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source $DOTFILES/bash_aliases
+
+# Completion stuff
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select=2 eval "$(dircolors -b)"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
