@@ -2,7 +2,7 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/ebaldi/.dotfiles/oh-my-zsh
+export ZSH=${HOME}/.dotfiles/oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -64,25 +64,25 @@ export VISUAL=$(which vim)
 export EDITOR="$VISUAL"
 
 # INTEL software
-export INTEL_PATH=/usr/local/intel
-export COMPILERVARS_ARCHITECTURE="intel64"
-export COMPILERVARS_PLATFORM="linux"
-source ${INTEL_PATH}/bin/compilervars.sh
-#source /opt/intel/intelpython3/bin/activate root
-if [[ $(uname -m) == "x86_64" ]]; then
-    export PATH="/usr/local/intel/vtune_amplifier_xe_2017.5.0.526192/bin64":${PATH}
-fi
-
-# CUDA
-export CUDA_PATH=/usr/local/cuda
-export PATH=${CUDA_PATH}/bin:${PATH}
-export LD_LIBRARY_PATH=${CUDA_PATH}/lib64:${LD_LIBRARY_PATH}
-
-# PGI compiler
-export PGI=${HOME}/scratch/apps/compilers_and_tools/pgi
-export PATH=${PGI}/linux86-64/17.4/bin:${PATH}
-export MANPATH=$MANPATH:${PGI}/linux86-64/17.4/man
-export LM_LICENSE_FILE=$LM_LICENSE_FILE:${PGI}/license.dat
+###export INTEL_PATH=/usr/local/intel
+###export COMPILERVARS_ARCHITECTURE="intel64"
+###export COMPILERVARS_PLATFORM="linux"
+###source ${INTEL_PATH}/bin/compilervars.sh
+####source /opt/intel/intelpython3/bin/activate root
+###if [[ $(uname -m) == "x86_64" ]]; then
+###    export PATH="/usr/local/intel/vtune_amplifier_xe_2017.5.0.526192/bin64":${PATH}
+###fi
+###
+#### CUDA
+###export CUDA_PATH=/usr/local/cuda
+###export PATH=${CUDA_PATH}/bin:${PATH}
+###export LD_LIBRARY_PATH=${CUDA_PATH}/lib64:${LD_LIBRARY_PATH}
+###
+#### PGI compiler
+###export PGI=${HOME}/scratch/apps/compilers_and_tools/pgi
+###export PATH=${PGI}/linux86-64/17.4/bin:${PATH}
+###export MANPATH=$MANPATH:${PGI}/linux86-64/17.4/man
+###export LM_LICENSE_FILE=$LM_LICENSE_FILE:${PGI}/license.dat
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -117,7 +117,7 @@ zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
-zstyle ':completion:*' menu select=2 eval "$(dircolors -b)"
+zstyle ':completion:*' menu select=2 eval "$(gdircolors -b)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
