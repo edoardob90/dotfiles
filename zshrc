@@ -134,6 +134,8 @@ setopt extendedglob
 typeset -Ag abbreviations
 abbreviations=(
     "ga"    "git add"
+    "gco"   "git commit -a"
+    "gcom"  "git commit -m"
     "gcm"   "git checkout master"
     "gri"   "git rebase -i HEAD~"
     "grm"   "git rebase origin/master"
