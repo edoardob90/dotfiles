@@ -51,7 +51,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git debian)
+plugins=(debian)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -128,3 +128,36 @@ zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+# Command abbreviations (from Jovica Ilic "Mastering Vim plugins")
+setopt extendedglob
+typeset -Ag abbreviations
+abbreviations=(
+    "ga"    "git add"
+    "gco"   "git commit -a"
+    "gcom"  "git commit -m"
+    "gcm"   "git checkout master"
+    "gri"   "git rebase -i HEAD~"
+    "grm"   "git rebase origin/master"
+    "gst"   "git status"
+    "gps"   "git push"
+    "gpu"   "git pull"
+    "gfe"   "git fetch"
+    "gfm"   "git fetch origin/master"
+)
+magic-abbrev-expand() {
+    local MATCH
+    LBUFFER=${LBUFFER%%(#m)[_a-zA-Z0-9]#}
+    LBUFFER+=${abbreviations[$MATCH]:-$MATCH}
+    zle self-insert
+}
+
+no-magic-abbrev-expand() {
+  LBUFFER+=' '
+}
+
+zle -N magic-abbrev-expand
+zle -N no-magic-abbrev-expand
+bindkey " " magic-abbrev-expand
+bindkey "^x " no-magic-abbrev-expand
+bindkey -M isearch " " self-insert
