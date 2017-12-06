@@ -101,6 +101,9 @@ export LM_LICENSE_FILE=$LM_LICENSE_FILE:${PGI}/license.dat
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
+#
+# LAMMPS potentials directory
+export LAMMPS_POTENTIALS=${HOME}/workspace/EAMs
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
