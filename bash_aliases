@@ -50,3 +50,15 @@ remote_copy () {
         $CPTOOL $OPTS "${USER}@${REMOTE}.epfl.ch:${FILE} ${WHERE}"
     fi
 }
+
+# Addition for TeX Live
+function sutlmgr () {
+if [[ -z "$@" ]]; then
+	sudo /opt/texbin/tlmgr -gui
+else
+	sudo /opt/texbin/tlmgr "$@"
+fi
+}
+alias mktexlsr='sudo /opt/texbin/mktexlsr'
+alias updmap-sys='sudo /opt/texbin/updmap-sys'
+alias fmtutil-sys='sudo /opt/texbin/fmtutil-sys'

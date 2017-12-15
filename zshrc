@@ -147,6 +147,8 @@ abbreviations=(
     "gpu"   "git pull"
     "gfe"   "git fetch"
     "gfm"   "git fetch origin/master"
+    "grv"   "git remote -v"
+    "glog"  "git log"
 )
 magic-abbrev-expand() {
     local MATCH
