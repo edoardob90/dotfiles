@@ -1,6 +1,7 @@
 # Terminal colors
-export TERM=xterm-256color
-export EDITOR=vim
+# MAY CAUSE problems with TMUX and gnome-terminal
+#export TERM=screen-256color
+#export EDITOR=vim
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
