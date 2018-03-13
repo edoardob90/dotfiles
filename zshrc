@@ -1,3 +1,8 @@
+# Terminal colors
+# MAY CAUSE problems with TMUX and gnome-terminal
+#export TERM=screen-256color
+#export EDITOR=vim
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -7,7 +12,8 @@ export ZSH=${HOME}/.dotfiles/oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="ys"
+#ZSH_THEME="ys"
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -101,6 +107,9 @@ export EDITOR="$VISUAL"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
+#
+# LAMMPS potentials directory
+export LAMMPS_POTENTIALS=${HOME}/workspace/EAMs
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -144,6 +153,9 @@ abbreviations=(
     "gpu"   "git pull"
     "gfe"   "git fetch"
     "gfm"   "git fetch origin/master"
+    "grv"   "git remote -v"
+    "glog"  "git log"
+    "grem"  "git remote -v"
 )
 magic-abbrev-expand() {
     local MATCH

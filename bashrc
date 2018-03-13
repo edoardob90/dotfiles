@@ -6,6 +6,9 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# Set correctly terminal colors
+export TERM="xterm-256color"
+
 # Define folder where actual files reside
 BASHCONFDIR="${HOME}/.dotfiles"
 
