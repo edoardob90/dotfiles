@@ -196,12 +196,12 @@ source ~/.dotfiles/custom_prompt.sh
 export LAMMPS_POTENTIALS=${HOME}/workspace/EAMs
 
 ### INTEL software ###
-export INTEL_PATH=/usr/local/intel
-export COMPILERVARS_ARCHITECTURE="intel64"
-export COMPILERVARS_PLATFORM="linux"
-source ${INTEL_PATH}/bin/compilervars.sh
+#export INTEL_PATH=/usr/local/intel
+#export COMPILERVARS_ARCHITECTURE="intel64"
+#export COMPILERVARS_PLATFORM="linux"
+#source ${INTEL_PATH}/bin/compilervars.sh
 #source /opt/intel/intelpython3/bin/activate root
-source ${INTEL_PATH}/vtune_amplifier_xe/amplxe-vars.sh
+#source ${INTEL_PATH}/vtune_amplifier_xe/amplxe-vars.sh
 
 # CUDA
 export CUDA_PATH=/usr/local/cuda
@@ -213,5 +213,8 @@ export PGI=${HOME}/scratch/apps/compilers_and_tools/pgi
 export PATH=${PGI}/linux86-64/17.4/bin:${PATH}
 export MANPATH=$MANPATH:${PGI}/linux86-64/17.4/man
 export LM_LICENSE_FILE=$LM_LICENSE_FILE:${PGI}/license.dat
+
+# Workaround for QT app to make them use correct keyboard settings
+#export QM_IM_MODULE=xim
 
 ### END OF BASHRC ###

@@ -70,19 +70,19 @@ export VISUAL=$(which vim)
 export EDITOR="$VISUAL"
 
 # INTEL software
-export INTEL_PATH=/usr/local/intel
-export COMPILERVARS_ARCHITECTURE="intel64"
-export COMPILERVARS_PLATFORM="linux"
-source ${INTEL_PATH}/bin/compilervars.sh
-#source /opt/intel/intelpython3/bin/activate root
-if [[ $(uname -m) == "x86_64" ]]; then
-    export PATH="/usr/local/intel/vtune_amplifier_xe_2017.5.0.526192/bin64":${PATH}
-fi
+#export INTEL_PATH=/usr/local/intel
+#export COMPILERVARS_ARCHITECTURE="intel64"
+#export COMPILERVARS_PLATFORM="linux"
+#source ${INTEL_PATH}/bin/compilervars.sh
+##source /opt/intel/intelpython3/bin/activate root
+#if [[ $(uname -m) == "x86_64" ]]; then
+#    export PATH="/usr/local/intel/vtune_amplifier_xe_2017.5.0.526192/bin64":${PATH}
+#fi
 
 # CUDA
-export CUDA_PATH=/usr/local/cuda
-export PATH=${CUDA_PATH}/bin:${PATH}
-export LD_LIBRARY_PATH=${CUDA_PATH}/lib64:${LD_LIBRARY_PATH}
+#export CUDA_PATH=/usr/local/cuda
+#export PATH=${CUDA_PATH}/bin:${PATH}
+#export LD_LIBRARY_PATH=${CUDA_PATH}/lib64:${LD_LIBRARY_PATH}
 
 # PGI compiler
 export PGI=${HOME}/scratch/apps/compilers_and_tools/pgi
