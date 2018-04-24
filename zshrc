@@ -121,6 +121,9 @@ export LAMMPS_POTENTIALS=${HOME}/workspace/EAMs
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source $DOTFILES/bash_aliases
 
+# Python external distribution (Miniconda Python 3.6)
+export PATH=/home/ebaldi/scratch/apps/miniconda3/bin:$PATH
+
 # Completion stuff
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate

@@ -8,4 +8,5 @@
 #fi
 
 export SHELL=$(which zsh)
+export QT_IM_MODULE="xim"
 #[ -z "$ZSH_VERSION" ] && exec "$SHELL -l"
