@@ -1,7 +1,12 @@
 # Terminal colors
 # MAY CAUSE problems with TMUX and gnome-terminal
+#export TERM=xterm-256color-italic
 #export TERM=screen-256color
 #export EDITOR=vim
+
+# VIM colorscheme 'gruvbox' color palette
+# Useless if using VIM with termguicolors support (as I'm doing, since I'm using my compiled version of VIM)
+#source $HOME/.vim/myplugins/gruvbox/gruvbox_256palette.sh
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
