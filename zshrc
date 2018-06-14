@@ -127,7 +127,7 @@ export LAMMPS_POTENTIALS=${HOME}/workspace/EAMs
 source $DOTFILES/bash_aliases
 
 # Python external distribution (Miniconda Python 3.6)
-export PATH=/home/ebaldi/scratch/apps/miniconda3/bin:$PATH
+#export PATH=/home/ebaldi/scratch/apps/miniconda3/bin:$PATH
 
 # Completion stuff
 zstyle ':completion:*' auto-description 'specify: %d'
