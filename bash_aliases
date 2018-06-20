@@ -10,7 +10,8 @@ alias rmf='rm -f'
 alias vim=mvim
 
 # Clusters
-alias deneb='deneb_cluster' # uses SSH per-user config file
+alias deneb1='deneb_cluster 1' # uses SSH per-user config file
+alias deneb2='deneb_cluster 2' # uses SSH per-user config file
 alias accessrv='ssh -X ebaldi@accessrv2.epfl.ch'
 alias bellatrix='ssh -X ebaldi@bellatrix.epfl.ch'
 alias aries='ssh -X ebaldi@aries.epfl.ch'

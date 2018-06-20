@@ -7,5 +7,6 @@
 #        exec $(which zsh)
 #fi
 
-# allow Chromium to use Flashplugin embedded in Chrome
-export PEPPER_FLASH_VERSION=$(grep '"version":' /opt/google/chrome/PepperFlash/manifest.json | grep -Po '(?<=version": ")(?:\d|\.)*')
+export SHELL=$(which zsh)
+export QT_IM_MODULE="xim"
+#[ -z "$ZSH_VERSION" ] && exec "$SHELL -l"

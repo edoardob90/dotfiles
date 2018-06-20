@@ -1,7 +1,12 @@
 # Terminal colors
 # MAY CAUSE problems with TMUX and gnome-terminal
+#export TERM=xterm-256color-italic
 #export TERM=screen-256color
 #export EDITOR=vim
+
+# VIM colorscheme 'gruvbox' color palette
+# Useless if using VIM with termguicolors support (as I'm doing, since I'm using my compiled version of VIM)
+#source $HOME/.vim/myplugins/gruvbox/gruvbox_256palette.sh
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -57,7 +62,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(debian history)
+plugins=(debian history zsh-syntax-highlighting history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -70,25 +75,24 @@ export VISUAL=$(which vim)
 export EDITOR="$VISUAL"
 
 # INTEL software
-###export INTEL_PATH=/usr/local/intel
-###export COMPILERVARS_ARCHITECTURE="intel64"
-###export COMPILERVARS_PLATFORM="linux"
-###source ${INTEL_PATH}/bin/compilervars.sh
-####source /opt/intel/intelpython3/bin/activate root
-###if [[ $(uname -m) == "x86_64" ]]; then
-###    export PATH="/usr/local/intel/vtune_amplifier_xe_2017.5.0.526192/bin64":${PATH}
-###fi
-###
-#### CUDA
-###export CUDA_PATH=/usr/local/cuda
-###export PATH=${CUDA_PATH}/bin:${PATH}
-###export LD_LIBRARY_PATH=${CUDA_PATH}/lib64:${LD_LIBRARY_PATH}
-###
-#### PGI compiler
-###export PGI=${HOME}/scratch/apps/compilers_and_tools/pgi
-###export PATH=${PGI}/linux86-64/17.4/bin:${PATH}
-###export MANPATH=$MANPATH:${PGI}/linux86-64/17.4/man
-###export LM_LICENSE_FILE=$LM_LICENSE_FILE:${PGI}/license.dat
+#export COMPILERVARS_ARCHITECTURE="intel64"
+#export COMPILERVARS_PLATFORM="linux"
+#source ${INTEL_PATH}/bin/compilervars.sh
+##source /opt/intel/intelpython3/bin/activate root
+#if [[ $(uname -m) == "x86_64" ]]; then
+#    export PATH="/usr/local/intel/vtune_amplifier_xe_2017.5.0.526192/bin64":${PATH}
+#fi
+
+# CUDA
+#export CUDA_PATH=/usr/local/cuda
+#export PATH=${CUDA_PATH}/bin:${PATH}
+#export LD_LIBRARY_PATH=${CUDA_PATH}/lib64:${LD_LIBRARY_PATH}
+
+# PGI compiler
+#export PGI=${HOME}/scratch/apps/compilers_and_tools/pgi
+#export PATH=${PGI}/linux86-64/17.4/bin:${PATH}
+#export MANPATH=$MANPATH:${PGI}/linux86-64/17.4/man
+#export LM_LICENSE_FILE=$LM_LICENSE_FILE:${PGI}/license.dat
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -120,6 +124,9 @@ export LAMMPS_POTENTIALS=${HOME}/workspace/EAMs
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source $DOTFILES/bash_aliases
+
+# Python external distribution (Miniconda Python 3.6)
+#export PATH=/home/ebaldi/scratch/apps/miniconda3/bin:$PATH
 
 # Completion stuff
 zstyle ':completion:*' auto-description 'specify: %d'
@@ -173,3 +180,13 @@ zle -N no-magic-abbrev-expand
 bindkey " " magic-abbrev-expand
 bindkey "^x " no-magic-abbrev-expand
 bindkey -M isearch " " self-insert
+
+## ZSH history plugin keybindings
+## bind UP and DOWN arrow keys
+#zmodload zsh/terminfo
+#bindkey "$terminfo[kcuu1]" history-substring-search-up
+#bindkey "$terminfo[kcud1]" history-substring-search-down
+## bind k and j for VI mode
+#bindkey -M vicmd 'k' history-substring-search-up
+#bindkey -M vicmd 'j' history-substring-search-down
+
