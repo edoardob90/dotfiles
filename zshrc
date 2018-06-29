@@ -85,9 +85,9 @@ export EDITOR="$VISUAL"
 #fi
 
 # CUDA
-#export CUDA_PATH=/usr/local/cuda
-#export PATH=${CUDA_PATH}/bin:${PATH}
-#export LD_LIBRARY_PATH=${CUDA_PATH}/lib64:${LD_LIBRARY_PATH}
+export CUDA_PATH=/usr/local/cuda
+export PATH=${CUDA_PATH}/bin:${PATH}
+export LD_LIBRARY_PATH=${CUDA_PATH}/lib64:${LD_LIBRARY_PATH}
 
 # PGI compiler
 export PGI=${HOME}/scratch/apps/compilers_and_tools/pgi
@@ -163,7 +163,8 @@ abbreviations=(
     "gfm"   "git fetch origin/master"
     "grv"   "git remote -v"
     "glog"  "git log"
-    "grem"  "git remote -v"
+    "gbra"  "git branch -a"
+    "grem"  "git rm"
 )
 magic-abbrev-expand() {
     local MATCH
