@@ -1,4 +1,11 @@
 #!/bin/bash
+# Source bash_profile and bashrc
+for file in bashrc bash_profile; do
+    if [[ -f "${HOME}/.${file}" ]]; then
+        . "${HOME}/.${file}"
+    fi
+done
+
 # set shell: zsh instead of bash
 #if case "$-" in *i*) true;; *) false;; esac &&
 #    [ -z "$ZSH_VERSION" ] &&
