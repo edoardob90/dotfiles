@@ -15,5 +15,5 @@ if [ -f ${HOME}/.bash_login ]; then
     source ${HOME}/.bash_login
 fi
 
-export SHELL=$(which zsh)
-#[ -z "$ZSH_VERSION" ] && exec "$SHELL -l"
+# Set default shell (dirty trick) --> Done via LDAP-wide configuration
+#export SHELL=$(which zsh)

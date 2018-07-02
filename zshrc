@@ -184,11 +184,12 @@ bindkey "^x " no-magic-abbrev-expand
 bindkey -M isearch " " self-insert
 
 ## ZSH history plugin keybindings
-## bind UP and DOWN arrow keys
+## ALREADY SET-UP BY PLUGIN! Left here as references
+# bind UP and DOWN arrow keys
 #zmodload zsh/terminfo
 #bindkey "$terminfo[kcuu1]" history-substring-search-up
 #bindkey "$terminfo[kcud1]" history-substring-search-down
-## bind k and j for VI mode
+# bind k and j for VI mode
 #bindkey -M vicmd 'k' history-substring-search-up
 #bindkey -M vicmd 'j' history-substring-search-down
 
