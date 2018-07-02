@@ -6,4 +6,4 @@
     url = https://github.com/tony/tmux-config.git
 [submodule "vendor/tmux-mem-cpu-load"]
     path = tmux/vendor/tmux-mem-cpu-load
-    url = git://github.com/thewtex/tmux-mem-cpu-load.git
+    url = https://github.com/thewtex/tmux-mem-cpu-load.git
