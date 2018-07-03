@@ -9,7 +9,7 @@
 #source $HOME/.vim/myplugins/gruvbox/gruvbox_256palette.sh
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.dotfiles/oh-my-zsh
@@ -18,7 +18,7 @@ export ZSH=${HOME}/.dotfiles/oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="ys"
-ZSH_THEME="robbyrussell"
+ZSH_THEME=""
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -69,6 +69,9 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export DOTFILES="$HOME/.dotfiles"
+fpath=( "$DOTFILES/zfunctions" $fpath )
+autoload -U promptinit; promptinit
+prompt pure
 
 # Default editor: vim
 export VISUAL=$(which vim)
