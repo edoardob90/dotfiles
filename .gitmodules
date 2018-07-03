@@ -7,3 +7,6 @@
 [submodule "vendor/tmux-mem-cpu-load"]
     path = tmux/vendor/tmux-mem-cpu-load
     url = https://github.com/thewtex/tmux-mem-cpu-load.git
+[submodule "pure"]
+	path = pure
+	url = https://github.com/sindresorhus/pure.git

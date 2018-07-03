@@ -1,3 +1,5 @@
+#========= My ZSHRC =========
+#
 # Terminal colors
 # MAY CAUSE problems with TMUX and gnome-terminal
 #export TERM=xterm-256color-italic
@@ -18,7 +20,7 @@ export ZSH=/home/ebaldi/.dotfiles/oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="ys"
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -67,8 +69,16 @@ plugins=(debian history zsh-syntax-highlighting history-substring-search)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
 export DOTFILES="$HOME/.dotfiles"
+
+# Adding personal zfunctions path
+fpath=( "$DOTFILES/myzfunctions" $fpath )
+
+# Set prompt theme
+# Using theme 'Pure' (submodule). Must be here AFTER sourcing oh-my-zsh.sh script.
+ZSH_THEME=""
+autoload -U promptinit; promptinit
+prompt pure
 
 # Default editor: vim
 export VISUAL=$(which vim)
