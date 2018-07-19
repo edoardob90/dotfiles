@@ -78,6 +78,7 @@ fpath=( "$DOTFILES/myzfunctions" $fpath )
 # Using theme 'Pure' (submodule). Must be here AFTER sourcing oh-my-zsh.sh script.
 ZSH_THEME=""
 autoload -U promptinit; promptinit
+#PURE_PROMPT_SYMBOL=">"
 prompt pure
 
 # Default editor: vim
