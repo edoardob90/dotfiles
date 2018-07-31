@@ -125,7 +125,7 @@ export LM_LICENSE_FILE=$LM_LICENSE_FILE:${PGI}/license.dat
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 #
 # LAMMPS potentials directory
-export LAMMPS_POTENTIALS=${HOME}/workspace/EAMs
+export LAMMPS_POTENTIALS=${HOME}/potentials
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -135,7 +135,13 @@ export LAMMPS_POTENTIALS=${HOME}/workspace/EAMs
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source $DOTFILES/bash_aliases
+[[ -f $ZSH_CUSTOM/aliases ]] && . $ZSH_CUSTOM/aliases
+if [[ -d $ZSH_CUSTOM/aliases.d ]]; then
+    aliases=($ZSH_CUSTOM/aliases.d/*)
+    for f in $aliases; do
+        . $f
+    done
+fi
 
 # Python external distribution (Miniconda Python 3.6)
 #export PATH=/home/ebaldi/scratch/apps/miniconda3/bin:$PATH
