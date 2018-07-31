@@ -137,8 +137,7 @@ export LAMMPS_POTENTIALS=${HOME}/potentials
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 [[ -f $ZSH_CUSTOM/aliases ]] && . $ZSH_CUSTOM/aliases
 if [[ -d $ZSH_CUSTOM/aliases.d ]]; then
-    aliases=($ZSH_CUSTOM/aliases.d/*)
-    for f in $aliases; do
+    for f in $ZSH_CUSTOM/aliases.d/* ; do
         . $f
     done
 fi
