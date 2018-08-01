@@ -1,0 +1,15 @@
+#!/bin/bash
+test -r /sw/bin/init.sh && . /sw/bin/init.sh
+
+# Source .bashrc if present
+if [ -f ~/.bashrc ]; then
+    source ~/.bashrc
+fi
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+# added by Anaconda3 4.4.0 installer
+###export PATH="/anaconda/bin:$PATH"
+
+# Homebrew sbin dir
+export PATH="/usr/local/sbin:$PATH"
