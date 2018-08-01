@@ -1,3 +1,5 @@
+#========= My ZSHRC =========
+#
 # Terminal colors
 # MAY CAUSE problems with TMUX and gnome-terminal
 #export TERM=xterm-256color-italic
@@ -67,10 +69,19 @@ plugins=(debian history zsh-syntax-highlighting history-substring-search)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
 export DOTFILES="$HOME/.dotfiles"
 fpath=( "$DOTFILES/zfunctions" $fpath )
 autoload -U promptinit; promptinit
+prompt pure
+
+# Adding personal zfunctions path
+fpath=( "$DOTFILES/myzfunctions" $fpath )
+
+# Set prompt theme
+# Using theme 'Pure' (submodule). Must be here AFTER sourcing oh-my-zsh.sh script.
+ZSH_THEME=""
+autoload -U promptinit; promptinit
+#PURE_PROMPT_SYMBOL=">"
 prompt pure
 
 # Default editor: vim
@@ -87,9 +98,9 @@ export EDITOR="$VISUAL"
 #fi
 
 # CUDA
-#export CUDA_PATH=/usr/local/cuda
-#export PATH=${CUDA_PATH}/bin:${PATH}
-#export LD_LIBRARY_PATH=${CUDA_PATH}/lib64:${LD_LIBRARY_PATH}
+export CUDA_PATH=/usr/local/cuda
+export PATH=${CUDA_PATH}/bin:${PATH}
+export LD_LIBRARY_PATH=${CUDA_PATH}/lib64:${LD_LIBRARY_PATH}
 
 # PGI compiler
 #export PGI=${HOME}/scratch/apps/compilers_and_tools/pgi
@@ -116,7 +127,7 @@ export EDITOR="$VISUAL"
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 #
 # LAMMPS potentials directory
-export LAMMPS_POTENTIALS=${HOME}/workspace/EAMs
+export LAMMPS_POTENTIALS=${HOME}/potentials
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -126,7 +137,12 @@ export LAMMPS_POTENTIALS=${HOME}/workspace/EAMs
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source $DOTFILES/bash_aliases
+[[ -f $ZSH_CUSTOM/aliases ]] && . $ZSH_CUSTOM/aliases
+if [[ -d $ZSH_CUSTOM/aliases.d ]]; then
+    for f in $ZSH_CUSTOM/aliases.d/* ; do
+        . $f
+    done
+fi
 
 # Python external distribution (Miniconda Python 3.6)
 #export PATH=/home/ebaldi/scratch/apps/miniconda3/bin:$PATH
@@ -165,7 +181,8 @@ abbreviations=(
     "gfm"   "git fetch origin/master"
     "grv"   "git remote -v"
     "glog"  "git log"
-    "grem"  "git remote -v"
+    "gbra"  "git branch -a"
+    "grem"  "git rm"
 )
 magic-abbrev-expand() {
     local MATCH
@@ -185,11 +202,12 @@ bindkey "^x " no-magic-abbrev-expand
 bindkey -M isearch " " self-insert
 
 ## ZSH history plugin keybindings
-## bind UP and DOWN arrow keys
+## ALREADY SET-UP BY PLUGIN! Left here as references
+# bind UP and DOWN arrow keys
 #zmodload zsh/terminfo
 #bindkey "$terminfo[kcuu1]" history-substring-search-up
 #bindkey "$terminfo[kcud1]" history-substring-search-down
-## bind k and j for VI mode
+# bind k and j for VI mode
 #bindkey -M vicmd 'k' history-substring-search-up
 #bindkey -M vicmd 'j' history-substring-search-down
 
