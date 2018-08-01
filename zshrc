@@ -20,7 +20,6 @@ export ZSH=${HOME}/.dotfiles/oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="ys"
-ZSH_THEME=""
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -70,9 +69,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export DOTFILES="$HOME/.dotfiles"
-fpath=( "$DOTFILES/zfunctions" $fpath )
-autoload -U promptinit; promptinit
-prompt pure
 
 # Adding personal zfunctions path
 fpath=( "$DOTFILES/myzfunctions" $fpath )
