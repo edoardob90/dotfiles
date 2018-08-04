@@ -84,6 +84,26 @@ prompt pure
 export VISUAL=$(which vim)
 export EDITOR="$VISUAL"
 
+# ============= PATH env variable =============
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#     In the file /etc/paths you can add,
+#     one per line, paths to be automatically 
+#     exported into the PATH variable
+#     Alternatively, one file per program 
+#     in the folder /etc/paths.d/
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#
+# Brew: use non-prefixed GNU utils
+# >>> All commands have been installed with the prefix 'g'.
+# >>> If you really need to use these commands with their normal names, you
+# >>> can add a "gnubin" directory to your PATH from your bashrc like:
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+# >>> Additionally, you can access their man pages with normal names if you add
+# >>>the "gnuman" directory to your MANPATH from your bashrc as well:
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
+
 # INTEL software
 #export COMPILERVARS_ARCHITECTURE="intel64"
 #export COMPILERVARS_PLATFORM="linux"
@@ -104,7 +124,7 @@ export LD_LIBRARY_PATH=${CUDA_PATH}/lib64:${LD_LIBRARY_PATH}
 #export MANPATH=$MANPATH:${PGI}/linux86-64/17.4/man
 #export LM_LICENSE_FILE=$LM_LICENSE_FILE:${PGI}/license.dat
 
-# export MANPATH="/usr/local/man:$MANPATH"
+#export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -140,8 +160,6 @@ if [[ -d $ZSH_CUSTOM/aliases.d ]]; then
     done
 fi
 
-# Python external distribution (Miniconda Python 3.6)
-#export PATH=/home/ebaldi/scratch/apps/miniconda3/bin:$PATH
 
 # Completion stuff
 zstyle ':completion:*' auto-description 'specify: %d'
