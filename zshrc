@@ -82,7 +82,7 @@ autoload -U promptinit; promptinit
 prompt pure
 
 # Default editor: vim
-export VISUAL=$(which vim)
+export VISUAL=$(which nvim)
 export EDITOR="$VISUAL"
 
 # INTEL software
@@ -212,3 +212,9 @@ bindkey -M isearch " " self-insert
 #bindkey -M vicmd 'k' history-substring-search-up
 #bindkey -M vicmd 'j' history-substring-search-down
 
+# Base16 shell colors
+# SOURCE: https://github.com/chriskempson/base16-shell
+BASE16_SHELL="$DOTFILES/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
