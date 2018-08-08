@@ -86,10 +86,12 @@ export VISUAL=$(which vim)
 export EDITOR="$VISUAL"
 
 # INTEL software
-#export INTEL_PATH=/usr/local/intel
-#export COMPILERVARS_ARCHITECTURE="intel64"
-#export COMPILERVARS_PLATFORM="linux"
-#source ${INTEL_PATH}/bin/compilervars.sh
+export INTEL_PATH=${HOME}/scratch/intel
+export COMPILERVARS_ARCHITECTURE="intel64"
+export COMPILERVARS_PLATFORM="linux"
+source ${INTEL_PATH}/bin/compilervars.sh
+
+# INTEL Python distribution (deprecated?)
 ##source /opt/intel/intelpython3/bin/activate root
 #if [[ $(uname -m) == "x86_64" ]]; then
 #    export PATH="/usr/local/intel/vtune_amplifier_xe_2017.5.0.526192/bin64":${PATH}
@@ -170,8 +172,9 @@ abbreviations=(
     "gco"   "git commit -a"
     "gcom"  "git commit -m"
     "gcm"   "git checkout master"
+    "gce"   "git checkout"
     "gri"   "git rebase -i HEAD~"
-    "grm"   "git rebase origin/master"
+    "grbm"   "git rebase origin/master"
     "gst"   "git status"
     "gps"   "git push"
     "gpu"   "git pull"
