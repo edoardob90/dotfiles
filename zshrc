@@ -81,7 +81,7 @@ autoload -U promptinit; promptinit
 prompt pure
 
 # Default editor: vim
-export VISUAL=$(which vim)
+export VISUAL=$(which nvim)
 export EDITOR="$VISUAL"
 
 # ============= PATH env variable =============
