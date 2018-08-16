@@ -202,19 +202,12 @@ bindkey " " magic-abbrev-expand
 bindkey "^x " no-magic-abbrev-expand
 bindkey -M isearch " " self-insert
 
-## ZSH history plugin keybindings
-## ALREADY SET-UP BY PLUGIN! Left here as references
-# bind UP and DOWN arrow keys
-#zmodload zsh/terminfo
-#bindkey "$terminfo[kcuu1]" history-substring-search-up
-#bindkey "$terminfo[kcud1]" history-substring-search-down
-# bind k and j for VI mode
-#bindkey -M vicmd 'k' history-substring-search-up
-#bindkey -M vicmd 'j' history-substring-search-down
-
 # Base16 shell colors
 # SOURCE: https://github.com/chriskempson/base16-shell
 BASE16_SHELL="$DOTFILES/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+# Fzf 'fuzzy finding' plugin (vim & shell)
+[ -f "$DOTFILES/fzf.zsh" ] && source "$DOTFILES/fzf.zsh"
