@@ -19,7 +19,7 @@ export ZSH=${HOME}/.dotfiles/oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="ys"
+ZSH_THEME="purity"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -75,10 +75,10 @@ fpath=( "$DOTFILES/myzfunctions" $fpath )
 
 # Set prompt theme
 # Using theme 'Pure' (submodule). Must be here AFTER sourcing oh-my-zsh.sh script.
-ZSH_THEME=""
-autoload -U promptinit; promptinit
+#ZSH_THEME=""
+#autoload -U promptinit; promptinit
 #PURE_PROMPT_SYMBOL=">"
-prompt pure
+#prompt pure
 
 # Default editor: vim
 export VISUAL=$(which nvim)
