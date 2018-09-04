@@ -232,3 +232,6 @@ BASE16_SHELL="$DOTFILES/base16-shell/"
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 # Fzf 'fuzzy finding' plugin (vim & shell)
 [ -f "$DOTFILES/fzf.zsh" ] && source "$DOTFILES/fzf.zsh"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
