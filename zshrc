@@ -82,14 +82,14 @@ autoload -U promptinit; promptinit
 prompt pure
 
 # Default editor: vim
-export VISUAL=$(which nvim)
-export EDITOR="$VISUAL"
+[[ -f ${DOTFILES}/aliases.d/vim ]] && source ${DOTFILES}/aliases.d/vim
 
 # INTEL software
-export INTEL_PATH=${HOME}/scratch/intel
+export INTEL_PATH=${HOME}/scratch/apps/compilers_and_tools/intel_fortran
 export COMPILERVARS_ARCHITECTURE="intel64"
 export COMPILERVARS_PLATFORM="linux"
 source ${INTEL_PATH}/bin/compilervars.sh
+source ${INTEL_PATH}/parallel_studio_xe_2019/psxevars.sh
 
 # INTEL Python distribution (deprecated?)
 ##source /opt/intel/intelpython3/bin/activate root
@@ -211,3 +211,8 @@ BASE16_SHELL="$DOTFILES/base16-shell/"
 
 # Fzf 'fuzzy finding' plugin (vim & shell)
 [ -f "$DOTFILES/fzf.zsh" ] && source "$DOTFILES/fzf.zsh"
+
+# Source VTE manually
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+    source /etc/profile.d/vte.sh
+fi
