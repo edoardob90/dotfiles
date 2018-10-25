@@ -84,12 +84,14 @@ prompt pure
 # Default editor: vim
 [[ -f ${DOTFILES}/aliases.d/vim ]] && source ${DOTFILES}/aliases.d/vim
 
-# INTEL software
-export INTEL_PATH=${HOME}/scratch/apps/compilers_and_tools/intel_fortran
-export COMPILERVARS_ARCHITECTURE="intel64"
-export COMPILERVARS_PLATFORM="linux"
-source ${INTEL_PATH}/bin/compilervars.sh
-source ${INTEL_PATH}/parallel_studio_xe_2019/psxevars.sh
+# INTEL software (only locally)
+if [[ "$(hostname)" =~ /[cC]osmopc.*/ ]]; then
+    export INTEL_PATH=${HOME}/scratch/apps/compilers_and_tools/intel_fortran
+    export COMPILERVARS_ARCHITECTURE="intel64"
+    export COMPILERVARS_PLATFORM="linux"
+    source ${INTEL_PATH}/bin/compilervars.sh
+    source ${INTEL_PATH}/parallel_studio_xe_2019/psxevars.sh
+fi
 
 # INTEL Python distribution (deprecated?)
 ##source /opt/intel/intelpython3/bin/activate root
