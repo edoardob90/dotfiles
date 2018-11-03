@@ -1,17 +1,9 @@
 #========= My ZSHRC =========
-#
-# Terminal colors
-# MAY CAUSE problems with TMUX and gnome-terminal
-#export TERM=xterm-256color-italic
-#export TERM=screen-256color
-#export EDITOR=vim
-
-# VIM colorscheme 'gruvbox' color palette
-# Useless if using VIM with termguicolors support (as I'm doing, since I'm using my compiled version of VIM)
-#source $HOME/.vim/myplugins/gruvbox/gruvbox_256palette.sh
-
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH
+
+# My default DOTFILES folder
+export DOTFILES="$HOME/.dotfiles"
 
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.dotfiles/oh-my-zsh
@@ -63,12 +55,39 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(debian history zsh-syntax-highlighting history-substring-search)
+#plugins=(debian history zsh-syntax-highlighting history-substring-search)
 
+# ============= ZPLUG =============
+# ZSH plugin manager, inspired by the amazing vim-plug
+source $DOTFILES/zplug/init.zsh
+
+# Let zplug update itself, when needed
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
+# zsh-users plugins
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-history-substring-search"
+
+# Load a couple of plugins from oh-my-zsh
+zplug "plugins/debian", from:oh-my-zsh
+zplug "plugins/git", from:oh-my-zsh
+
+# Check if plugins are installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Now source plugins and add commands to $PATH
+zplug load #--verbose
+
+# =================================
+
+# Apply settings and activate Oh-My-ZSH
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-export DOTFILES="$HOME/.dotfiles"
 
 # Adding personal zfunctions path
 fpath=( "$DOTFILES/myzfunctions" $fpath )
