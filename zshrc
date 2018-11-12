@@ -55,35 +55,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-#plugins=(debian history zsh-syntax-highlighting history-substring-search)
-
-# ============= ZPLUG =============
-# ZSH plugin manager, inspired by the amazing vim-plug
-source $DOTFILES/zplug/init.zsh
-
-# Let zplug update itself, when needed
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-
-# zsh-users plugins
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-history-substring-search"
-
-# Load a couple of plugins from oh-my-zsh
-zplug "plugins/debian", from:oh-my-zsh
-zplug "plugins/git", from:oh-my-zsh
-
-# Check if plugins are installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-# Now source plugins and add commands to $PATH
-zplug load #--verbose
-
-# =================================
+plugins=(debian history zsh-syntax-highlighting history-substring-search)
 
 # Apply settings and activate Oh-My-ZSH
 source $ZSH/oh-my-zsh.sh
@@ -174,9 +146,12 @@ export LAMMPS_POTENTIALS=${HOME}/potentials
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-[[ -f $ZSH_CUSTOM/aliases ]] && . $ZSH_CUSTOM/aliases
-if [[ -d $ZSH_CUSTOM/aliases.d ]]; then
-    for f in $ZSH_CUSTOM/aliases.d/* ; do
+#
+# No machine-specific file should go in OH-MY-ZSH folder
+#[[ -f $ZSH_CUSTOM/aliases ]] && . $ZSH_CUSTOM/aliases
+# Source aliases from aliases.d folder (in $DOTFILES)
+if [[ -d $DOTFILES/aliases.d ]]; then
+    for f in $DOTFILES/aliases.d/* ; do
         . $f
     done
 fi
