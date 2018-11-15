@@ -140,8 +140,9 @@ export LAMMPS_POTENTIALS=${HOME}/potentials
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 [[ -f $ZSH_CUSTOM/aliases ]] && . $ZSH_CUSTOM/aliases
-if [[ -d $ZSH_CUSTOM/aliases.d ]]; then
-    for f in $ZSH_CUSTOM/aliases.d/* ; do
+# Aliases should be in DOTFILES, not in Oh-My-ZSH custom folder (to be system independent)
+if [[ -d $DOTFILES/aliases.d ]]; then
+    for f in $DOTFILES/aliases.d/* ; do
         . $f
     done
 fi

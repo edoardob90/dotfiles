@@ -1,0 +1,7 @@
+#!/bin/bash
+# VIM/Neovim aliases
+# EDITOR and VISUAL env vars must be exported here
+export VISUAL=$(which nvim)
+export EDITOR=${VISUAL}
+alias vi=nvim
+alias vim=nvim
