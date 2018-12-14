@@ -85,8 +85,8 @@ prompt pure
 [[ -f ${DOTFILES}/aliases.d/vim ]] && source ${DOTFILES}/aliases.d/vim
 
 # INTEL software (only locally)
-if [[ "$(hostname)" =~ /[cC]osmopc.*/ ]]; then
-    export INTEL_PATH=${HOME}/scratch/apps/compilers_and_tools/intel_fortran
+if [[ "$(hostname)" =~ '[cC]osmopc.*' ]]; then
+    export INTEL_PATH=${HOME}/scratch/apps/compilers_and_tools/intel
     export COMPILERVARS_ARCHITECTURE="intel64"
     export COMPILERVARS_PLATFORM="linux"
     source ${INTEL_PATH}/bin/compilervars.sh
