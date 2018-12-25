@@ -11,7 +11,7 @@ export ZSH=${HOME}/.dotfiles/oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="purity"
+#ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -55,7 +55,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(debian history zsh-syntax-highlighting history-substring-search vi-mode)
+plugins=(debian history zsh-syntax-highlighting history-substring-search)
 
 # Apply settings and activate Oh-My-ZSH
 source $ZSH/oh-my-zsh.sh
