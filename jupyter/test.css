@@ -1,0 +1,58 @@
+@import url('http://fonts.googleapis.com/css?family=Crimson+Text');
+@import url('http://fonts.googleapis.com/css?family=Kameron');
+@import url('http://fonts.googleapis.com/css?family=Lato:200,300,400');
+@import url('http://fonts.googleapis.com/css?family=Source+Code+Pro');
+@import url('http://fonts.googleapis.com/css?family=Roboto');
+
+/* Change code font */
+.CodeMirror pre {
+    font-family: 'Fira Code', Consolas, monocco, monospace;
+    line-height: 150%;
+}
+
+div.input_area {  
+    border-color: rgba(0,0,0,0.10);
+    background: rbga(0,0,0,0.5);
+}
+
+div.text_cell {  
+    max-width: 105ex; /* instead of 100%, */
+}
+
+div.text_cell_render {  
+    font-family: "Roboto";
+    font-size: 12pt;
+    line-height: 145%; /* added for some line spacing of text. */
+}
+
+div.text_cell_render h1,  
+div.text_cell_render h2,  
+div.text_cell_render h3,  
+div.text_cell_render h4,  
+div.text_cell_render h5,  
+div.text_cell_render h6 {  
+    font-family: 'Lato';
+    font-weight: 400;
+}
+
+div.text_cell_render h1 {  
+    font-size: 24pt;
+}
+
+div.text_cell_render h2 {  
+    font-size: 18pt;
+}
+
+div.text_cell_render h3 {  
+    font-size: 14pt;
+}
+
+.rendered_html pre,
+.rendered_html code {
+    font-size: medium;
+}
+
+.rendered_html ol {
+    list-style:decimal;
+    margin: 1em 2em;
+}
