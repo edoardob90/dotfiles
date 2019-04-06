@@ -230,3 +230,8 @@ BASE16_SHELL="$DOTFILES/base16-shell/"
 # iTerm2 shell integrations (useful?)
 #test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# Make sure lang environment variables are ok
+export LC_ALL=en_US.UTF-8
