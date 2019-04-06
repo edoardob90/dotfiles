@@ -3,7 +3,7 @@
 # Terminal colors
 # MAY CAUSE problems with TMUX and gnome-terminal
 #export TERM=xterm-256color-italic
-#export TERM=screen-256color
+export TERM=screen-256color
 #export EDITOR=vim
 
 # VIM colorscheme 'gruvbox' color palette
