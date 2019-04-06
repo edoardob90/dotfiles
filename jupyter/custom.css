@@ -1,0 +1,14 @@
+/* Uncomment to use a custom font */
+/* div#notebook, div.CodeMirror, div.output_area pre, div.output_wrapper, div.prompt { */
+div.text_cell, div.text_cell_render pre, div.text_cell_render {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 12pt;
+}
+
+/* div.CodeMirror pre, div.output_area pre, div.output_wrapper, div.prompt { */
+div.CodeMirror, div.CodeMirror pre {
+  font-family: 'Fira Code', monospace !important;
+  font-weight: normal !important;
+  font-size: 14pt;
+}
+
