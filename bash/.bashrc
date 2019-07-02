@@ -168,7 +168,7 @@ export EDITOR="$VISUAL"
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/ebaldi/apps/xtclib/lib
 
 # Bash prompt
-source ~/.dotfiles/custom_prompt.sh
+#source ~/.dotfiles/custom_prompt.sh
 
 ## Try to use powerline plugin; if not found, fall back to my old bash prompt
 #if ! printenv | grep -q 'FROM_LOGIN=yes' && [[ -f $(which powerline-daemon 2>&1) ]]; then
