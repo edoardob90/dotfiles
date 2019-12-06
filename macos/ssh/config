@@ -3,10 +3,28 @@ Host ela
     User ebaldi
     IdentityFile /Users/edoardo/.ssh/cscs_rsa
 
-Host daint
-    HostName daint.cscs.ch
+Host daint*.cscs.ch
     User ebaldi
-    ProxyCommand ssh -q -Y ela -W %h:%p
+    ForwardAgent yes
+    ForwardX11 yes
+    Port 22
+    IdentityFile /Users/edoardo/.ssh/cscs_rsa
+    ProxyCommand ssh -q -Y ebaldi@ela.cscs.ch netcat %h %p -w 10
+#    ProxyJump ebaldi@ela.cscs.ch
 
 Host cosmopc*.epfl.ch
     User ebaldi
+    ForwardX11 yes
+
+# Empa jump server
+Host empjump
+    Hostname jump1.empa.ch
+    User baed
+    IdentityFile /Users/edoardo/.ssh/empa_rsa
+
+Host hypatia
+    User baed
+    IdentityFile /Users/edoardo/.ssh/empa_rsa
+    Hostname hypatia.empa.emp-eaw.ch
+    ProxyJump baed@jump1.empa.ch
+#    ProxyCommand ssh -q empjump -W %h:%p
