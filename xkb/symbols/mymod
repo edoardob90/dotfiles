@@ -1,0 +1,10 @@
+// Hyper is mapped to the Super.
+partial modifier_keys
+xkb_symbols "hyper_caps_mod" {
+    key <LWIN> { [ Hyper_L ] };
+    key <RWIN> { [ Hyper_R ] };
+    key <LCTL> { [ Control_L ] };
+    key <CAPS> { [ Control_L ] };
+    modifier_map Mod3 { <CAPS> };
+    modifier_map Mod4 { Hyper_L, Hyper_R };
+};
