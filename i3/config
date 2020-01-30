@@ -33,6 +33,11 @@ font pango:Fira Code Regular 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Setup workspaces on multiple monitors
+workspace 1 output DP-6
+workspace 2 output DP-0
+workspace 3 output DP-0
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
