@@ -10,6 +10,7 @@ abbreviations=(
     "gri"   "git rebase -i HEAD~"
     "grbm"  "git rebase origin/master"
     "gst"   "git status"
+    "gs"    "git status -bs"
     "gps"   "git push"
     "gpu"   "git pull"
     "gfe"   "git fetch"
