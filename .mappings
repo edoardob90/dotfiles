@@ -1,0 +1,16 @@
+[general]
+"zprezto/runcoms/zprofile" = "~/.zprofile"
+"zprezto/runcoms/zshrc" = "~/.zshrc"
+"zprezto/runcoms/zshenv" = "~/.zshenv"
+"zprezto/runcoms/zlogin" = "~/.zlogin"
+"zprezto/runcoms/zlogout" = "~/.zlogout"
+"zprezto/runcoms/zpreztorc" = "~/.zpreztorc"
+
+"zsh/env.zsh" = "~/.env.zsh"
+
+"tmux/tmux.conf" = "~/.tmux.con"
+
+[macos]
+
+[linux]
+"zsh/env-linux.zsh" = "~/.env.zsh"
