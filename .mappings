@@ -6,11 +6,17 @@
 "zprezto/runcoms/zlogout" = "~/.zlogout"
 "zprezto/runcoms/zpreztorc" = "~/.zpreztorc"
 
-"zsh/env.zsh" = "~/.env.zsh"
-
-"tmux/tmux.conf" = "~/.tmux.con"
+# tmux
+#"tmux/tmux.conf" = "~/.tmux.conf"
+"tmux/tmux-custom/tmux.conf" = "~/.tmux.conf"
+"tmux/tmux-custom/tmux.conf.local" = "~/.tmux.conf.local"
 
 [macos]
+"zsh/env.zsh" = "~/.env.zsh"
+"zsh/abbrevs.zsh" = "~/.abbrevs.zsh"
+"zsh/aliases.zsh" = "~/.aliases.zsh"
 
 [linux]
 "zsh/env-linux.zsh" = "~/.env.zsh"
+"zsh/aliases-linux.zsh" = "~/.aliases.zsh"
+"zsh/abbrevs.zsh" = "~/.abbrevs.zsh"
