@@ -12,4 +12,4 @@
 	url = https://github.com/tmux-plugins/tmux-resurrect
 [submodule "tmux/tmux-nested"]
 	path = tmux/tmux-nested
-	url = git@github.com:edoardob90/tmux-config.gi
+	url = https://github.com/edoardob90/tmux-config.git
