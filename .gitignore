@@ -1,3 +1,4 @@
 *.swp
 zsh/\.*zsh
 zsh/env.zsh
+tmux/tmux-nested/tmux/plugins

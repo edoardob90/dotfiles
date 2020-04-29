@@ -6,7 +6,7 @@ Host ela
 Host daint*.cscs.ch
     User ebaldi
     ForwardAgent yes
-    ForwardX11 yes
+    ForwardX11 no
     Port 22
     IdentityFile /Users/edoardo/.ssh/cscs_rsa
     ProxyCommand ssh -q -Y ebaldi@ela.cscs.ch netcat %h %p -w 10
