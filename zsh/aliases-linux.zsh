@@ -1,7 +1,4 @@
 # Custom aliases
-# This file is sourced BEFORE ${DOTDIR}/zsh/aliases.zsh, if any of these exist
-# In this way, I avoid committing to the Git repo every time I make a machine-dependent change
-# This file resides in ${DOTDIR}/zsh/.aliases.zsh and is symlinked in ${HOME} with GNU Stow
 #
 # VIM/Neovim
 if type nvim 2>&1 >/dev/null; then
@@ -34,3 +31,7 @@ alias hsi='hs -i'
 
 # Nord VPN
 alias vpn=nordvpn
+
+# Source a local file for aliases
+# This file SHOULD NEVER BE ADDED to the Git repo to avoid errors
+[ -f "$DOTDIR/zsh/aliases.local.zsh" ] && source $DOTDIR/zsh/aliases.local.zsh

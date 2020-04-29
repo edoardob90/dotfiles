@@ -31,3 +31,6 @@ fi
 alias ps?="ps ax | grep -v grep | grep -iE"
 alias psgrep='psgrep -saien'
 
+# Source a local file for aliases
+# This file SHOULD NEVER BE ADDED to the Git repo to avoid errors
+[ -f "$DOTDIR/zsh/aliases.local.zsh" ] && source $DOTDIR/zsh/aliases.local.zsh
