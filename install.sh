@@ -29,7 +29,7 @@ if [ -e "$HOME/.dotfiles" ]; then
     echo "Duplicate symlinks will be managed by dot" >&2
     if [ -e "$HOME/.dotfiles.bck" ]; then
         echo "ERROR: backup directory .dotfiles.bck already exists! I'm not overwriting, move it manually and re-run the script" >&2
-        exit 2
+        exit 1
     fi
     mv -f $HOME/.dotfiles $HOME/.dotfiles.bck
 else
@@ -38,7 +38,7 @@ fi
 
 # a temporary environment
 export DOT_DIR="$HOME/.dotfiles"
-[ ! -z $ZSH_VERSION ] && fpath=($HOME/.dotfiles/dotfiles-manager $fpath)
+[[ $SHELL =~ zsh ]] && fpath=($HOME/.dotfiles/dotfiles-manager $fpath)
 source $HOME/.dotfiles/dotfiles-manager/dot.sh
 
 echo "'dot' should be available. Check with 'dot --help-all'" >&2
