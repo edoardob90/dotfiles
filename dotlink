@@ -40,5 +40,5 @@ zprezto/runcoms/zpreztorc,~/.zpreztorc
 
 # Tmux
 tmux/tmux-nested/tmux,~/.tmux
-tmux/tmux-nested/tmux.conf,~/.tmux.conf
+tmux/tmux-nested/tmux/tmux.conf,~/.tmux.conf
 
