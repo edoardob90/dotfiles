@@ -13,3 +13,6 @@
 [submodule "tmux/tmux-nested"]
 	path = tmux/tmux-nested
 	url = https://github.com/edoardob90/tmux-config.git
+[submodule "dotfiles-manager"]
+	path = dotfiles-manager
+	url = https://github.com/ssh0/dot
