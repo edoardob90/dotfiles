@@ -16,3 +16,6 @@
 [submodule "dotfiles-manager"]
 	path = dotfiles-manager
 	url = https://github.com/ssh0/dot
+[submodule "vimrc"]
+	path = vimrc
+	url = https://github.com/edoardob90/vimrc.git

@@ -38,7 +38,10 @@ zprezto/runcoms/zlogin,~/.zlogin
 zprezto/runcoms/zlogout,~/.zlogout
 zprezto/runcoms/zpreztorc,~/.zpreztorc
 
+# vim/neovim
+vimrc,~/.vim
+vimrc/init.vim,~/.config/nvim/init.vim
+
 # Tmux
 tmux/tmux-nested/tmux,~/.tmux
 tmux/tmux-nested/tmux/tmux.conf,~/.tmux.conf
-
