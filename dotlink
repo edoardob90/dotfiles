@@ -42,7 +42,10 @@ zprezto/runcoms/zpreztorc,~/.zpreztorc
 bash/profile,~/.bash_profile
 bash/bashrc,~/.bashrc
 
+# vim/neovim
+vimrc,~/.vim
+vimrc/init.vim,~/.config/nvim/init.vim
+
 # Tmux
 tmux/tmux-nested/tmux,~/.tmux
 tmux/tmux-nested/tmux/tmux.conf,~/.tmux.conf
-

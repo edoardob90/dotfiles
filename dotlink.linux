@@ -1,0 +1,5 @@
+# dotlink.mac
+# local symlinks on a Linux machine
+zsh/env-linux.zsh,~/.env.zsh
+zsh/aliases-linux.zsh,~/.aliases.zsh
+zsh/abbrevs.zsh,~/.abbrevs.zsh
