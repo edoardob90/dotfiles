@@ -38,6 +38,10 @@ zprezto/runcoms/zlogin,~/.zlogin
 zprezto/runcoms/zlogout,~/.zlogout
 zprezto/runcoms/zpreztorc,~/.zpreztorc
 
+# Bash
+bash/profile,~/.bash_profile
+bash/bashrc,~/.bashrc
+
 # Tmux
 tmux/tmux-nested/tmux,~/.tmux
 tmux/tmux-nested/tmux/tmux.conf,~/.tmux.conf
