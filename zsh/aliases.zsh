@@ -28,7 +28,7 @@ if type bat 2>&1 >/dev/null; then
 fi
 
 # Search running processes for a pattern
-alias ps?="ps ax | grep -v grep | grep -iE"
+alias 'ps?'="ps ax | grep -v grep | grep -iE"
 alias psgrep='psgrep -saien'
 
 # Source a local file for aliases
