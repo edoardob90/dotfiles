@@ -1,6 +1,6 @@
 # dotlink.mac
 # local symlinks on a Darwin machine
-zsh/env.zsh,~/.env.zsh
+zsh/env-macos.zsh,~/.env.zsh
 zsh/abbrevs.zsh,~/.abbrevs.zsh
 zsh/aliases.zsh,~/.aliases.zsh
 ssh/config_macos,~/.ssh/config
