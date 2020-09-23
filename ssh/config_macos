@@ -1,0 +1,67 @@
+Host *
+   ServerAliveInterval 120
+   TCPKeepAlive no
+   IPQoS=throughput
+#   ServerAliveCountMax 60
+#   TcpKeepAlive yes
+   ForwardAgent yes
+#   AddKeysToAgent yes
+
+Host hpz4
+    HostName 192.168.1.112
+    User baed
+    IdentityFile /Users/edoardo/.ssh/z4ws_rsa
+
+Host aws_v100
+    HostName 52.58.212.177
+    User ubuntu
+    IdentityFile /Users/edoardo/.ssh/aws_compute
+
+# This is again AWS V100 instance, but reached through its local IP
+# On macOS, Tunnelblick must be connected to AWS OpenVPN server!
+Host 172.31.38.210
+    User ubuntu
+    IdentityFile /Users/edoardo/.ssh/aws_compute
+
+Host aws_k80
+    HostName 18.195.20.191
+    User ubuntu
+    IdentityFile /Users/edoardo/.ssh/aws_compute
+
+Host ela.cscs.ch
+    User ebaldi
+    IdentityFile /Users/edoardo/.ssh/cscs_rsa
+
+Host daint*.cscs.ch
+    User ebaldi
+    ForwardX11 no
+    Port 22
+    IdentityFile /Users/edoardo/.ssh/cscs_rsa
+    ProxyJump %r@ela.cscs.ch
+
+Host cosmopc*.epfl.ch
+    User ebaldi
+    ForwardX11 yes
+
+# Empa jump server
+Host empjump
+    HostName jump1.empa.ch
+    User baed
+    IdentityFile /Users/edoardo/.ssh/empa_rsa
+
+Host hypatia
+    User baed
+    IdentityFile /Users/edoardo/.ssh/empa_rsa
+    HostName hypatia.empa.emp-eaw.ch
+    ProxyJump baed@jump1.empa.ch
+
+Host gcp
+    User jupyter
+    HostName 34.91.138.249
+    IdentityFile ~/.ssh/google_compute_engine
+
+Host aws_ghost
+    Hostname ec2-18-159-56-23.eu-central-1.compute.amazonaws.com
+    User ubuntu
+    IdentityFile ~/.ssh/aws_ghost
+    Port 22
