@@ -16,6 +16,8 @@ function hs {
 alias hsi='hs -i'
 
 # SSH
+alias ssh-agent='/usr/bin/ssh-agent' # keep using macOS ssh agent even if openssh via Brew is installed
+alias ssh-add='/usr/bin/ssh-add'
 alias daint='ssh daint.cscs.ch'
 
 # Syntax highlight in a shell
