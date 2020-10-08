@@ -10,12 +10,12 @@
 [submodule "tmux/tmux-resurrect"]
 	path = tmux/tmux-resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect
-[submodule "tmux/tmux-nested"]
-	path = tmux/tmux-nested
-	url = https://github.com/edoardob90/tmux-config.git
 [submodule "dotfiles-manager"]
 	path = dotfiles-manager
 	url = https://github.com/ssh0/dot
 [submodule "vimrc"]
 	path = vimrc
 	url = https://github.com/edoardob90/vimrc.git
+[submodule "tmux/tmux-custom"]
+	path = tmux/tmux-custom
+	url = https://github.com/gpakosz/.tmux
