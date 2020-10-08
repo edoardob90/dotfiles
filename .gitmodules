@@ -18,4 +18,4 @@
 	url = https://github.com/edoardob90/vimrc.git
 [submodule "tmux/tmux-custom"]
 	path = tmux/tmux-custom
-	url = https://github.com/gpakosz/.tmux
+	url = https://github.com/edoardob90/tmux
