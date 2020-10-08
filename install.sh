@@ -14,7 +14,7 @@ cd "$REPODIR"
 # check if 'git' is available
 if ! is_app_installed git; then
     echo "ERROR: 'git' is not installed or not in PATH!" >&2
-    exit 2
+    exit 1
 fi
 
 # check if 'dot' is already available. if yes, it's probably a mistake running this script
@@ -23,12 +23,12 @@ if is_app_installed dot; then
     exit 1
 fi
 
-# check if a '.dotfiles' direcotry already exists
+# check if a '.dotfiles' directory already exists
 if [ -e "$HOME/.dotfiles" ]; then
     echo "WARNING: .dotfiles already exists in HOME. Renaming it to .dotfiles.bck" >&2
     echo "Duplicate symlinks will be managed by dot" >&2
     if [ -e "$HOME/.dotfiles.bck" ]; then
-        echo "ERROR: backup directory .dotfiles.bck already exists! I'm not overwriting, move it manually and re-run the script" >&2
+        echo "ERROR: backup directory .dotfiles.bck already exists! Move it manually and re-run the script" >&2
         exit 1
     fi
     mv -f $HOME/.dotfiles $HOME/.dotfiles.bck
@@ -37,11 +37,9 @@ else
 fi
 
 # a temporary environment
-export DOT_DIR="$HOME/.dotfiles"
-[[ $SHELL =~ zsh ]] && fpath=($HOME/.dotfiles/dotfiles-manager $fpath)
-source $HOME/.dotfiles/dotfiles-manager/dot.sh
+DOT_DIR=${HOME}/.dotfiles
+mkdir -p ${HOME}/.config/dot && ln -fs ${DOT_DIR}/dotrc ${HOME}/.config/dot/ # symlink default config for dot
 
-echo "'dot' should be available. Check with 'dot --help-all'" >&2
-echo "Run 'dot set' to create symbolic links according to 'dotlink' file(s)" >&2
+echo -e "\n\033[0;31mRun \033[1;34m. ${DOT_DIR}/dotfiles-manager/dot.sh\033[0;31m and then \033[1;34mdot set\033[0;31m to create symbolic links according to 'dotlink' file(s)\033[0m\n" >&2
 
 exit 0
