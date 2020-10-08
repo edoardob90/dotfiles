@@ -37,11 +37,9 @@ else
 fi
 
 # a temporary environment
-[[ $SHELL =~ zsh ]] && eval "fpath=($DOT_DIR/dotfiles-manager $fpath)" # for completion patterns
-export DOT_DIR="$HOME/.dotfiles" && source "$DOT_DIR/dotfiles-manager/dot.sh"
-mkdir -p ${HOME}/.config/dot && ln -s ${DOT_DIR}/dotrc ${HOME}/.config/dot/ # symlink default config for dot
+DOT_DIR=${HOME}/.dotlink
+mkdir -p ${HOME}/.config/dot && ln -fs ${DOT_DIR}/dotrc ${HOME}/.config/dot/ # symlink default config for dot
 
-echo "'dot' should be available. Check with 'dot --help-all'" >&2
-echo "Run 'dot set' to create symbolic links according to 'dotlink' file(s)" >&2
+echo -e "\n\033[0;31mRun '\033[1;34m. ${DOT_DIR}/dotfiles-manager/dot.sh\033[0;31m' and then 'dot set' to create symbolic links according to 'dotlink' file(s)\033[0m\n" >&2
 
 exit 0
