@@ -33,6 +33,10 @@ fi
 alias 'ps?'="ps ax | grep -v grep | grep -iE"
 alias psgrep='psgrep -saien'
 
+# nb (https://github.com/xwmx/nb/)
+# nb requires Bash, but Pyenv might cause some package clashes (e.g. pandoc). As a workaround, invoke nb from a Bash *login* shell
+alias nb='/usr/bin/env bash --login nb'
+
 # Source a local file for aliases
 # This file SHOULD NEVER BE ADDED to the Git repo to avoid errors
 [ -f "$DOTDIR/zsh/aliases.local.zsh" ] && source $DOTDIR/zsh/aliases.local.zsh
