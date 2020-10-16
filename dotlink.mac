@@ -4,7 +4,7 @@
 # ZSH
 zsh/env-macos.zsh,~/.env.zsh
 zsh/abbrevs.zsh,~/.abbrevs.zsh
-zsh/aliases-macos.zsh,~/.aliases.zsh
+zsh/aliases-macos.zsh,~/.aliases.local.zsh
 ssh/config_macos,~/.ssh/config
 
 # Bash

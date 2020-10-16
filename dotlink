@@ -49,3 +49,6 @@ vimrc/init.vim,~/.config/nvim/init.vim
 # Tmux
 tmux/tmux-custom/tmux.conf,~/.tmux.conf
 tmux/tmux-custom/tmux.conf.local,~/.tmux.conf.local
+
+# Aliases
+zsh/aliases.zsh,~/.aliases.zsh
