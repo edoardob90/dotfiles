@@ -1,3 +1,5 @@
 *.swp
 zsh/\.*zsh
 zsh/env.zsh
+tmux.conf.old
+tmux.conf.bck
