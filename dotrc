@@ -18,7 +18,7 @@ dotlink="$dotdir/dotlink"
 # If you want to load additional local setting, add its path to $linkfiles.
 # (But it doesn't affect to `dot edit` and `dot add` command, so you should
 # edit these files manually.)
-#dotlinklocal="$HOME/.config/dot/dotlink.local"
+dotlinklocal="$HOME/.dotlink.local"
 #linkfiles=("${dotlink}" "${dotlinklocal}")
 
 # You can switch the dotlinklocal by its OS type like below:
@@ -27,16 +27,17 @@ dotlink="$dotdir/dotlink"
 
 case ${OSTYPE} in
     *linux*)
-        dotlinklocal="${dotdir}/dotlink.linux"
+        dotlinksystem="${dotdir}/dotlink.linux"
         ;;
     *darwin*)
-        dotlinklocal="${dotdir}/dotlink.mac"
+        dotlinksystem="${dotdir}/dotlink.mac"
         ;;
     *cygwin*|*msys*)
-        dotlinklocal="${dotdir}/dotlink.windows"
+        dotlinksystem="${dotdir}/dotlink.windows"
         ;;
 esac
-linkfiles=("${dotlink}" "${dotlinklocal}")
+
+linkfiles=("${dotlink}" "${dotlinklocal}" "${dotlinksystem}")
 
 # (In bash)
 
