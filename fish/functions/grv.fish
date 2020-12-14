@@ -1,0 +1,4 @@
+# Defined in - @ line 1
+function grv --wraps='git remote -v' --description 'alias grv=git remote -v'
+  git remote -v $argv;
+end

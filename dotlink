@@ -44,6 +44,7 @@ bash/bashrc,~/.bashrc
 
 # vim/neovim
 vimrc,~/.vim
+vimrc/vimrc,~/.vimrc
 vimrc/init.vim,~/.config/nvim/init.vim
 
 # Tmux

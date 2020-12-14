@@ -1,6 +1,9 @@
 # dotlink.mac
 # local symlinks on a Darwin machine
 
+# Fish
+fish,~/.config/fish
+
 # ZSH
 zsh/env-macos.zsh,~/.env.zsh
 zsh/abbrevs.zsh,~/.abbrevs.zsh
@@ -9,3 +12,6 @@ ssh/config_macos,~/.ssh/config
 
 # Bash
 bash/bash_aliases.macos,~/.bash_aliases
+
+# Other
+alacritty.yml,.alacritty.yml
