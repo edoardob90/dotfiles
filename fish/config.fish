@@ -11,9 +11,9 @@ function hs -d 'search in command history'
     history search $argv
 end
 
-function cat -d 'shortcut for bat'
-    bat $argv
-end
+#function cat -d 'shortcut for bat'
+#    bat $argv
+#end
 
 function vi -d 'vi alias for nvim'
     nvim $argv
