@@ -7,3 +7,7 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # Make sure that ~/bin is *always* searched first
 export PATH=${HOME}/bin:${PATH}
+
+# GPG tty
+# gpg: signing failed: Inappropriate ioctl for device
+export GPG_TTY=$(tty)
