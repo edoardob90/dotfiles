@@ -13,5 +13,8 @@ ssh/config_macos,~/.ssh/config
 # Bash
 bash/bash_aliases.macos,~/.bash_aliases
 
+# Tmux plugins
+tmux/tmux,~/.tmux
+
 # Other
 alacritty.yml,.alacritty.yml
