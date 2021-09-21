@@ -1,0 +1,57 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   Edoardo Baldi <edoardob90@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${HOME}/.prezto/init.zsh" ]]; then
+  source "${HOME}/.prezto/init.zsh"
+fi
+
+# All the rest ...
+
+# Set the path where ZSH should look for additional completion function
+fpath=(${ZDOTDIR}/completion $fpath)
+
+# dotfiles manager
+#if [[ -f ${DOTDIR}/dotfiles-manager/dot.sh ]]; then
+#    source ${DOTDIR}/dotfiles-manager/dot.sh
+#else
+#    echo "WARNING: dotfiles manager 'dot.sh' not found! Did you clone the repo recursively?" >&2
+#fi
+
+# Base16 shell colors
+# https://github.com/chriskempson/base16-shell
+# BASE16_SHELL="$DOTDIR/base16-shell/"
+# [ -n "$PS1" ] && \
+#     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+#         eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+# Python: managed by pyenv
+case "$OSTYPE" in
+    *{{ .chezmoi.os }}*)
+        if command -v pyenv 1>/dev/null 2>&1; then
+            eval "$(pyenv init -)"
+        fi
+        ;;
+    *linux*)
+        if type -a pyenv 2>&1 >/dev/null && [[ -d "$HOME/.pyenv" ]]; then
+          eval "$(pyenv init -)"
+          eval "$(pyenv virtualenv-init -)"
+        fi
+        ;;
+esac
+
+# Additional settings: aliases, abbreviations, environment
+# Source the first alias/abbrev/env file found. Look up in the follwing order: ${HOME}, ${DOTDIR}/zsh
+
+{{- if eq .chezmoi.os "darwin" }}
+for file in aliases.zsh aliases-macos.zsh abbrevs.zsh env-macos.zsh; do
+{{- else}}
+for file in aliases.zsh aliases-linux.zsh abbrevs.zsh env-linux.zsh; do
+{{- end}}
+    if [ -f "${ZDOTDIR}/$file" ]; then source "${ZDOTDIR}/$file"; fi
+done

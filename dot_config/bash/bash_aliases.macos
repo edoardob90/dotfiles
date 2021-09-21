@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Bash aliases on macOS
+
+# Pandoc
+# pandoc is installed by default in many miniconda/anaconda environments, managed by pyenv. This alias is a workaround to use *always* pandoc installed by brew
+alias pandoc='/usr/local/bin/pandoc'

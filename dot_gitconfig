@@ -1,0 +1,17 @@
+[user]
+	email = edoardob90@gmail.com
+	name = edoardob90
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+[delta]
+    syntax-theme = Monokai Extended
+    navigate = true
+[interactive]
+    diffFilter = delta --color-only
