@@ -47,11 +47,12 @@ esac
 
 # Additional settings: aliases, abbreviations, environment
 # Source the first alias/abbrev/env file found. Look up in the follwing order: ${HOME}, ${DOTDIR}/zsh
-
 {{- if eq .chezmoi.os "darwin" }}
-for file in aliases.zsh aliases-macos.zsh abbrevs.zsh env-macos.zsh; do
+for file in aliases.zsh abbrevs.zsh aliases-macos.zsh env-macos.zsh; do
+{{- else if contains "daint" .chezmoi.hostname }}
+for file in aliases.zsh abbrevs.zsh aliases-linux.zsh env-daint.zsh; do
 {{- else}}
-for file in aliases.zsh aliases-linux.zsh abbrevs.zsh env-linux.zsh; do
+for file in aliases.zsh abbrevs.zsh aliases-linux.zsh env-linux.zsh; do
 {{- end}}
     if [ -f "${ZDOTDIR}/$file" ]; then source "${ZDOTDIR}/$file"; fi
 done

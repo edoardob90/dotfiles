@@ -83,6 +83,9 @@ Plug 'andymass/vim-matchup'
 " Linting (Python, C++, ...)
 Plug 'neomake/neomake'
 
+" chezmoi syntax
+Plug 'alker0/chezmoi.vim'
+
 " === Autocomplete plugins ===
 " Deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -594,3 +597,10 @@ let g:neomake_python_pylint_maker = {
 
 " which linter to enable for Python source file linting
 let g:neomake_python_enabled_makers = ['pylint']
+
+" ---------------------------------------------------
+" other settings
+" ---------------------------------------------------
+
+" chezmoi: run `chezmoi apply` whenever I edit a dotfile in VIM
+"autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path %

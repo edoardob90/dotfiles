@@ -1,0 +1,4 @@
+altscreen on
+defscrollback 10000
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{+b m}(%{W}%n*%f%t%?(%u)%?%{m})%{-b w}%?%+Lw%?%?%= %{g}][%{c} %D %M %d %{g}%c %{g}]'
