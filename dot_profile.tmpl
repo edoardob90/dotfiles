@@ -25,13 +25,10 @@ export PAGER=less
 if [ -n "$BASH_VERSION" ]; then
     [ -f "${HOME}/.bashrc" ] && source "${HOME}/.bashrc"
 fi
-
-{{- if eq .chezmoi.os "linux" -}}
-{{ if ne .chezmoi.osRelease.id "sles" -}}
+{{ if eq .chezmoi.os "linux" }}{{ if ne .chezmoi.osRelease.id "sles" }}
 # Setup Linuxbrew
 BREW="/home/linuxbrew/.linuxbrew/bin/brew"
 if type -a "$BREW" 2>&1 >/dev/null; then
     eval "$("$BREW" shellenv)"
 fi
-{{- end -}}
-{{- end }}
+{{ end }}{{ end }}
