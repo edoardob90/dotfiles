@@ -1,3 +1,8 @@
-{{ $machineType := promptString "machineType" -}}
+{{ $machinetype := promptString "Machine type" -}}
 [data]
-    machineType = {{ $machineType | quote }}
+    machinetype = {{ $machinetype | quote }}
+{{ if eq .chezmoi.os "darwin" }}
+encryption = "gpg"
+[gpg]
+    recipient = "edoardo.baldi@pm.me"
+{{ end -}}
