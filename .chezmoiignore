@@ -1,7 +1,7 @@
 .netrwhist
 README.md
 .vim/myplugins
-{{- if ne .chezmoi.hostname "Athos" -}}
+{{ if ne .chezmoi.hostname "Athos" -}}
 .config/kitty
 .pandoc
-{{- end -}}
+{{ end -}}
