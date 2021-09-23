@@ -1,0 +1,6 @@
+{{ if not (contains "daint" .chezmoi.hostname) -}}
+#!/bin/bash
+if type -a zsh 2>&1 >/dev/null; then
+    chsh -s "$(which zsh)" "$USER"
+fi
+{{- end }}
