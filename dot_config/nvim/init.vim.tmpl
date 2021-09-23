@@ -562,6 +562,7 @@ augroup END
 " ------------
 "  Neomake
 " ------------
+{{ if eq .chezmoi.data.machineType "laptop" -}}
 " when to activate neomake
 " depending if on battery power
 function! OnBattery()
@@ -578,6 +579,7 @@ if OnBattery()
 else
   call neomake#configure#automake('nrw', 500)
 endif
+{{- end }}
 
 " configure error/warning message and ignore some warnings
 let g:neomake_python_pylint_maker = {
