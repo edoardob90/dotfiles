@@ -11,9 +11,18 @@ On **September 21, 2021** I cleaned up and migrated my dotfiles to use [`chezmoi
 - `chezmoi apply`: apply the source dir state to the target dir (default is `$HOME`)
 - `chezmoi apply --refresh-externals`: apply the source state by updating any external file or folder configured in `.chezmoiexternal.toml`
 
+### Installing `chezmoi`
+
+- One-liner for a single binary install: `sh -c "$(curl -fsLS git.io/chezmoi)"` or `sh -c "$(wget -qO - git.io/chezmoi)"`
+- Package manager install:
+   - macOS: `brew install chezmoi`
+   - Void Linux: `xbps-install -S chezmoi`
+   - Ubuntu or other Linux distro, via [Linuxbrew](https://docs.brew.sh/Homebrew-on-Linux): `brew install chezmoi`
+
 ### New machine setup
 
-`sh -c "$(curl -fsLS git.io/chezmoi)" --init --apply edoardob90`
+- `chezmoi --init edoardob90`: to initialize the local source state from the default repo
+- `chezmoi --init --apply edoardob90`: init & apply the source state
 
 ### Update (i.e., `git pull`)
 
