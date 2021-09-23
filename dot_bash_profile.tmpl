@@ -1,7 +1,7 @@
 # ~/.bash_profile
 # Contains user specific configurations for the Bourne shell and Bourne compatible shells
 #
-{{ if contains "daint" .chezmoi.hostname -}}
+{{ if eq "linux" .chezmoi.os -}}
 # Replace SHELL with zsh/fish installed in my home under ~/local/bin
 # Only for interactive shells
 #PATH=$HOME/local/bin:${PATH}
@@ -21,10 +21,13 @@ export LC_ALL=en_US.UTF-8
 export LC_COLLATE=C
 #
 # Editor
-#export VISUAL=nvim
-#export EDITOR=nvim
-#export PAGER=less
-#
-# For non-login shells
-#[ -f ${HOME}/.bashrc ] && source ${HOME}/.bashrc
+export VISUAL=nvim
+export EDITOR=nvim
+export PAGER=less
+
+# Setup Linuxbrew
+BREW="/home/linuxbrew/.linuxbrew/bin/brew"
+if type -a "$BREW" 2>&1 >/dev/null; then
+    eval "$("$BREW" shellenv)"
+fi
 {{- end -}}
