@@ -9,3 +9,7 @@ alias lls='ls -lart'
 
 # Nord VPN
 alias vpn=nordvpn
+
+# VIM/Neovim
+alias vi=nvim
+alias vim=nvim
