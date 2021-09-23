@@ -3,4 +3,5 @@ README.md
 .vim/myplugins
 {{- if ne .chezmoi.hostname "Athos" -}}
 .config/kitty
+.pandoc
 {{- end -}}

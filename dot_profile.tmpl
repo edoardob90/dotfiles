@@ -21,5 +21,15 @@ export VISUAL=nvim
 export EDITOR=nvim
 export PAGER=less
 
-# For non-login shells
-[ -f ${HOME}/.bashrc ] && source ${HOME}/.bashrc
+# For non-login shells, source .bashrc if running Bash
+if [ -n "$BASH_VERSION" ]; then
+    [ -f "${HOME}/.bashrc" ] && source "${HOME}/.bashrc"
+fi
+
+{{- if (and (eq .chezmoi.os "linux") (ne .chezmoi.osRelease.id "sles") ) }}
+# Setup Linuxbrew
+BREW="/home/linuxbrew/.linuxbrew/bin/brew"
+if type -a "$BREW" 2>&1 >/dev/null; then
+    eval "$("$BREW" shellenv)"
+fi
+{{- end }}
