@@ -1,2 +1,4 @@
 #!/bin/bash
+{{- if not (contains "daint" .chezmoi.hostname) }}
 git clone --recurse-submodules https://github.com/edoardob90/prezto.git .prezto
+{{- end }}

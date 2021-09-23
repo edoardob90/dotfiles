@@ -6,10 +6,12 @@
 #   Edoardo Baldi <edoardob90@gmail.com>
 #
 
-# Source Prezto.
+# Source Prezto
+{{- if not (contains "daint" .chezmoi.hostname) }}
 if [[ -s "${HOME}/.prezto/init.zsh" ]]; then
   source "${HOME}/.prezto/init.zsh"
 fi
+{{- end }}
 
 # All the rest ...
 
