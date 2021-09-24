@@ -1,8 +1,8 @@
 {{ $machinetype := promptString "Machine type" -}}
-{{ $gpgemail := promptString "GPG key recipient email" -}}
 [data]
     machinetype = {{ $machinetype | quote }}
 {{ if eq .chezmoi.os "darwin" }}
+{{- $gpgemail := promptString "GPG key recipient email" -}}
 encryption = "gpg"
 [gpg]
     recipient = {{ $gpgemail | quote }}
