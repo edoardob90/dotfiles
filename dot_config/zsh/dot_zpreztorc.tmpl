@@ -35,8 +35,12 @@ zstyle ':prezto:load' pmodule \
   'gnu-utility' \
   'utility' \
   'tmux' \
+{{- if eq .chezmoi.os "darwin" }}
   'homebrew' \
+  'osx' \
   'docker' \
+  'ssh' \
+{{- end }}
   'completion' \
   'fasd' \
   'git' \
@@ -167,8 +171,10 @@ zstyle ':prezto:module:prompt' pwd-length 'short'
 #
 
 # Set the SSH identities to load into the agent.
-{{ if not (contains "daint" .chezmoi.hostname) -}}
-zstyle ':prezto:module:ssh:load' identities 'cscs_rsa' 'github_rsa' 'z4ws_rsa'
+{{- if eq .chezmoi.os "darwin" }}
+zstyle ':prezto:module:ssh:load' identities 'cscs_rsa' 'github_rsa' 'z4ws_rsa' 'asus_router' 'rbpi4'
+{{- else }}
+#zstyle ':prezto:module:ssh:load' identities ''
 {{- end }}
 
 #
