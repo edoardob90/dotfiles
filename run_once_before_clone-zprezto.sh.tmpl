@@ -1,7 +1,11 @@
 #!/bin/bash
 {{- if not (contains "daint" .chezmoi.hostname) }}
-git clone --recurse-submodules https://github.com/edoardob90/prezto.git .prezto
-cd .prezto
-git remote add upstream https://github.com/sorin-ionescu/prezto.git
-cd - >/dev/null
+if [ ! -d "$HOME/.prezto" ]; then
+    git clone --recurse-submodules https://github.com/edoardob90/prezto.git .prezto
+    cd .prezto
+    git remote add upstream https://github.com/sorin-ionescu/prezto.git
+    cd - >/dev/null
+else
+    echo "'.prezto' directory already exists in $HOME" >&2
+fi
 {{- end }}
