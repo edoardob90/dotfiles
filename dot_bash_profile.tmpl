@@ -1,7 +1,7 @@
 # ~/.bash_profile
 # Contains user specific configurations for the Bourne shell and Bourne compatible shells
 #
-{{ if ne "linux" .chezmoi.os -}}
+{{ if eq "linux" .chezmoi.os -}}
 {{ if and (contains "daint" .chezmoi.hostname) (eq .defaultshell "zsh") }}
 # Replace SHELL with zsh/fish installed in my home under ~/local/bin
 # Only for interactive shells
