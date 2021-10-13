@@ -1,26 +1,29 @@
 # ~/.bash_profile
 # Contains user specific configurations for the Bourne shell and Bourne compatible shells
 #
-{{ if eq "linux" .chezmoi.os -}}
+{{ if ne "linux" .chezmoi.os -}}
+{{ if and (contains "daint" .chezmoi.hostname) (eq .defaultshell "zsh") }}
 # Replace SHELL with zsh/fish installed in my home under ~/local/bin
 # Only for interactive shells
-#PATH=$HOME/local/bin:${PATH}
-#if case "$-" in *i*) true;; *) false;; esac; then
-#    if [[ "$(hostname)" =~ daint* ]] && \
-#        [[ -z "$ZSH_VERSION" ]] && \
-#        type fish >/dev/null 2>/dev/null; then
-#            export SHELL=$(which zsh)
-#            exec $SHELL
-#    fi
-#fi
+PATH=$HOME/local/bin:${PATH}
+if case "$-" in *i*) true;; *) false;; esac; then
+    if [[ -z "$ZSH_VERSION" ]] && \
+       type zsh >/dev/null 2>/dev/null; then
+            export SHELL=$(which zsh)
+            exec $SHELL
+    fi
+fi
+{{ end -}}
 
 #
 # LANG
+#
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LC_COLLATE=C
 #
 # Editor
+#
 export VISUAL=nvim
 export EDITOR=nvim
 export PAGER=less

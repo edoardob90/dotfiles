@@ -1,6 +1,10 @@
 {{ $machinetype := promptString "Machine type" -}}
+{{ $defaultshell := promptString "Default shell (bash/zsh/fish)" -}}
+{{ $enableprezto := promptBool "Enable ZSH Prezto" -}}
 [data]
     machinetype = {{ $machinetype | quote }}
+    enableprezto = {{ $enableprezto }}
+    defaultshell = {{ $defaultshell | quote }}
 {{ if eq .chezmoi.os "darwin" }}
 {{- $gpgemail := promptString "GPG key recipient email" -}}
 encryption = "gpg"
