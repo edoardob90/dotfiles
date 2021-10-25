@@ -17,4 +17,4 @@ export PATH=${PATH}:/usr/local/share/pypy3
 
 # McFly: command history search
 # https://github.com/cantino/mcfly
-eval $($(brew --prefix)/bin/mcfly init zsh)
+eval "$($(brew --prefix)/bin/mcfly init zsh)"
