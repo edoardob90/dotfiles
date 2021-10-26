@@ -1,0 +1,132 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/bin/bash
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+tap "cantino/mcfly"
+tap "heroku/brew"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "homebrew/services"
+brew "age"
+brew "readline"
+brew "bash"
+brew "bat"
+brew "sqlite"
+brew "xz"
+brew "python@3.9"
+brew "bitwarden-cli"
+brew "coreutils"
+brew "gettext"
+brew "gnu-sed"
+brew "tmux"
+brew "bzip2"
+brew "certbot"
+brew "dog"
+brew "duf"
+brew "dust"
+brew "easy-rsa"
+brew "eva"
+brew "exa"
+brew "fd"
+brew "unbound"
+brew "gnutls"
+brew "nghttp2"
+brew "ffmpeg"
+brew "findutils"
+brew "fish"
+brew "fontforge"
+brew "gawk"
+brew "gcc"
+brew "gh"
+brew "git-delta"
+brew "glances"
+brew "gnu-getopt"
+brew "gnu-indent"
+brew "gnu-tar"
+brew "gnu-units"
+brew "gnupg", link: false
+brew "go"
+brew "grc"
+brew "grep"
+brew "htop"
+brew "httpie"
+brew "hugo"
+brew "jq"
+brew "jrnl"
+brew "lsd"
+brew "mackup"
+brew "magic-wormhole"
+brew "mas"
+brew "mdcat"
+brew "micro"
+brew "neovim"
+brew "netcat"
+brew "nmap"
+brew "node@12"
+brew "openssh"
+brew "pandoc"
+brew "parallel"
+brew "pass"
+brew "pass-otp"
+brew "pinentry-mac"
+brew "pygments", link: false
+brew "pypy3"
+brew "python@3.8"
+brew "reattach-to-user-namespace"
+brew "ripgrep"
+brew "ripgrep-all"
+brew "screen"
+brew "signify-osx"
+brew "socat"
+brew "vim"
+brew "w3m"
+brew "wakeonlan"
+brew "wget"
+brew "yarn"
+brew "youtube-dl"
+brew "zlib"
+brew "cantino/mcfly/mcfly"
+brew "heroku/brew/heroku"
+brew "pyenv"
+cask "adoptopenjdk"
+cask "calibre"
+cask "clean-me"
+cask "corelocationcli"
+cask "font-blex-mono-nerd-font"
+cask "font-fira-code-nerd-font"
+cask "font-hack-nerd-font"
+cask "font-im-writing-nerd-font"
+cask "font-iosevka"
+cask "font-iosevka-slab"
+cask "fontforge"
+cask "gpg-suite-no-mail"
+cask "kitty"
+cask "mattermost"
+cask "obsidian"
+cask "osxfuse"
+cask "stretchly"
+cask "sublime-text"
+cask "vscodium"
+cask "xquartz"
+mas "Amphetamine", id: 937984704
+mas "Bear", id: 1091189122
+mas "Bitwarden", id: 1352778147
+mas "Day One", id: 1055511498
+mas "Drafts", id: 1435957248
+mas "Fantastical", id: 975937182
+mas "iA Writer", id: 775737590
+mas "Keynote", id: 409183694
+mas "Kindle", id: 405399194
+mas "Klib", id: 1196268448
+mas "Magnet", id: 441258766
+mas "Marked 2", id: 890031187
+mas "NordVPN IKE", id: 1116599239
+mas "Pages", id: 409201541
+mas "Slack", id: 803453959
+mas "Things", id: 904280696
+mas "Wipr", id: 1320666476
+EOF
+{{ end -}}
