@@ -1,0 +1,46 @@
+{
+    "wolfram.kernel": "/Applications/Mathematica.app/Contents/MacOS/WolframKernel",
+    "python.pythonPath": "/Users/edoardo/.pyenv/versions/3.10.0/bin/python3.10",
+    "editor.fontSize": 15,
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "Fira Code, monospace",
+    "editor.fontLigatures": false,
+    "editor.wordSeparators": "`~!@#%^&*()-=+[{]}\\|;:'\",.<>/?",
+    "workbench.enableExperiments": false,
+    "update.mode": "manual",
+    "python.venvFolders": [
+        "${workspaceFolder}"
+    ],
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Aura Dark (Soft Text)",
+    "workbench.colorCustomizations": {
+        "[Material Theme]": {
+            "activityBarBadge.background": "#388E3C",
+            "activityBar.activeBorder": "#388E3C",
+            "list.activeSelectionForeground": "#388E3C",
+            "list.inactiveSelectionForeground": "#388E3C",
+            "list.highlightForeground": "#388E3C",
+            "scrollbarSlider.activeBackground": "#388E3C50",
+            "editorSuggestWidget.highlightForeground": "#388E3C",
+            "textLink.foreground": "#388E3C",
+            "progressBar.background": "#388E3C",
+            "pickerGroup.foreground": "#388E3C",
+            "tab.activeBorder": "#388E3C",
+            "notificationLink.foreground": "#388E3C",
+            "editorWidget.resizeBorder": "#388E3C",
+            "editorWidget.border": "#388E3C",
+            "settings.modifiedItemIndicator": "#388E3C",
+            "settings.headerForeground": "#388E3C",
+            "panelTitle.activeBorder": "#388E3C",
+            "breadcrumb.activeSelectionForeground": "#388E3C",
+            "menu.selectionForeground": "#388E3C",
+            "menubar.selectionForeground": "#388E3C",
+            "editor.findMatchBorder": "#388E3C",
+            "selection.background": "#388E3C40",
+            "statusBarItem.remoteBackground": "#388E3C"
+        }
+    },
+    "materialTheme.accent": "Breaking Bad",
+}

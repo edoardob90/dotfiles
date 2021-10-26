@@ -1,0 +1,15 @@
+{
+    "telemetry.enableTelemetry": false,
+    "WolframLanguageServer.WLServerPath": "/Users/edoardo/git/lsp-wl",
+    "WolframLanguageServer.WolframPath": "/Users/edoardo/bin/wolfram",
+    "editor.fontFamily": "'Source Code Pro', monospace",
+    "editor.fontSize": 16,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "editor.minimap.enabled": false,
+    "python.pythonPath": "/Users/edoardo/.pyenv/versions/3.7.12/bin/python3.7",
+    "python.venvFolders": [
+        "${workspaceFolder}"
+    ]
+}
