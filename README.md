@@ -21,8 +21,8 @@ On **September 21, 2021** I cleaned up and migrated my dotfiles to use [`chezmoi
 
 ### New machine setup
 
-- `chezmoi --init edoardob90`: to initialize the local source state from the default repo
-- `chezmoi --init --apply edoardob90`: init & apply the source state
+- `chezmoi init edoardob90`: to initialize the local source state from the default repo
+- `chezmoi init --apply edoardob90`: init & apply the source state
 
 ### Update (i.e., `git pull`)
 
