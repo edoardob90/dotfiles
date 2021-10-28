@@ -528,6 +528,11 @@ endif
 " ---------
 let g:deoplete#enable_at_startup = 1
 
+{{ if eq .chezmoi.os "darwin" -}}
+" Configure Python3: use Brew python
+let g:python3_host_prog = '/usr/local/bin/python3'
+{{- end }}
+
 " following lines are taken from here
 " https://www.gregjs.com/vim/2016/configuring-the-deoplete-asynchronous-keyword-completion-plugin-with-tern-for-vim
 if !exists('g:deoplete#omni_patterns')
