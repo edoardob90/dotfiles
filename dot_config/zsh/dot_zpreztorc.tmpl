@@ -172,7 +172,7 @@ zstyle ':prezto:module:prompt' pwd-length 'short'
 
 # Set the SSH identities to load into the agent.
 {{- if eq .chezmoi.os "darwin" }}
-zstyle ':prezto:module:ssh:load' identities 'cscs_rsa' 'github_rsa' 'z4ws_rsa' 'asus_router' 'rbpi4'
+#zstyle ':prezto:module:ssh:load' identities 'cscs_rsa' 'github_rsa' 'z4ws_rsa' 'asus_router' 'rbpi4'
 {{- else }}
 #zstyle ':prezto:module:ssh:load' identities ''
 {{- end }}
