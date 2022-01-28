@@ -39,6 +39,7 @@ fi
 {{- else if eq .chezmoi.os "linux" }}
 # Init Pyenv on Linux
 if type -a pyenv 2>&1 >/dev/null; then
+  eval "$(pyenv init --path)"
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
