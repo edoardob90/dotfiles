@@ -3,6 +3,9 @@ README.md
 .vim/myplugins
 install.sh
 {{ if ne .chezmoi.hostname "Athos" -}}
-.config/kitty
 .pandoc
+Library
+{{if ne .chezmoi.hostname "pop-os" -}}
+.config/kitty
 {{ end -}}
+{{- end -}}
