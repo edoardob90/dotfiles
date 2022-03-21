@@ -5,7 +5,5 @@ install.sh
 {{ if ne .chezmoi.hostname "Athos" -}}
 .pandoc
 Library
-{{if ne .chezmoi.hostname "pop-os" -}}
-.config/kitty
-{{ end -}}
+.config/kitty/macos-launch-services-cmdline
 {{- end -}}
