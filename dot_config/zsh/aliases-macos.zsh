@@ -3,8 +3,9 @@ alias tmp='cd ~/tmp'
 alias pypy='pypy3'
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 alias ia='open -b pro.writer.mac -n'
-alias marked='open -b com.brettterpstra.marked2 -n'
+alias marked='open -b com.brettterpstra.marked2'
 alias screen='/usr/local/bin/screen'
+alias wls='wolframscript'
 
 # ls
 alias ls='lsd'

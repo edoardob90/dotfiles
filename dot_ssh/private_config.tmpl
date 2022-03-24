@@ -50,13 +50,6 @@ Host pollux-vm
 Host gitlab.com
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/gitlab_ed25519
-
-# AWS T2 micro instance
-Host aws-t2
-    Hostname 3.65.16.234
-    User ubuntu
-    Port 22
-    IdentityFile ~/.ssh/aws_t2_micro.pem
 {{- else if contains "daint" .chezmoi.hostname -}}
 # Passwordless login on computing nodes
 #Host nid0*
