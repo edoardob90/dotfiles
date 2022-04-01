@@ -18,3 +18,6 @@ export PATH=${PATH}:/usr/local/share/pypy3
 # McFly: command history search
 # https://github.com/cantino/mcfly
 eval "$($(brew --prefix)/bin/mcfly init zsh)"
+
+# Fzf setup (completions and keybindings)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
