@@ -15,9 +15,13 @@ export GPG_TTY=$(tty)
 # PyPy3: packages installed via pip_pypy3 should be found *AFTER* CPython's
 export PATH=${PATH}:/usr/local/share/pypy3
 
-# McFly: command history search
+# Fzf setup (completions and keybindings)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# McFly: super-fast command history search
 # https://github.com/cantino/mcfly
 eval "$($(brew --prefix)/bin/mcfly init zsh)"
 
-# Fzf setup (completions and keybindings)
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Zoxide
+# https://github.com/ajeetdsouza/zoxide#installation
+eval "$($(brew --prefix)/bin/zoxide init zsh)"
