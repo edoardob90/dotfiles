@@ -8,9 +8,6 @@
 " Add only the stuff I *really* need and understand. Narrow down the seleciton
 " of plugins.
 "
-" -------------------
-" init.vim STARTS
-" -------------------
 "
 "
 " Disable old features compatibility
@@ -28,7 +25,7 @@ endif
 call plug#begin('~/.vim/myplugins')
 
 " --------
-" PLUGINS
+" plugins
 " --------
 " sensible defaults: all the stuff the should be by default active in every
 " vim/neovim
@@ -43,13 +40,12 @@ Plug 'tpope/vim-commentary'
 " Custom text object
 " the base plugin
 Plug 'kana/vim-textobj-user'
-" LaTeX math & other text objects
-Plug 'rbonvall/vim-textobj-latex'
 " markdown text objects
 Plug 'coachshea/vim-textobj-markdown'
 
 " Status bar
-Plug 'itchyny/lightline.vim'
+"Plug 'itchyny/lightline.vim'
+Plug 'nvim-lualine/lualine.nvim'
 
 " distraction free writing with vim
 Plug 'junegunn/goyo.vim'
@@ -65,14 +61,15 @@ Plug 'tpope/vim-fugitive'
 Plug 'mtth/scratch.vim'
 
 " Colorschemes
-Plug 'chriskempson/base16-vim'
+"Plug 'chriskempson/base16-vim'
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
 " Various language packs for syntax
 Plug 'sheerun/vim-polyglot'
 
 " Markdown
 Plug 'reedes/vim-pencil'
-Plug 'reedes/vim-colors-pencil'
+" Plug 'reedes/vim-colors-pencil'
 
 " Wolfram Language syntax
 Plug 'arnoudbuzing/wolfram-vim'
@@ -91,7 +88,7 @@ Plug 'alker0/chezmoi.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " ---------------
-" END OF PLUGINS
+" end of plugins
 " ---------------
 call plug#end()
 
@@ -106,25 +103,27 @@ call plug#end()
 "syntax on
 
 " now the general settings (tabs, spaces, bells, backgrounds...)
-set autoindent        " indented text
-set autoread          " pick up external changes to files
-set autowrite         " write files when navigating with :next/:previous
-set background=dark   " default background for color schemes
-set belloff=all       " bells are annoying
-set breakindent       " wrap long lines *with* indentation
-set noswapfile        " avoid creating .swp files
-set noshowmode        " don't show modes, useless with alternative status bars plugins
+set autoindent            " indented text
+set autoread              " pick up external changes to files
+set autowrite             " write files when navigating with :next/:previous
+set background=dark       " default background for color schemes
+set belloff=all           " bells are annoying
+set breakindent           " wrap long lines *with* indentation
+set noswapfile            " avoid creating .swp files
+set noshowmode            " don't show modes, useless with alternative status bars plugins
+set clipboard=unnamedplus " use y and p with the system clipboard
+set mouse=a               " enable mouse support (all modes)
 
 " utf
 set encoding=utf-8
 
- " swap between buffers without needing to save
+" swap between buffers without needing to save
 set hidden
 
 " none of these are word dividers
 set iskeyword+=_,#
 
- " line numbers
+" line numbers
 set number
 set relativenumber
 
@@ -262,18 +261,6 @@ set cursorline
 hi CursorLine ctermbg=NONE cterm=NONE term=NONE
 hi CursorLineNr ctermfg=117 ctermbg=236  term=bold cterm=bold
 
-" GUI default font
-if has("gui_running")
-    set gfn=Menlo:h18
-endif
-
-" Set extra options when running in GUI mode
-if has("gui_running")
-    set guioptions-=T
-    set guioptions-=e
-    set guitablabel=%M\ %t
-endif
-
 "------------------------------------------
 " key bindings
 "------------------------------------------
@@ -284,11 +271,12 @@ let maplocalleader = ","
 " :W sudo saves the file
 command! W w !sudo tee % > /dev/null
 
-" hit leader then "e" to reload files that have changed outside the editor
+" hit leader then 'e' to reload files that have changed outside the editor
 nnoremap <leader>e :edit<CR>
 
-" hit leader then "n" to remove line numbers
-nnoremap <leader>n :set nu!<CR>
+" hit leader then 'n' to remove line numbers
+" nnoremap <leader>n :set nu!<CR>
+" nnoremap <leader>nr :set norelativenumber<CR>
 
 " hit space space to remove hilights from previous search
 nnoremap <leader><Space> :nohlsearch<CR>
@@ -350,7 +338,7 @@ command! MakeTags !ctags -R .
 "set winminwidth=10
 
 nnoremap <silent> <leader>s  :split<CR>
-nnoremap <silent> <leader>-  :new<CR>
+nnoremap <silent> <leader>n  :new<CR>
 nnoremap <silent> <leader>v  :vsplit<CR>
 nnoremap <silent> <leader>t  :$tabnew<CR>
 
@@ -503,20 +491,11 @@ endfunction
 
 
 "------------------------------------------
-" color scheme settings
+" color settings
 "------------------------------------------
 " set gui colors for vim terminal (if VIM supports it)
 if exists('+termguicolors')
     set termguicolors
-endif
-
-" Base16-shell --> see ~/.dotfile/zshrc or config in $DOTFILES
-if filereadable(expand("~/.vimrc_background"))
-    "let base16colorspace=256 " usually this is not needed
-    source ~/.vimrc_background
-else
-   " set manually a color scheme
-   colorscheme pencil
 endif
 
 "------------------------------------------------
@@ -611,3 +590,18 @@ let g:neomake_python_enabled_makers = ['pylint']
 
 " chezmoi: run `chezmoi apply` whenever I edit a dotfile in VIM
 "autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path %
+
+" lua stuff (using a heredoc)
+lua << END
+-- theme
+local catppuccin = require('catppuccin')
+catppuccin.setup {}
+vim.cmd[[colorscheme catppuccin]]
+
+-- lualine
+require('lualine').setup {
+    options = {
+        theme = 'catppuccin'
+    }
+}
+END
