@@ -19,3 +19,6 @@ brew_enable
 
 # McFly
 eval "$($(brew --prefix)/bin/mcfly init zsh)"
+
+# Zoxide
+eval "$($(brew --prefix)/bin/zoxide init zsh)"
