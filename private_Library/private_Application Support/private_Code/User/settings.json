@@ -1,15 +1,28 @@
 {
-    "telemetry.enableTelemetry": false,
-    "WolframLanguageServer.WLServerPath": "/Users/edoardo/git/lsp-wl",
-    "WolframLanguageServer.WolframPath": "/Users/edoardo/bin/wolfram",
-    "editor.fontFamily": "'Source Code Pro', monospace",
-    "editor.fontSize": 16,
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
-    },
-    "editor.minimap.enabled": false,
-    "python.pythonPath": "/Users/edoardo/.pyenv/versions/3.7.12/bin/python3.7",
-    "python.venvFolders": [
-        "${workspaceFolder}"
-    ]
+  "telemetry.telemetryLevel": "off",
+  "editor.fontFamily": "'Iosevka', monospace",
+  "editor.fontSize": 15,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "python.venvFolders": ["${workspaceFolder}"],
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.iconTheme": "material-icon-theme",
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.accessibilitySupport": "off",
+  "editor.renderControlCharacters": false,
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "editor.minimap.enabled": false,
+  "git.confirmSync": false,
+  "python.linting.flake8Enabled": false,
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.formatting.provider": "black",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "editor.lineNumbers": "relative",
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.defaultProfile.osx": "fish"
 }
