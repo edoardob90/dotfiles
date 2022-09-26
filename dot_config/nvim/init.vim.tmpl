@@ -83,10 +83,6 @@ Plug 'neomake/neomake'
 " chezmoi syntax
 Plug 'alker0/chezmoi.vim'
 
-" === Autocomplete plugins ===
-" Deoplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
 " ---------------
 " end of plugins
 " ---------------
@@ -502,37 +498,6 @@ endif
 " plugin specific settings (when and if needed)
 "------------------------------------------------
 
-" ---------
-" Deoplete
-" ---------
-let g:deoplete#enable_at_startup = 1
-
-{{ if eq .chezmoi.os "darwin" -}}
-" Configure Python3: use Brew python
-let g:python3_host_prog = '/usr/local/bin/python3'
-{{- end }}
-
-" following lines are taken from here
-" https://www.gregjs.com/vim/2016/configuring-the-deoplete-asynchronous-keyword-completion-plugin-with-tern-for-vim
-if !exists('g:deoplete#omni_patterns')
-    let g:deoplete#omni_patterns = {}
-endif
-
-" actually disable auto-completion
-" let g:deoplete#disable_auto_complete = 1
-
-" automatically close the scratch window at the top of the vim window on finishing a complete or leave insert
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
-augroup omnifuncs
-    autocmd!
-    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-augroup end
-
-" setup TAB to complete and cycle through suggested
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-
 " ------------
 "  Vim Pencil
 " ------------
@@ -546,7 +511,6 @@ augroup END
 " ------------
 "  Neomake
 " ------------
-{{ if eq .machinetype "laptop" -}}
 " when to activate neomake
 " depending if on battery power
 function! OnBattery()
@@ -563,7 +527,6 @@ if OnBattery()
 else
   call neomake#configure#automake('nrw', 500)
 endif
-{{- end }}
 
 " configure error/warning message and ignore some warnings
 let g:neomake_python_pylint_maker = {
