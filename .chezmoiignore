@@ -2,6 +2,7 @@
 README.md
 .vim/myplugins
 install.sh
+.config/fish/fish_variables
 {{ if ne .chezmoi.hostname "Athos" -}}
 .pandoc
 Library

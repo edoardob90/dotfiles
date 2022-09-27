@@ -44,7 +44,7 @@ if test "$TERM" = "xterm-kitty"
 end
 
 # Misc
-alias cat='bat'
+alias cat='bat --theme DarkNeon'
 function psq -d "Query running processes"
     ps ax | grep -v grep | grep -iE $argv
 end
