@@ -32,6 +32,5 @@ On **September 21, 2021** I cleaned up and migrated my dotfiles to use [`chezmoi
 
 I still have to include in the new repo:
 
-- [ ] Automatic installation of essential pkgs on both Linux and macOS (Brew/Linuxbrew or package manager)
-- [ ] SSH public keys
-- [ ] Void Linux workstation: Herbstluftwm
+- [x] ~~Automatic installation of essential pkgs on both Linux and macOS (Brew/Linuxbrew or package manager)~~ → done by saving a `Brewfile`
+- [ ] SSH public keys → almost done with Bitwarden cli and a shell script, but **it needs proper testing!**
