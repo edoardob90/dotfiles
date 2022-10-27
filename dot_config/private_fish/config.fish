@@ -18,3 +18,24 @@ end
 # for path in (find /usr/local/opt/ -type d -follow -name gnubin -print)
 #   fish_add_path $path
 # end
+
+# Override default bindings of fzf.fish plugin
+# Changes Ctrl+Alt to Shift+Alt
+# Alt = Option on macOS
+# Defaults:
+#   Ctrl + R = history search
+#   Ctrl + V = variables
+fzf_configure_bindings \
+    # Shift + Alt + F = directories
+    --directory=\u00CF \
+    # Shift + Alt + S = git status
+    --git_status=\u00CD \
+    # Shift + Alt + P = processes
+    --processes=\u220F \
+    # Shift + Alt + L = git log
+    --git_log=\u00D2
+
+# pnpm
+set -gx PNPM_HOME "/Users/edoardo/Library/pnpm"
+set -gx PATH "$PNPM_HOME" $PATH
+# pnpm end
