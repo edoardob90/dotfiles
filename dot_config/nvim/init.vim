@@ -37,23 +37,18 @@ Plug 'tpope/vim-surround'
 " Commentary (comment text object)
 Plug 'tpope/vim-commentary'
 
-" Custom text object
-" the base plugin
-Plug 'kana/vim-textobj-user'
-" markdown text objects
-Plug 'coachshea/vim-textobj-markdown'
-
 " Status bar
-"Plug 'itchyny/lightline.vim'
 Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 
 " distraction free writing with vim
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
-" GIT plugins:
+" GIT plugins
 " Tracking git changes
 Plug 'airblade/vim-gitgutter'
+
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 
@@ -61,7 +56,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'mtth/scratch.vim'
 
 " Colorschemes
-"Plug 'chriskempson/base16-vim'
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
 " Various language packs for syntax
@@ -69,10 +63,6 @@ Plug 'sheerun/vim-polyglot'
 
 " Markdown
 Plug 'reedes/vim-pencil'
-" Plug 'reedes/vim-colors-pencil'
-
-" Wolfram Language syntax
-Plug 'arnoudbuzing/wolfram-vim'
 
 " Modern replacement for matchit
 Plug 'andymass/vim-matchup'
@@ -83,6 +73,41 @@ Plug 'neomake/neomake'
 " chezmoi syntax
 Plug 'alker0/chezmoi.vim'
 
+" wildmenu enhanced completion
+if has('nvim')
+    function! UpdateRemotePlugins(...)
+        " Needed to refresh runtime files
+        let &rtp=&rtp
+        UpdateRemotePlugins
+    endfunction
+
+    Plug 'gelguy/wilder.nvim', { 'do': function('UpdateRemotePlugins') }
+else
+    Plug 'gelguy/wilder.nvim'
+endif
+
+" enhanced search: shows number of matches and navigates through them
+Plug 'kevinhwang91/nvim-hlslens'
+
+" specific folding rules for YAML files
+Plug 'pedrohdz/vim-yaml-folds'
+
+" show indent lines
+Plug 'lukas-reineke/indent-blankline.nvim'
+
+" auto-pairs characters, not only parenthesis
+Plug 'windwp/nvim-autopairs'
+
+" ncm2 completion engine
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-jedi'
+
+" auto-formatting
+Plug 'vim-autoformat/vim-autoformat'
+
 " ---------------
 " end of plugins
 " ---------------
@@ -92,11 +117,9 @@ call plug#end()
 "------------------------------------------
 " general settings
 "------------------------------------------
-" NOT NEEDED because vim-plug sets this
-"filetype plugin indent on
 
-" NOT NEEDED because vim-plug sets this
-"syntax on
+" set python3 intepreter (better now than later)
+let g:python3_host_prog = "/Users/edoardo/.pyenv/versions/nvim/bin/python"
 
 " now the general settings (tabs, spaces, bells, backgrounds...)
 set autoindent            " indented text
@@ -142,8 +165,13 @@ set softtabstop=2
 set shiftwidth=4
 set tabstop=4         " make real tabs 4 wide
 set showbreak=\\\\\   " use this to wrap long lines
-set foldmethod=manual " manual folding
+" set foldmethod=manual " manual folding
 set matchpairs=(:),{:},[:],<:>
+" folding
+set foldmethod=syntax
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
 
 " splitting windows
 set splitbelow        " Split below current window
@@ -187,11 +215,6 @@ endif
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
-" Properly disable sound on errors on MacVim
-if has("gui_macvim")
-    autocmd GUIEnter * set vb t_vb=
-endif
-
 " Maintain undo history between sessions
 " From the book 'Modern Vim', TIP 24, p.99
 set undofile
@@ -212,6 +235,10 @@ setlocal indentexpr=GetGooglePythonIndent(v:lnum)
 let s:maxoff = 50 " maximum number of lines to look backwards.
 let pyindent_nested_paren="&sw*2"
 let pyindent_open_paren="&sw*2"
+
+" Trigger auto-format with F3
+noremap <F3> :Autoformat<CR>
+
 
 "------------------------------------------
 " terminal configuration
@@ -276,6 +303,8 @@ nnoremap <leader>e :edit<CR>
 
 " hit space space to remove hilights from previous search
 nnoremap <leader><Space> :nohlsearch<CR>
+" space+c to count the occurences of the latest searched pattern
+nnoremap <leader>c :%s///gn<CR>
 
 " use the combination jk to exit insert mode
 " ... easier than reaching up for the escape key
@@ -322,9 +351,6 @@ noremap <C-q> :confirm qall<CR>
 " Delete previous word when in insert mode via Ctrl-b
 inoremap <C-b> <C-O>diw
 
-" Create the `tags` file in current folder (MUST install `ctags` beforehand)
-command! MakeTags !ctags -R .
-
 " ----------------------------------
 "  Window management
 " ----------------------------------
@@ -363,27 +389,6 @@ function! HasPaste()
     return ''
 endfunction
 
-" Don't close window, when deleting a buffer
-command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
-
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
-
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
-
-   if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
-   endif
-endfunction
-
 function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
     emenu Foo.Bar
@@ -408,57 +413,8 @@ function! VisualSelection(direction, extra_filter) range
 endfunction
 
 
-" Toggle spelling mode and add the dictionary to the completion list of
-" sources if spelling mode has been entered, otherwise remove it when
-" leaving spelling mode.
-"
-function! Spelling()
-    setlocal spell!
-    if &spell
-        set complete+=kspell
-        echo "Spell mode enabled"
-    else
-        set complete-=kspell
-        echo "Spell mode disabled"
-    endif
-endfunction
-
-" Toggle special characters list display.
-"
-function! Listing()
-    if &filetype == "go"
-        if g:listMode == 1
-            set listchars=eol:$,tab:>-,trail:-
-            highlight SpecialKey ctermfg=12 guifg=#78c2ff
-            let g:listMode = 0
-        else
-            set listchars=tab:\¦\ 
-            highlight SpecialKey ctermfg=235 guifg=#262626
-            let g:listMode = 1
-        endif
-        return
-    endif
-
-    " Note, Neovim has a Whitespace highlight group, Vim does not.
-    if has("nvim")
-        if g:listMode == 1
-            set listchars=eol:$,tab:>-,trail:-
-            highlight Whitespace ctermfg=12 guifg=#78c2ff
-            let g:listMode = 0
-        else
-            set listchars=tab:\ \ ,trail:-
-            highlight Whitespace ctermfg=235 guifg=#262626
-            let g:listMode = 1
-        endif
-    else
-        set list!
-    endif
-endfunction
-
 " Indent Python helper function
-
 function GetGooglePythonIndent(lnum)
-
   " Indent inside parens.
   " Align with the open paren unless it is at the end of the line.
   " E.g.
@@ -499,6 +455,24 @@ endif
 "------------------------------------------------
 
 " ------------
+" ncm2
+" ------------
+augroup NCM2
+  autocmd!
+  " enable ncm2 for all buffers
+  autocmd BufEnter * call ncm2#enable_for_buffer()
+  " :help Ncm2PopupOpen for more information
+  set completeopt=noinsert,menuone,noselect
+  " When the <Enter> key is pressed while the popup menu is visible, it only
+  " hides the menu. Use this mapping to close the menu and also start a new line.
+  " inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+  " Use <TAB> to select the popup menu:
+  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+augroup END
+
+
+" ------------
 "  Vim Pencil
 " ------------
 let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
@@ -507,6 +481,7 @@ augroup pencil
   autocmd FileType markdown,mkd,md call pencil#init()
   autocmd FileType text         call pencil#init({'wrap': 'hard'})
 augroup END
+
 
 " ------------
 "  Neomake
@@ -547,9 +522,27 @@ let g:neomake_python_pylint_maker = {
 " which linter to enable for Python source file linting
 let g:neomake_python_enabled_makers = ['pylint']
 
+
+" -----------
+" wilder.nvim
+" -----------
+call wilder#setup({'modes': [':', '/', '?']})
+
+" Popup menu renderer
+call wilder#set_option('renderer', wilder#popupmenu_renderer({
+      \ 'highlighter': wilder#basic_highlighter(),
+      \ }))
+
+
 " ---------------------------------------------------
 " other settings
 " ---------------------------------------------------
+
+" Python3 executable
+
+" YAML file type
+" Set tabstop=2 by default
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " chezmoi: run `chezmoi apply` whenever I edit a dotfile in VIM
 "autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path %
@@ -567,4 +560,25 @@ require('lualine').setup {
         theme = 'catppuccin'
     }
 }
+
+-- nvim-hlslens
+local kopts = {noremap = true, silent = true}
+require("hlslens").setup()
+-- n, N = jump to the instance matched by the last pattern
+vim.api.nvim_set_keymap('n', 'n',
+    [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
+    kopts)
+vim.api.nvim_set_keymap('n', 'N',
+    [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
+    kopts)
+-- *, #, g*, g# = search the word nearest to the cursor
+vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+
+-- nvim-autopairs
+require("nvim-autopairs").setup {}
+
+-- end of heredoc. Nothing should be below this line!
 END
