@@ -7,4 +7,20 @@ install.sh
 .pandoc
 Library
 .config/kitty/macos-launch-services-cmdline
-{{- end -}}
+{{ end -}}
+{{ if not .tmux -}}
+.tmux.conf
+{{ end }}
+# Editor
+{{ if ne .editor "vim" -}}
+.vimrc_background
+{{ else if ne .editor "nvim" -}}
+.config/nvim
+{{ end }}
+# Default shell
+{{ if ne .defaultshell "zsh" -}}
+.zshenv
+.config/zsh
+{{ else if ne .defaultshell "fish" -}}
+.config/fish
+{{ end -}}

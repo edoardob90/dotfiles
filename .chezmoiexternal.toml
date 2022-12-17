@@ -1,3 +1,4 @@
+{{ if eq .editor "vim" -}}
 [".vim"]
     type = "archive"
     url = "https://github.com/edoardob90/vimrc/archive/refs/heads/master.zip"
@@ -7,7 +8,9 @@
 [".vim/autoload/plug.vim"]
     type = "file"
     url = "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+{{ end -}}
 
+{{ if .tmux -}}
 [".tmux/plugins/tpm"]
     type = "archive"
     url = "https://github.com/tmux-plugins/tpm/archive/refs/heads/master.zip"
@@ -25,4 +28,4 @@
     url = "https://github.com/tmux-plugins/tmux-resurrect/archive/refs/heads/master.zip"
     exact = true
     stripComponents = 1
-
+{{ end -}}

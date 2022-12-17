@@ -1,13 +1,16 @@
 {{ $machinetype := promptString "Machine type" -}}
 {{ $defaultshell := promptString "Default shell (bash/zsh/fish)" -}}
+{{ $editor := promptString "Default editor (vim/nvim)" -}}
 [data]
     machinetype = {{ $machinetype | quote }}
     {{- if eq $defaultshell "zsh" }}
-    enableprezto = {{ promptBool "Enable ZSH Prezto" }}
+    enableprezto = {{ promptBool "Enable ZSH Prezto?" }}
     {{- else }}
     enableprezto = false
     {{- end }}
     defaultshell = {{ $defaultshell | quote }}
+    editor = {{ $editor | quote }}
+    tmux = {{ promptBool "Use Tmux?" }}
 {{ if eq .chezmoi.os "darwin" }}
 {{- $gpgemail := promptString "GPG key recipient email" -}}
 encryption = "gpg"
