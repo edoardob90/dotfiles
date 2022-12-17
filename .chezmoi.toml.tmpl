@@ -4,6 +4,8 @@
     machinetype = {{ $machinetype | quote }}
     {{- if eq $defaultshell "zsh" }}
     enableprezto = {{ promptBool "Enable ZSH Prezto" }}
+    {{- else }}
+    enableprezto = false
     {{- end }}
     defaultshell = {{ $defaultshell | quote }}
 {{ if eq .chezmoi.os "darwin" }}
