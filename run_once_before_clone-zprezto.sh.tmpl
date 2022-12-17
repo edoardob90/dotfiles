@@ -1,5 +1,5 @@
 #!/bin/bash
-{{- if not (contains "daint" .chezmoi.hostname) }}
+{{- if and .enableprezto (not (contains "daint" .chezmoi.hostname)) }}
 if [ ! -d "$HOME/.prezto" ]; then
     git clone --recurse-submodules https://github.com/edoardob90/prezto.git .prezto
     cd .prezto
