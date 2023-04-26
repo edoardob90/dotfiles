@@ -1,8 +1,8 @@
 " Neovim init script
 "
 " Date: 16 aug 2018
-" Author: Edoardo Baldi (edoardob90@gmail.com)
-"
+" Author: edoardob90
+
 " Purpose: clean and purge the old vimrc script, which is sourced as a whole
 " by Neovim right now.
 " Add only the stuff I *really* need and understand. Narrow down the seleciton
