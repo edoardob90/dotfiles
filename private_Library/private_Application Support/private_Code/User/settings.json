@@ -1,18 +1,15 @@
 {
   "telemetry.telemetryLevel": "off",
-  "editor.fontFamily": "'Iosevka', monospace",
   "editor.fontSize": 15,
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
   "python.venvFolders": ["${workspaceFolder}"],
-  "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "material-icon-theme",
   "security.workspace.trust.untrustedFiles": "open",
   "editor.accessibilitySupport": "off",
   "editor.renderControlCharacters": false,
   "editor.unicodeHighlight.invisibleCharacters": false,
-  "editor.minimap.enabled": false,
   "git.confirmSync": false,
   "python.linting.flake8Enabled": false,
   "python.linting.enabled": true,
@@ -24,5 +21,25 @@
   "editor.formatOnSave": true,
   "editor.lineNumbers": "relative",
   "terminal.external.osxExec": "iTerm.app",
-  "terminal.integrated.defaultProfile.osx": "fish"
+  "terminal.integrated.defaultProfile.osx": "fish",
+  "editor.minimap.enabled": false,
+  "workbench.colorTheme": "GitHub Dark Default",
+  "workbench.preferredLightColorTheme": "GitHub Light Default",
+  "workbench.preferredDarkColorTheme": "GitHub Dark Default",
+  "window.autoDetectColorScheme": true,
+  "notebook.output.wordWrap": true,
+  "explorer.confirmDragAndDrop": false,
+  "editor.fontFamily": "'JetBrains Mono NL', Menlo, Monaco, 'Courier New', monospace",
+  "notebook.output.textLineLimit": 50,
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "yaml": false
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
