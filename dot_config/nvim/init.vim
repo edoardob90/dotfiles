@@ -454,6 +454,12 @@ endif
 " plugin specific settings (when and if needed)
 "------------------------------------------------
 
+" scratch
+" open scratch on the side
+let g:scratch_horizontal = 0
+let g:scratch_top = 0
+let g:scratch_height = 50
+
 " ------------
 " ncm2
 " ------------

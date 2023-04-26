@@ -1,6 +1,7 @@
 [user]
 	email = edoardob90@gmail.com
 	name = edoardob90
+	signingkey = 10186DD6D7D536DB
 [pull]
 	rebase = false
 [init]
@@ -15,3 +16,14 @@
     navigate = true
 [interactive]
     diffFilter = delta --color-only
+[alias]
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
+    sh = stash
+    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+    type = cat-file -t
+    dump = cat-file -p
+[push]
+	autoSetupRemote = true

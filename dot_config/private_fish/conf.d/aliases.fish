@@ -37,6 +37,8 @@ alias ssh-agent='/usr/bin/ssh-agent' # keep using macOS ssh agent even if openss
 alias ssh-add='/usr/bin/ssh-add'
 alias daint='ssh daint.cscs.ch'
 alias router='/usr/bin/ssh router'
+alias rbpi='/usr/bin/ssh rbpi'
+
 if test "$TERM" = "xterm-kitty"
     function ssh -d "ssh if using Kitty terminal"
         kitty +kitten ssh $argv
