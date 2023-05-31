@@ -1,0 +1,36 @@
+live_config_reload: true
+shell:
+  program: /usr/local/bin/fish
+  args:
+    - --login
+    - --interactive
+working_directory: /Users/edoardo
+window:
+  opacity: 0.9
+  padding:
+    x: 8
+    y: 6
+  dynamic_padding: true
+  decorations: buttonless
+  startup_mode: Maximized
+cursor:
+  style:
+    shape: Beam
+font:
+  normal:
+    family: "JetBrainsMonoNL Nerd Font"
+    style: Regular
+  size: 14.0
+import:
+  - ~/.config/alacritty/catppuccin-mocha.yml
+
+# colors:
+#   normal:
+#     black: '#1d1f21'
+#     red: '#cc6666'
+#     green: '#b5bd68'
+#     yellow: '#f0c674'
+#     blue: '#81a2be'
+#     magenta: '#b294bb'
+#     cyan: '#8abeb7'
+#     white: '#c5c8c6'
