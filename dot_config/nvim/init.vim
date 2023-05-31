@@ -1,8 +1,8 @@
 " Neovim init script
 "
 " Date: 16 aug 2018
-" Author: edoardob90
-
+" Author: Edoardo Baldi (edoardob90@gmail.com)
+"
 " Purpose: clean and purge the old vimrc script, which is sourced as a whole
 " by Neovim right now.
 " Add only the stuff I *really* need and understand. Narrow down the seleciton
@@ -553,38 +553,8 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 " chezmoi: run `chezmoi apply` whenever I edit a dotfile in VIM
 "autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path %
 
-" lua stuff (using a heredoc)
-lua << END
--- theme
-local catppuccin = require('catppuccin')
-catppuccin.setup {}
-vim.cmd[[colorscheme catppuccin]]
-
--- lualine
-require('lualine').setup {
-    options = {
-        theme = 'catppuccin'
-    }
-}
-
--- nvim-hlslens
-local kopts = {noremap = true, silent = true}
-require("hlslens").setup()
--- n, N = jump to the instance matched by the last pattern
-vim.api.nvim_set_keymap('n', 'n',
-    [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
-    kopts)
-vim.api.nvim_set_keymap('n', 'N',
-    [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
-    kopts)
--- *, #, g*, g# = search the word nearest to the cursor
-vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-
--- nvim-autopairs
-require("nvim-autopairs").setup {}
-
--- end of heredoc. Nothing should be below this line!
-END
+" ---------------------------------------------------
+" lua stuff
+" ---------------------------------------------------
+lua require("theme")
+lua require("plugins.settings")
