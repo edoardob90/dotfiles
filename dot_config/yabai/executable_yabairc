@@ -30,7 +30,7 @@ yabai -m config                                 \
     active_window_border_color   0xff775759     \
     normal_window_border_color   0xff555555     \
     window_border_width          4              \
-    window_border_radius         10             \
+    window_border_radius         0             \
     window_border_blur           off            \
     window_border_hidpi          on             \
     window_border                off            \
