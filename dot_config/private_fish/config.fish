@@ -1,6 +1,6 @@
-function fish_greeting
-    fortune 50% ~/.fortunes /usr/local/Cellar/fortune/9708/share/games/fortunes
-end
+# function fish_greeting
+#     fortune 50% ~/.fortunes /usr/local/Cellar/fortune/9708/share/games/fortunes
+# end
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
