@@ -9,3 +9,7 @@ if verlte "3.2.0" $FISH_VERSION
 else
     set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
 end
+
+# Init pyenv-virtualenv
+status --is-interactive; and source (pyenv virtualenv-init - | psub)
+
