@@ -35,7 +35,3 @@ fzf_configure_bindings \
     # Shift + Alt + L = git log
     --git_log=\u00D2
 
-# pnpm
-set -gx PNPM_HOME "/Users/edoardo/Library/pnpm"
-set -gx PATH "$PNPM_HOME" $PATH
-# pnpm end
