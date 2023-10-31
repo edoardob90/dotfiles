@@ -1,7 +1,8 @@
+{{- if eq .chezmoi.os "darwin" }}
+# pnpm
+set -gx PNPM_HOME "/Users/edoardo/Library/pnpm"
+set -gx PATH "$PNPM_HOME" $PATH
+
 # 1Password SSH agent
-{{- if eq .chezmoi.os "darwin" -}}
-set -l OP_SSH_SOCK "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-{{- else if eq .chezmoi.os "linux" -}}
-set -l OP_SSH_SOCK "~/.1password/agent.sock"
+set -gx SSH_AUTH_SOCK ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 {{- end}}
-test -S $OP_SSH_SOCK; and set -gx SSH_AUTH_SOCK $OP_SSH_SOCK
