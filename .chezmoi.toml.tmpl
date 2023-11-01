@@ -1,19 +1,23 @@
-{{ $machinetype := promptString "Machine type" -}}
-{{ $defaultshell := promptString "Default shell (bash/zsh/fish)" -}}
-{{ $editor := promptString "Default editor (vim/nvim)" -}}
+{{ $machinetype := promptStringOnce . "machinetype" "Machine type (laptop/workstation)" -}}
+{{ $defaultshell := promptStringOnce . "defaultshell" "Default shell (bash/zsh/fish)" -}}
+{{ $editor := promptStringOnce . "editor" "Default editor (vim/nvim)" -}}
+{{ $gpgemail := promptStringOnce . "gpgemail" "GPG key recipient email" -}}
+
 [data]
-    machinetype = {{ $machinetype | quote }}
-    {{- if eq $defaultshell "zsh" }}
-    enableprezto = {{ promptBool "Enable ZSH Prezto?" }}
-    {{- else }}
-    enableprezto = false
-    {{- end }}
-    defaultshell = {{ $defaultshell | quote }}
-    editor = {{ $editor | quote }}
-    tmux = {{ promptBool "Use Tmux?" }}
-{{ if eq .chezmoi.os "darwin" }}
-{{- $gpgemail := promptString "GPG key recipient email" -}}
+machinetype = {{ $machinetype | quote }}
+athome = {{ promptBoolOnce . "athome" "Is this machine at home" }}
+{{- if eq $defaultshell "zsh" }}
+enableprezto = {{ promptBoolOnce . "enableprezto" "Enable ZSH Prezto" }}
+{{- else }}
+enableprezto = false
+{{- end }}
+defaultshell = {{ $defaultshell | quote }}
+editor = {{ $editor | quote }}
+tmux = {{ promptBoolOnce . "tmux" "Use Tmux?" }}
+
+{{- if eq .chezmoi.os "darwin" }}
 encryption = "gpg"
+
 [gpg]
-    recipient = {{ $gpgemail | quote }}
+recipient = {{ $gpgemail | quote }}
 {{ end -}}
