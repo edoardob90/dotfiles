@@ -3,26 +3,21 @@
 function hs -d "Search through history"
     history | grep $argv
 end
+
 function hsi
     hs -i $argv
 end
 
 # macOS custom aliases
-alias tmp='cd ~/tmp'
 alias pypy='pypy3'
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 alias ia='open -b pro.writer.mac -n'
 alias marked='open -b com.brettterpstra.marked2'
-alias screen='/usr/local/bin/screen'
 alias wls='wolframscript'
 
 # VIM/Neovim
-if type nvim 2>&1 >/dev/null
-    abbr --add --global vim nvim
-    alias vi=nvim
-else
-    alias vi=vim
-end
+command -q nvim; and abbr --add --global vim nvim
+alias vi=vim
 
 # ls
 alias ls='lsd'
