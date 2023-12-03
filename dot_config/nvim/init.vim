@@ -111,6 +111,9 @@ Plug 'vim-autoformat/vim-autoformat'
 " GitHub Copilot
 Plug 'github/copilot.vim'
 
+" Wolfram Language syntax support
+Plug 'voldikss/vim-mma'
+
 " ---------------
 " end of plugins
 " ---------------
