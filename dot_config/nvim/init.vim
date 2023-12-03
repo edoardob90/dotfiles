@@ -108,6 +108,9 @@ Plug 'ncm2/ncm2-jedi'
 " auto-formatting
 Plug 'vim-autoformat/vim-autoformat'
 
+" GitHub Copilot
+Plug 'github/copilot.vim'
+
 " ---------------
 " end of plugins
 " ---------------
