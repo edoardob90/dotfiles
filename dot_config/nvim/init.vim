@@ -114,6 +114,9 @@ Plug 'github/copilot.vim'
 " Wolfram Language syntax support
 Plug 'voldikss/vim-mma'
 
+" Beancount syntax
+Plug 'nathangrigg/vim-beancount'
+
 " ---------------
 " end of plugins
 " ---------------
