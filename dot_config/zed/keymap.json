@@ -1,0 +1,40 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      // "j k": ["workspace::SendKeystrokes", "escape"]
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "space w": "workspace::Save", // Save the current file with space+w
+      "space q": "pane::CloseActiveItem" // Close the current file with space+q
+    }
+  },
+  {
+    "context": "vim_mode == normale && !menu",
+    "bindings": {
+      "shift-y": ["workspace::SendKeystrokes", "y $"] // NeoVim yank: Y (capital Y) will yank till the end of the line
+    }
+  }
+]
