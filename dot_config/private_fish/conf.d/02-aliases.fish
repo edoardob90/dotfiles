@@ -16,8 +16,7 @@ alias marked='open -b com.brettterpstra.marked2'
 alias wls='wolframscript'
 
 # VIM/Neovim
-command -q nvim; and abbr --add --global vim nvim
-alias vi=vim
+command -q nvim; and abbr --add --global vim nvim && abbr --add --global vi nvim; or abbr --add --global vi vim
 
 # ls
 alias ls='lsd'
