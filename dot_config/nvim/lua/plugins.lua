@@ -40,5 +40,33 @@ require('lazy').setup({
         config = function()
             require('config.wilder')
         end,
-    }
+    },
+    {
+        "onsails/lspkind.nvim",
+        event = { "VimEnter" },
+    },
+    -- Auto-completion engine: nvim-cmp
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            "lspkind.nvim",              -- icons for nvim-cmp
+            "hrsh7th/cmp-nvim-lsp",      -- lsp auto-completion
+            "hrsh7th/cmp-buffer",        -- buffer auto-completion
+            "hrsh7th/cmp-path",          -- path auto-completion
+            "hrsh7th/cmp-cmdline",       -- cmdline auto-completion
+            {
+                'windwp/nvim-autopairs', -- auto-pairs
+                event = 'InsertEnter',
+                config = true
+            },
+        },
+        config = function()
+            require("config.nvim-cmp")
+        end,
+    },
+    -- Snippets engine: LuaSnip (required by nvim-cmp)
+    {
+        "L3MON4D3/LuaSnip",
+        version = "v2.*",
+    },
 })
