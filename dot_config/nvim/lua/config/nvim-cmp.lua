@@ -1,12 +1,20 @@
+-- local has_words_before = function()
+--     unpack = unpack or table.unpack
+--     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+--     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+-- end
+
+-- Taken from: https://github.com/zbirenbaum/copilot-cmp?tab=readme-ov-file#tab-completion-configuration-highly-recommended
 local has_words_before = function()
-    unpack = unpack or table.unpack
+    if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+    return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
 end
 
 local luasnip = require("luasnip")
 local cmp = require("cmp")
 local autopairs = require("nvim-autopairs.completion.cmp")
+local lspkind = require("lspkind")
 
 -- To insert `(` after select function or method item
 cmp.event:on("confirm_done", autopairs.on_confirm_done())
@@ -30,17 +38,23 @@ cmp.setup({
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
 
         -- A super tab
-        -- sourc: https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings#luasnip
-        ["<Tab>"] = cmp.mapping(function(fallback)
-            -- Hint: if the completion menu is visible select next one
-            if cmp.visible() then
-                cmp.select_next_item()
-            elseif has_words_before() then
-                cmp.complete()
+        -- source: https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings#luasnip
+        -- ["<Tab>"] = cmp.mapping(function(fallback)
+        --     if cmp.visible() then
+        --         cmp.select_next_item()
+        --     elseif has_words_before() then
+        --         cmp.complete()
+        --     else
+        --         fallback()
+        --     end
+        -- end, { "i", "s" }), -- i - insert mode; s - select mode
+        ["<Tab>"] = vim.schedule_wrap(function(fallback)
+            if cmp.visible() and has_words_before() then
+                cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
             else
                 fallback()
             end
-        end, { "i", "s" }), -- i - insert mode; s - select mode
+        end),
         ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
@@ -62,15 +76,24 @@ cmp.setup({
         fields = { 'abbr', 'menu' },
 
         -- customize the appearance of the completion menu
-        format = function(entry, vim_item)
-            vim_item.menu = ({
-                nvim_lsp = '[Lsp]',
-                luasnip = '[Luasnip]',
-                buffer = '[File]',
-                path = '[Path]',
-            })[entry.source.name]
-            return vim_item
-        end,
+        format = lspkind.cmp_format({
+            mode = 'symbol',  -- show only symbol annotations
+            maxwidth = 50,    -- max width of the annotations
+            ellipsis_char = '...',  -- show a symbol when the annotation is truncated
+            show_labelDetails = true,  -- show the label show_labelDetails
+            
+            -- The function below will be called before any actual modifications from lspkind
+            before = function(entry, vim_item)
+                vim_item.menu = ({
+                    nvim_lsp = '[LSP]',
+                    luasnip = '[LuaSnip]',
+                    buffer = '[Buffer]',
+                    path = '[Path]',
+                    copilot = '[Copilot]',
+                })[entry.source.name]
+                return vim_item
+            end
+        })
     },
 
     -- Set source precedence
@@ -79,5 +102,6 @@ cmp.setup({
         { name = 'luasnip' },  -- For luasnip user
         { name = 'buffer' },   -- For buffer word completion
         { name = 'path' },     -- For path completion
+        { name = 'copilot' },  -- Copilot completion
     })
 })
