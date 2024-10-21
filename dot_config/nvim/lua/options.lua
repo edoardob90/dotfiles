@@ -32,4 +32,5 @@ set.ignorecase = true -- ignore case in searches by default
 set.smartcase = true  -- but make it case sensitive if an uppercase is entered
 
 -- Python interpreter
-vim.g.python3_host_prog = '/Users/edoardo/.pyenv/versions/nvim/bin/python'
+-- set python3_host_prog to the python3 binary in the virtualenv `nvim`
+vim.g.python3_host_prog = vim.fs.normalize('~/.pyenv/versions/nvim/bin/python')
