@@ -44,7 +44,7 @@ require('lazy').setup({
     {
         "onsails/lspkind.nvim",
         event = { "VimEnter" },
-        config = function ()
+        config = function()
             require("config.lspkind")
         end
     },
@@ -88,5 +88,19 @@ require('lazy').setup({
         config = function()
             require("copilot_cmp").setup()
         end
-    }
+    },
+    {
+        'hat0uma/csvview.nvim',
+        config = function()
+            require('config.csvview')
+        end
+    },
+    {
+        "kylechui/nvim-surround",
+        version = "v2.3.0",
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup()
+        end
+    },
 })
