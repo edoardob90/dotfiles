@@ -39,6 +39,21 @@ if test "$TERM" = "xterm-kitty"
     end
 end
 
+# Beancount
+if set -q BEANCOUNT_LEDGER
+    function bean-check
+      command bean-check $BEANCOUNT_LEDGER $argv
+    end
+    
+    function bean-report
+      command bean-report $BEANCOUNT_LEDGER $argv
+    end
+    
+    function fava
+      command fava $BEANCOUNT_LEDGER $argv
+    end
+end
+
 # Misc
 alias cat='bat --theme DarkNeon'
 function psq -d "Query running processes"
