@@ -103,4 +103,9 @@ require('lazy').setup({
             require("nvim-surround").setup()
         end
     },
+    {
+        "vladdoster/remember.nvim",
+        version = "v1.4.1",
+        config = true,
+    },
 })
