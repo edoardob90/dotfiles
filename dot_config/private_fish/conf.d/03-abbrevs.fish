@@ -1,7 +1,6 @@
 # Fish-equivalent for ZSH abbreviations
 abbr --add --global "ga"    git add
 abbr --add --global "gco"   git commit -a
-# abbr --add --global "gca"   git commit -A
 abbr --add --global "gcom"  git commit -m
 abbr --add --global "gckm"  git checkout main
 abbr --add --global "gck"   git checkout
@@ -24,3 +23,4 @@ abbr --add --global "gsp"   git stash pop
 abbr --add --global "gre"   git restore
 abbr --add --global "grs"   git restore --staged
 
+abbr --add --global "lg"    lazygit
