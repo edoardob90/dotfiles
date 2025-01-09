@@ -30,17 +30,3 @@
 #  https://developer.1password.com/docs/ssh/agent/config
 [[ssh-keys]]
 vault = "Personal"
-item = "GitHub (Macbook)"
-
-[[ssh-keys]]
-vault = "Personal"
-item = "Raspberry Pi 4"
-
-[[ssh-keys]]
-vault = "Personal"
-item = "ASUS Router"
-
-[[ssh-keys]]
-vault = "Personal"
-item = "Vultr"
-
