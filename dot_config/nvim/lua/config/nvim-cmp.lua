@@ -77,11 +77,10 @@ cmp.setup({
 
         -- customize the appearance of the completion menu
         format = lspkind.cmp_format({
-            mode = 'symbol',  -- show only symbol annotations
-            maxwidth = 50,    -- max width of the annotations
-            ellipsis_char = '...',  -- show a symbol when the annotation is truncated
-            show_labelDetails = true,  -- show the label show_labelDetails
-            
+            mode = 'symbol',          -- show only symbol annotations
+            maxwidth = 50,            -- max width of the annotations
+            ellipsis_char = '...',    -- show a symbol when the annotation is truncated
+            show_labelDetails = true, -- show the label show_labelDetails
             -- The function below will be called before any actual modifications from lspkind
             before = function(entry, vim_item)
                 vim_item.menu = ({
