@@ -7,7 +7,10 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "vim_mode": true,
+  "inline_completions": {
+    "disabled_globs": [".env", "clean.py"]
+  },
+  "vim_mode": false,
   "vim": {
     "use_smartcase_find": true,
     "toggle_relative_line_numbers": true
@@ -18,20 +21,27 @@
   },
   "assistant": {
     "default_model": {
-      "provider": "openai",
-      "model": "gpt-4o"
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-latest"
     },
     "version": "2"
   },
   "base_keymap": "VSCode",
-  "theme": "Catbox",
+  "theme": "Tokyo Night",
   "buffer_font_size": 16,
   "buffer_font_family": "Berkeley Mono",
   "preferred_line_length": 80,
   "soft_wrap": "editor_width",
+  "inlay_hints": {
+    "enabled": true
+  },
   "languages": {
+    "Rust": {
+      "show_inline_completions": false
+    },
     "Python": {
-      "language_servers": ["ruff"],
+      "show_inline_completions": true,
+      "language_servers": ["pyright", "ruff"],
       "format_on_save": "on",
       "formatter": [
         {
@@ -46,6 +56,13 @@
           }
         }
       ]
+    },
+    "Astro": {
+      "prettier": {
+        "allowed": true,
+        "plugins": ["prettier-plugin-astro"]
+      },
+      "format_on_save": "on"
     },
     "Beancount": {
       "format_on_save": "off",
