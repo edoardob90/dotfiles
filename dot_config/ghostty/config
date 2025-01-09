@@ -1,0 +1,14 @@
+# General
+copy-on-select = clipboard
+shell-integration-features = title,no-cursor
+
+# Mouse
+mouse-hide-while-typing = true
+
+# Theme
+theme = catppuccin-mocha
+window-theme = system
+cursor-invert-fg-bg = true
+
+# Fonts
+font-size = 16
