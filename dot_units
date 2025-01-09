@@ -1,3 +1,6 @@
 sfr CHF
 eur EUR
 chf CHF
+
+tf() tempF
+tc() tempC
