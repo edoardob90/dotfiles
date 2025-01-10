@@ -7,7 +7,6 @@ mouse-hide-while-typing = true
 
 # Theme
 theme = catppuccin-mocha
-window-theme = system
 cursor-invert-fg-bg = true
 
 # Fonts
