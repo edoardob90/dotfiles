@@ -1,7 +1,6 @@
 [user]
 	email = edoardob90@gmail.com
-	name = edoardob90
-	signingkey = 10186DD6D7D536DB
+	name = Edoardo Baldi
 [pull]
 	rebase = false
 [init]
@@ -13,7 +12,9 @@
     show = delta
 [delta]
     syntax-theme = Monokai Extended
-    navigate = true
+	navigate = true
+	light = false
+	side-by-side = true
 [interactive]
     diffFilter = delta --color-only
 [alias]
@@ -27,3 +28,27 @@
     dump = cat-file -p
 [push]
 	autoSetupRemote = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	excludesfile = /Users/edoardo/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/edoardo/.stCommitMsg
+    gpgsign = false
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
