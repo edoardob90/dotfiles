@@ -72,23 +72,23 @@ require('lazy').setup({
         "L3MON4D3/LuaSnip",
         version = "v2.*",
     },
-    {
-        "zbirenbaum/copilot.lua",
-        cmd = "Copilot",
-        event = "InsertEnter",
-        config = function()
-            require("copilot").setup({
-                suggestion = { enable = false },
-                panel = { enable = false },
-            })
-        end,
-    },
-    {
-        "zbirenbaum/copilot-cmp",
-        config = function()
-            require("copilot_cmp").setup()
-        end
-    },
+    -- {
+    --     "zbirenbaum/copilot.lua",
+    --     cmd = "Copilot",
+    --     event = "InsertEnter",
+    --     config = function()
+    --         require("copilot").setup({
+    --             suggestion = { enable = false },
+    --             panel = { enable = false },
+    --         })
+    --     end,
+    -- },
+    -- {
+    --     "zbirenbaum/copilot-cmp",
+    --     config = function()
+    --         require("copilot_cmp").setup()
+    --     end
+    -- },
     {
         'hat0uma/csvview.nvim',
         config = function()
