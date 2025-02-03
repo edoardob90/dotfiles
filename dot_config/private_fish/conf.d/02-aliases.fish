@@ -29,9 +29,11 @@ alias lrt='ls -lrth'
 # SSH
 alias ssh-agent='/usr/bin/ssh-agent' # keep using macOS ssh agent even if openssh via Brew is installed
 alias ssh-add='/usr/bin/ssh-add'
-alias daint='ssh daint.cscs.ch'
 alias router='/usr/bin/ssh router'
 alias rbpi='/usr/bin/ssh rbpi'
+
+alias daint='ssh daint.alps.cscs.ch'
+alias eiger='ssh eiger.cscs.ch'
 
 if test "$TERM" = "xterm-kitty"
     function ssh -d "ssh if using Kitty terminal"
@@ -44,11 +46,6 @@ if set -q BEANCOUNT_LEDGER
     function bean-check
       command bean-check $BEANCOUNT_LEDGER $argv
     end
-    
-    function bean-report
-      command bean-report $BEANCOUNT_LEDGER $argv
-    end
-    
     function fava
       command fava $BEANCOUNT_LEDGER $argv
     end
