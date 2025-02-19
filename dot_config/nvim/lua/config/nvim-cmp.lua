@@ -23,12 +23,26 @@ cmp.setup({
         -- Use <C-b/f> to scroll the docs
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        
         -- Use <C-k/j> to switch in items
         ['<C-k>'] = cmp.mapping.select_prev_item(),
         ['<C-j>'] = cmp.mapping.select_next_item(),
+
         -- Use <CR>(Enter) to confirm selection
         -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<CR>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                if luasnip.expandable() then
+                    luasnip.expand()
+                else
+                    cmp.confirm({
+                        select = true,
+                    })
+                end
+            else 
+                fallback()
+            end
+        end),
 
         -- A super tab
         -- source: https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings#luasnip
@@ -75,7 +89,7 @@ cmp.setup({
                     luasnip = '[LuaSnip]',
                     buffer = '[Buffer]',
                     path = '[Path]',
-                    copilot = '[Copilot]',
+                    supermaven = '[SuperMaven]',
                 })[entry.source.name]
                 return vim_item
             end
@@ -84,9 +98,10 @@ cmp.setup({
 
     -- Set source precedence
     sources = cmp.config.sources({
-        { name = 'nvim_lsp' }, -- For nvim-lsp
-        { name = 'luasnip' },  -- For luasnip user
-        { name = 'buffer' },   -- For buffer word completion
-        { name = 'path' },     -- For path completion
+        { name = 'nvim_lsp' },   -- For nvim-lsp
+        { name = 'luasnip' },    -- For luasnip user
+        { name = 'buffer' },     -- For buffer word completion
+        { name = 'path' },       -- For path completion
+        { name = 'supermaven' }, -- Supermaven
     })
 })

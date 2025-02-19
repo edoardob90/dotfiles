@@ -2,8 +2,8 @@ local lspkind = require("lspkind")
 
 lspkind.init({
     symbol_map = {
-        Copilot = " ",
+        Supermaven = " ",
     },
 })
 
-vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
+vim.api.nvim_set_hl(0, "CmpItemKindSupermaven", {fg ="#6CC644"})

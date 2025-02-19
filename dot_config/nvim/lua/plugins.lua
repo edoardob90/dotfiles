@@ -46,7 +46,7 @@ require('lazy').setup({
         event = { "VimEnter" },
         config = function()
             require("config.lspkind")
-        end
+        end,
     },
     -- Auto-completion engine: nvim-cmp
     {
@@ -72,28 +72,11 @@ require('lazy').setup({
         "L3MON4D3/LuaSnip",
         version = "v2.*",
     },
-    -- {
-    --     "zbirenbaum/copilot.lua",
-    --     cmd = "Copilot",
-    --     event = "InsertEnter",
-    --     config = function()
-    --         require("copilot").setup({
-    --             suggestion = { enable = false },
-    --             panel = { enable = false },
-    --         })
-    --     end,
-    -- },
-    -- {
-    --     "zbirenbaum/copilot-cmp",
-    --     config = function()
-    --         require("copilot_cmp").setup()
-    --     end
-    -- },
     {
         'hat0uma/csvview.nvim',
         config = function()
             require('config.csvview')
-        end
+        end,
     },
     {
         "kylechui/nvim-surround",
@@ -101,11 +84,25 @@ require('lazy').setup({
         event = "VeryLazy",
         config = function()
             require("nvim-surround").setup()
-        end
+        end,
     },
     {
         "vladdoster/remember.nvim",
         version = "v1.4.1",
         config = true,
+    },
+    {
+      "supermaven-inc/supermaven-nvim",
+      event = { "InsertEnter" },
+      config = function()
+        require("supermaven-nvim").setup({
+            keymaps = {
+                accept_suggestion = "<Tab>",
+                clear_suggestion = "<C-]>",
+                accept_word = "<C-j>",
+            },
+            ignore_filetypes = { markdown = true, text = true },
+        })
+      end,
     },
 })
