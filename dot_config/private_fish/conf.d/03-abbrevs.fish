@@ -24,3 +24,4 @@ abbr --add --global "gre"   git restore
 abbr --add --global "grs"   git restore --staged
 
 abbr --add --global "lg"    lazygit
+abbr --add --global "n"     nvim
