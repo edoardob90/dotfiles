@@ -1,5 +1,6 @@
 -- colorscheme.lua
-local colorscheme = 'tokyonight-night' -- set colorscheme
+-- local colorscheme = 'tokyonight-night' -- set colorscheme
+local colorscheme = 'flexoki'
 
 -- Lua protected call to prevent errors if the colorscheme is not found
 local is_ok = pcall(vim.cmd, 'colorscheme ' .. colorscheme)

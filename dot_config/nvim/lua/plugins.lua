@@ -92,17 +92,41 @@ require('lazy').setup({
         config = true,
     },
     {
-      "supermaven-inc/supermaven-nvim",
-      event = { "InsertEnter" },
-      config = function()
-        require("supermaven-nvim").setup({
-            keymaps = {
-                accept_suggestion = "<Tab>",
-                clear_suggestion = "<C-]>",
-                accept_word = "<C-j>",
-            },
-            ignore_filetypes = { markdown = true, text = true },
-        })
-      end,
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "InsertEnter",
+        config = function()
+            require("copilot").setup({
+                filetypes = {
+                    markdown = false,
+                },
+                suggestion = { enabled = false },
+                panel = { enabled = false },
+            })
+        end,
+    },
+    {
+        "zbirenbaum/copilot-cmp",
+        config = function ()
+          require("copilot_cmp").setup()
+        end
+    },
+    -- {
+    --   "supermaven-inc/supermaven-nvim",
+    --   event = { "InsertEnter" },
+    --   config = function()
+    --     require("supermaven-nvim").setup({
+    --         keymaps = {
+    --             accept_suggestion = "<Tab>",
+    --             clear_suggestion = "<C-]>",
+    --             accept_word = "<C-j>",
+    --         },
+    --         ignore_filetypes = { markdown = true, text = true },
+    --     })
+    --   end,
+    -- },
+    {
+        "kepano/flexoki-neovim",
+        name = "flexoki",
     },
 })
