@@ -1,26 +1,16 @@
-.netrwhist
-README.md
-.vim/myplugins
-install.sh
+# --- macOS: keep the giant ~/Library tree out by default ----------------------
+{{- if eq .chezmoi.os "darwin" -}}
+Library/**
+
+# Exceptions
+!Library/Application Support/lazygit/
+!Library/LaunchAgents/*.plist
+{{- end -}}
+
 .config/fish/fish_variables
-{{ if ne .chezmoi.hostname "Athos" -}}
-.pandoc
-Library
-.config/kitty/macos-launch-services-cmdline
-{{ end -}}
-{{ if not .tmux -}}
-.tmux.conf
-{{ end }}
-# Editor
-{{ if ne .editor "vim" -}}
-.vimrc_background
-{{ else if ne .editor "nvim" -}}
-.config/nvim
-{{ end }}
-# Default shell
-{{ if ne .defaultshell "zsh" -}}
-.zshenv
-.config/zsh
-{{ else if ne .defaultshell "fish" -}}
-.config/fish
-{{ end -}}
+.netrwhist
+
+.vim/myplugins
+README.md
+install.sh
+
