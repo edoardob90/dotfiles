@@ -7,8 +7,75 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "inline_completions": {
-    "disabled_globs": [".env", "clean.py"]
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "icon_theme": "Material Icon Theme",
+  "ssh_connections": [
+    {
+      "host": "daint.alps.cscs.ch",
+      "username": "ebaldi",
+      "projects": [
+        {
+          "paths": [
+            "/users/ebaldi/scratch"
+          ]
+        },
+        {
+          "paths": [
+            "~/apps"
+          ]
+        },
+        {
+          "paths": [
+            "~/apps/empa-spack"
+          ]
+        }
+      ],
+      "nickname": "Daint@Alps"
+    },
+    {
+      "host": "kirby",
+      "projects": [
+        {
+          "paths": [
+            "/var/www/dev.edoardob.blog"
+          ]
+        },
+        {
+          "paths": [
+            "/var/www/edoardob.blog"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "eiger.cscs.ch",
+      "projects": [
+        {
+          "paths": [
+            "/users/ebaldi/apps"
+          ]
+        },
+        {
+          "paths": [
+            "~/apps/empa-spack"
+          ]
+        }
+      ],
+      "nickname": "Eiger@Alps"
+    }
+  ],
+  "agent": {
+    "default_profile": "ask",
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4"
+    }
+  },
+  "edit_predictions": {
+    "mode": "subtle",
+    "disabled_globs": [".env"]
   },
   "vim_mode": false,
   "vim": {
@@ -19,15 +86,12 @@
     "W": "w",
     "Q": "q"
   },
-  "assistant": {
-    "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-latest"
-    },
-    "version": "2"
-  },
   "base_keymap": "VSCode",
-  "theme": "Tokyo Night",
+  "theme": {
+    "mode": "system",
+    "dark": "Flexoki Dark",
+    "light": "Flexoki Light"
+  },
   "buffer_font_size": 16,
   "buffer_font_family": "Berkeley Mono",
   "preferred_line_length": 80,
@@ -37,10 +101,10 @@
   },
   "languages": {
     "Rust": {
-      "show_inline_completions": false
+      "show_edit_predictions": true
     },
     "Python": {
-      "show_inline_completions": true,
+      "show_edit_predictions": true,
       "language_servers": ["pyright", "ruff"],
       "format_on_save": "on",
       "formatter": [
@@ -64,12 +128,33 @@
       },
       "format_on_save": "on"
     },
-    "Beancount": {
-      "format_on_save": "off",
-      "formatter": {
-        "external": {
-          "command": "bean-black",
-          "arguments": ["-n", "-s"]
+    "CSS": {
+      "tab_size": 2,
+      "format_on_save": "on"
+    },
+    "PHP": {
+      "language_servers": ["intelephense", "!phpactor", "..."],
+      "formatter": "language_server"
+    },
+    "YAML": {
+      "formatter": "language_server",
+      "tab_size": 2
+    }
+  },
+  "lsp": {
+    "yaml-language-server": {
+      "settings": {
+        "yaml": {
+          "schemaStore": {
+            "enable": false
+          }
+        }
+      }
+    },
+    "pyright": {
+      "settings": {
+        "python": {
+          "pythonPath": "~/.local/bin/python"
         }
       }
     }
