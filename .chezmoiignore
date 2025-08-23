@@ -1,6 +1,7 @@
 # --- macOS: keep the giant ~/Library tree out by default ----------------------
 {{- if eq .chezmoi.os "darwin" -}}
 Library/**
+.DS_Store
 
 # Exceptions
 !Library/Application Support/lazygit/
