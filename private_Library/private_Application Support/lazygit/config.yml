@@ -3,6 +3,7 @@ os:
   readFromClipboardCmd: "pbpaste {{text}}"
   copyToClipboardCmd: pbcopy
 git:
+  localBranchSortOrder: recency
   paging:
     colorArg: always
     pager: delta --dark --paging=never
