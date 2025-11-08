@@ -126,6 +126,9 @@ require('lazy').setup({
     --   end,
     -- },
     {
+        "neovim/nvim-lspconfig",
+    },
+    {
         "kepano/flexoki-neovim",
         name = "flexoki",
     },
