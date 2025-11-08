@@ -1,13 +1,32 @@
 # General
 copy-on-select = clipboard
-shell-integration-features = title,no-cursor
+shell-integration = detect
+shell-integration-features = title,no-cursor,sudo
 
 # Mouse
 mouse-hide-while-typing = true
 
 # Theme
-theme = catppuccin-mocha
+theme = "Flexoki Dark"
 cursor-invert-fg-bg = true
 
 # Fonts
-font-size = 16
+font-family = "Berkeley Mono"
+font-size = 17
+font-thicken = true
+font-thicken-strength = 5
+
+# Keybindings
+## Enable Option key as Alt
+macos-option-as-alt = true
+
+## Option + arrow: jump word
+keybind = alt+right=esc:f
+keybind = alt+left=esc:b
+
+## Option + Backspace: delete previous word
+keybind = alt+backspace=text:\x17
+
+## Shift + Enter: insert newline without sending
+keybind = shift+enter=text:\n
+
