@@ -23,10 +23,25 @@ cmp.setup({
         -- Use <C-b/f> to scroll the docs
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        
+
         -- Use <C-k/j> to switch in items
         ['<C-k>'] = cmp.mapping.select_prev_item(),
         ['<C-j>'] = cmp.mapping.select_next_item(),
+
+        -- Double-Esc behavior for Copilot/completion workflow:
+        -- When Copilot or other completion sources show suggestions in the menu,
+        -- the first <Esc> closes the completion menu while staying in insert mode.
+        -- This allows you to dismiss unwanted suggestions without interrupting your flow.
+        -- The second <Esc> behaves normally and exits insert mode.
+        -- If no completion menu is visible, <Esc> immediately exits insert mode (normal behavior).
+        -- This mapping only affects insert mode ('i'), so commands in normal mode work as expected.
+        ['<Esc>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.close()  -- First Esc: close completion menu, stay in insert mode
+            else
+                fallback()   -- Second Esc (or first if no menu): exit insert mode normally
+            end
+        end, { 'i' }),
 
         -- Use <CR>(Enter) to confirm selection
         -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
