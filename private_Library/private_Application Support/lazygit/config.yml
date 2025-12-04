@@ -1,9 +1,9 @@
 os:
-  editPreset: nvim
-  readFromClipboardCmd: "pbpaste {{text}}"
-  copyToClipboardCmd: pbcopy
+  editPreset: 'nvim'
+  readFromClipboardCmd: 'pbpaste'
+  # copyToClipboardCmd: 'pbcopy'
 git:
   localBranchSortOrder: recency
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
