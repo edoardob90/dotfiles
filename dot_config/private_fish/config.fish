@@ -1,13 +1,7 @@
-# function fish_greeting
-#     fortune 50% ~/.fortunes /usr/local/Cellar/fortune/9708/share/games/fortunes
-# end
-
 if status is-interactive
     # Commands to run in interactive sessions can go here
     # zoxide: smarter 'cd' command
     zoxide init fish | source
-    # Pyenv
-    pyenv init - | source
 end
 
 # # Set GNU binaries instead of BSD ones
@@ -25,13 +19,17 @@ end
 # Defaults:
 #   Ctrl + R = history search
 #   Ctrl + V = variables
-fzf_configure_bindings \
-    # Shift + Alt + F = directories
-    --directory=\u00CF \
-    # Shift + Alt + S = git status
-    --git_status=\u00CD \
-    # Shift + Alt + P = processes
-    --processes=\u220F \
-    # Shift + Alt + L = git log
-    --git_log=\u00D2
+# fzf_configure_bindings \
+#     # Shift + Alt + F = directories
+#     --directory=\u00CF \
+#     # Shift + Alt + S = git status
+#     --git_status=\u00CD \
+#     # Shift + Alt + P = processes
+#     --processes=\u220F \
+#     # Shift + Alt + L = git log
+#     --git_log=\u00D2
+
+
+# Add ~/.local/bin to PATH
+fish_add_path -m ~/.local/bin/
 
