@@ -1,0 +1,49 @@
+theme = "gruvbox_dark_hard"
+
+[editor]
+line-number = "relative"
+cursorline = true
+mouse = true
+auto-format = true
+idle-timeout = 50
+completion-timeout = 250
+bufferline = "multiple"
+color-modes = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+render = true
+character = "│"
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "file-modification-indicator"]
+center = []
+right = ["diagnostics", "position", "file-encoding"]
+
+[editor.whitespace.render]
+space = "none"
+tab = "all"
+newline = "none"
+
+[editor.soft-wrap]
+enable = true
+wrap-at-text-width = true
+
+# Keybindings
+[keys.normal]
+C-s = ":w"
+C-q = ":q"
+
+[keys.normal.space]
+Q = ":wqa"
+
+[keys.insert]
+j = { k = "normal_mode" }

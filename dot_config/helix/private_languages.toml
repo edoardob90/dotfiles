@@ -1,0 +1,31 @@
+# Python - 4-space indentation to match your Neovim config
+[[language]]
+name = "python"
+indent = { tab-width = 4, unit = "    " }
+auto-format = true
+
+# Lua - 2-space indentation (common convention)
+[[language]]
+name = "lua"
+indent = { tab-width = 2, unit = "  " }
+
+# JavaScript/TypeScript - 2-space indentation
+[[language]]
+name = "javascript"
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "typescript"
+indent = { tab-width = 2, unit = "  " }
+
+# Beancount LSP configuration
+[language-server.beancount-language-server]
+command = "beancount-language-server"
+args = ["--stdio"]
+
+[language-server.beancount-language-server.config]
+journal_file = "~/git/beancount/main.bean"
+
+[[language]]
+name = "beancount"
+language-servers = ["beancount-language-server"]
