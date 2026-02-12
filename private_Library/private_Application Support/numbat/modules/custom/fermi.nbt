@@ -1,0 +1,214 @@
+# Fermi Reference Numbers Module for Numbat
+# Essential order-of-magnitude values for estimation and back-of-envelope calculations
+# Compiled from "Landmark Numbers" (Miles Kodama) and personal reference collection
+#
+# Usage: Import this module to access characteristic scales for dimensional analysis
+#        and Fermi estimation problems
+#
+# Note: World/economic data is marked with year suffix and may be outdated
+
+# ==============================================================================
+# LENGTH SCALES
+# ==============================================================================
+
+# Macroscopic scales
+let earth_radius: Length = 6.371e6 m
+let earth_diameter: Length = 2 * earth_radius
+
+let atmosphere_height: Length = 3e4 m  # Effective thickness
+
+# Human scale
+let human_height: Length = 1.7 m  # Average adult
+let human_height_estimate: Length = 2 m  # For rough estimates
+
+# Microscopic scales - Biology
+let cell_diameter: Length = 10 μm  # Typical animal cell
+let bacteria_length: Length = 1 μm  # E. coli
+let virus_diameter: Length = 100 nm  # Typical virus (COVID-19: 80-120 nm)
+
+let dna_helix_width: Length = 2 nm  # Watson-Crick double helix
+let wavelength_green: Length = 500 nm  # Middle of visible spectrum
+
+# Atomic scales
+let atom_diameter: Length = 1 angstrom
+let nucleus_diameter: Length = 1 fm  # Femtometer scale
+
+# Technological scales
+let chip_feature_size_2023: Length = 10 nm  # Modern processor transistors
+
+# ==============================================================================
+# MASS SCALES
+# ==============================================================================
+
+let human_mass: Mass = 70 kg  # Average adult
+let human_mass_estimate: Mass = 70 kg
+
+let earth_mass: Mass = 5.972e24 kg
+let sun_mass: Mass = 1.989e30 kg
+
+let atmosphere_mass: Mass = 5e18 kg  # Total atmospheric mass
+
+# ==============================================================================
+# TIME SCALES
+# ==============================================================================
+
+# Useful time conversions (exact)
+let seconds_per_year_approx: Time = pi 1e7 s  # Order of magnitude: π × 10^7
+
+# Human timescales
+let human_lifetime: Time = 70 years
+
+let heartbeat: Time = 1 s  # ~60 bpm
+let heart_rate: Frequency = 1 Hz  # ~60 beats per minute
+
+@aliases(br, rr)
+let breathing_rate: Frequency = 15 / 1 minute  # ~15 breaths per minute at rest
+
+let breath_period: Time = 1 / breathing_rate
+let human_reaction_time: Time = 0.2 s  # Visual stimulus response
+
+let eye_blink: Time = 100 ms
+
+# ==============================================================================
+# ENERGY SCALES
+# ==============================================================================
+
+let thermal_energy_room_temp: Energy = 0.025 eV  # kT at 300K (1/40 eV)
+let chemical_bond_energy: Energy = 1 eV  # Typical covalent bond (range: 1-10 eV)
+
+let food_calorie: Energy = 4.184e6 J  # 1 kcal (nutritional Calorie)
+let human_daily_energy: Energy = 8e6 J  # ~2000 kcal/day
+
+let tnt_energy_density: Energy / Mass = 4.6e6 J/kg  # For explosion comparisons
+
+# ==============================================================================
+# AREAS AND VOLUMES
+# ==============================================================================
+
+let earth_surface_area: Area = 5.1e14 m²  # 4πR²
+
+let ocean_volume: Volume = 1.335e9 km³  # Total ocean water
+let ocean_volume_m3: Volume = round_in(m^3, ocean_volume)
+let ocean_volume_liter: Volume = round_in(litre, ocean_volume)
+
+# ==============================================================================
+# TEMPERATURES
+# ==============================================================================
+
+let human_body_temp: Temperature = 310 K  # 37°C
+let room_temperature: Temperature = 293 K  # 20°C
+
+# ==============================================================================
+# POWER AND ENERGY CONSUMPTION
+# ==============================================================================
+
+let human_power_resting: Power = 100 W  # Basal metabolic rate
+let human_power_active: Power = 200 W  # Light activity
+
+# ==============================================================================
+# ASTRONOMICAL SCALES
+# ==============================================================================
+
+# Distances
+let nearest_star_distance: Length = 4.24 lightyear  # Proxima Centauri
+
+# Sizes
+let sun_radius: Length = 6.96e8 m
+let sun_diameter: Length = 2 * sun_radius
+
+# Counts
+let milky_way_stars: Scalar = 1e11  # ~100 billion stars (order of magnitude)
+
+# ==============================================================================
+# BIOLOGICAL AND HUMAN SCALES
+# ==============================================================================
+
+# Cellular and molecular
+let human_cell_count: Scalar = 3.7e13  # ~37 trillion cells
+let human_neuron_count: Scalar = 8.6e10  # ~86 billion neurons in brain
+let human_genome_base_pairs: Scalar = 3.2e9  # Human genome length
+
+# Human physiology
+let heart_rate_normal_min: Frequency = 50 / minute  # 50 bpm
+let heart_rate_normal_max: Frequency = 100 / minute  # 100 bpm
+let heart_rate_average: Frequency = 70 / minute  # ~70 bpm typical
+
+let tidal_volume: Volume = 0.5 L  # Normal breath volume at rest
+let tidal_volume_deep: Volume = 3 L  # Maximum during deep breathing
+
+# ==============================================================================
+# FREQUENCY AND WAVELENGTH SCALES
+# ==============================================================================
+
+let wifi_frequency_2_4: Frequency = 2.4 GHz  # Common WiFi band
+let wifi_frequency_5: Frequency = 5 GHz  # 5 GHz WiFi band
+
+let cpu_clock_speed_typical: Frequency = 3 GHz  # Modern processor
+
+# ==============================================================================
+# WORLD DATA (with year markers - may be outdated)
+# ==============================================================================
+
+# POPULATION (2023 estimates)
+# WARNING: These values change over time. Marked with year suffix.
+
+@aliases(world_pop_2023)
+let world_population_2023: Scalar = 8.0e9  # 8 billion people
+
+@aliases(us_pop_2023)
+let us_population_2023: Scalar = 3.3e8  # ~330 million
+
+let large_city_population: Scalar = 1e7  # NYC ~8M, Tokyo ~14M (order of magnitude)
+let small_city_population: Scalar = 1e5  # ~100,000 people
+
+let global_birth_rate_2023: Frequency = 4 / second  # ~130 million births/year
+
+# ECONOMIC DATA (2023 estimates)
+# WARNING: Currency values and economic data change rapidly
+
+@aliases(us_gdp_2023)
+let us_gdp_2023: Scalar = 2.5e13  # ~$25 trillion USD (dimensionless for flexibility)
+
+@aliases(us_budget_2023)
+let us_federal_budget_2023: Scalar = 6.1e12  # ~$6.1 trillion USD
+
+let large_corp_revenue_2023: Scalar = 2e11  # Microsoft/Apple ~$200-400B (order of magnitude)
+
+let us_household_income_median_2023: Scalar = 7e4  # ~$70,000 median
+
+# ENERGY CONSUMPTION (2023 data)
+# Per capita annual primary energy consumption
+
+let us_energy_per_capita_annual_2023: Energy = 3e11 J  # ~80 MWh/year per person
+
+# ==============================================================================
+# USAGE EXAMPLES
+# ==============================================================================
+
+# Example 1: How many cells in a cubic millimeter of tissue?
+#   cell_density = 1 / cell_diameter³
+#   cells_per_mm3 = cell_density * (1 mm)³
+#   → ~1000 cells/mm³
+
+# Example 2: Energy to heat water for tea
+#   water_mass = 250 g
+#   temp_rise = 80 K  # From 20°C to 100°C
+#   specific_heat_water = 4184 J/(kg·K)
+#   energy = water_mass * specific_heat_water * temp_rise
+#   → ~84 kJ
+
+# Example 3: How long to walk across the US?
+#   us_width = (3/24) * 2π * earth_radius  # 3 time zones ≈ 1/8 circumference
+#   walking_speed = 5 km/h
+#   time = us_width / walking_speed
+#   → ~2 months of continuous walking
+
+# Example 4: Molecular weight of air
+#   # See chemistry::compounds module for air_2023 definition
+
+# Example 5: Number of people who have ever lived
+#   average_lifespan = 30 years  # Historical average
+#   civilization_duration = 10000 years
+#   avg_population = 1e8  # Historical average (very rough)
+#   total_ever_lived = (civilization_duration / average_lifespan) * avg_population
+#   → ~30 billion people (order of magnitude)
