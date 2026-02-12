@@ -1,0 +1,12 @@
+#
+# Custom modules
+#
+use custom::elements
+
+#
+# Custom units
+#
+# Single vacation day (Empa)
+# One work week is 41 hours / 5 working days per week
+@aliases(vday, vacd, vd)
+unit vacday: Time = 8 hour + 12 minutes

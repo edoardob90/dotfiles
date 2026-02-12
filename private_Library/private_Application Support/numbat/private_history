@@ -1,0 +1,180 @@
+#V2
+let halflife = 1.25 billion years
+let occurrence = 0.0117%
+let molar_mass = 40 g/mol
+let decay_rate = ln(2) / halflife
+unit banana
+let potassium_per_banana = 451 mg / banana
+let radioactivity_per_banana = potassium_per_banana * radioactivity -> Bq / banana
+let radioactivity = N_A * occurrence * decay_rate / molar_mass -> Bq / g
+let radioactivity_per_banana = potassium_per_banana * radioactivity -> Bq / banana
+let energy_per_decay: Energy = 11% * 1.5 MeV + 89% * 1.3 MeV
+let power_per_banana: Power / Banana = radioactivity_per_banana * energy_per_decay
+fn household_power(annual_consumption: Energy) -> Power = annual_consumption / year
+household_power(10000 kWh)
+household_power(10000 kWh) / power_per_banana
+?
+euro
+chf
+quit
+Force
+force
+Length
+len
+dimension Length
+dimension Velocity = Length / Time
+Velocity
+dimension Velocity
+G
+g
+epsilon
+eps0
+gravitational_constant
+gravitational_constant * Newton
+gravitational_constant * F
+gravitational_constant * Mass
+gravitational_constant * mass
+gravitational_constant * kg^2 / m^2
+gravitational_constant * kg^2 / m
+gravitational_constant * kg / m^
+gravitational_constant * kg / m^2
+G
+earth
+G * 5.98e24 kg/ 6.38e6 m
+G * 5.98e24 kg/ (6.38e6 m)^2
+10_000 feet/min
+10_000 feet/min -> mph
+10_000 feet/min -> m/s
+foot -> m
+1000 foot -> km
+1000 foot/minute -> km/h
+1000 foot/minute -> m/min
+3e4
+3e4 foot -> km
+dimension Power
+dimension Power = Energy / Time
+Power
+dimension Deceleration = Length / Time^2
+Deceleration
+dimension Momentum
+euro
+1 euro to chf
+list
+%
+swimmingpool
+swimmingpool to m^3
+swiss_franc
+list dimensions
+info Jerk
+info Time
+eur
+sfrt
+sfr
+chf
+1 vacday
+1 vacday to year
+66 hour + 46 minutes to vc
+66 hour + 46 minutes to vacday
+46 min to hour
+66 hour + 46 minutes to day
+66 hour + 46 minutes to vd
+info mol
+info amu
+info atomic_mass_constant
+avogadro_constant
+carbon
+person
+rgb(0, 0, 0)
+use color
+info color
+info rgb
+use extra:color
+use extra::color
+magenta
+element("carbon")
+info dalton
+da
+daltons
+atomic_mass_constant
+atomic_mass_constant to Da
+carbon
+use chemistry
+use chemistry::elements
+info element
+info ChemicalPotential
+info ChemicalElement
+ChemicalElement
+list
+element("H")
+info Chemical
+info ChemicalElement
+info element
+use chemistry::elements
+AmountOfSubstance
+info AmountOfSubstance
+mole
+Da
+Da to kg
+Da to mol
+gram
+mole
+mol
+g
+carbon
+60 g / carbon
+60 g / carbon to g
+60 g / carbon to mol
+carbon / 1 mol
+carbon * 7 mol to kg
+carbon / avogadro_constant
+atomic_mass_constant
+carbon / avogadro_constant to kg
+(carbon / avogadro_constant)/12 to kg
+u
+atomic_mass_constant
+H
+h
+info Al
+F
+Pm
+peta
+Pet
+Petametre
+petametre
+petametre to m
+petametre to km
+petametre to lightyear
+salt = Na + Cl
+let salt = Na + Cl
+salt to g/mol
+1 g / salt
+salt
+let salt: SodiumChloride = sodium + chlorine
+let salt = (sodium + chlorine)
+salt
+sodium
+sodium to g/m
+sodium to g/mol
+salt to g/mol
+salt
+fahrenheit
+fahrenheit(20)
+21 degree_fahrenheit to celsius
+25 celsius to fahrenheit
+25 celsius to degree_fahrenheit
+6*carbon + 12*hydrogen + 6*oxygen
+oxygen
+oxygen to g/mol
+carbon -> g/mol
+6 carbon + 12 hydrogen + 6 oxygen -> g/mol
+info element
+element("be")
+element("be").boiling_point
+element("be").mass
+6 carbon + 12 hydrogen + 6 oxygen -> g/mol
+info AmountOfSubstance
+percentage_change(10%, 200)
+percentage_change(200, 220)
+percentage_change(200, 198)
+percentage_change(200, 275)
+percentage_change(200, 184.99)

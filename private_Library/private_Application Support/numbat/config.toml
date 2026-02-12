@@ -1,0 +1,14 @@
+intro-banner = "long"
+prompt = ">>> "
+pretty-print = "auto"
+color = "auto"
+edit-mode = "emacs"
+
+[formatting]
+digit-separator = " "
+digit-grouping-threshold = 6
+significant-digits = 6
+datetime = "%Y-%m-%d %H:%M:%S"
+
+[exchange-rates]
+fetching-policy = "on-startup"

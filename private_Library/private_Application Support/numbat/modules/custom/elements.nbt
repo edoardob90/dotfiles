@@ -1,0 +1,295 @@
+# Chemical Elements Module for Numbat
+# Automatically generated from NIST atomic weights database
+# Data source: https://www.nist.gov/pml/atomic-weights-and-isotopic-compositions-relative-atomic-masses
+#
+# Elements are defined as molar masses with dimension Mass/AmountOfSubstance.
+# Values are standard atomic weights in grams per mole (g/mol).
+#
+# Element symbols are provided via @aliases where they don't conflict with existing units.
+# Symbols NOT available (due to conflicts):
+#   C (coulomb), N (newton), V (volt), W (watt), H (henry),
+#   K (kelvin), Pa (pascal), S (siemens), B (byte), F (farad)
+#
+# Usage examples:
+#   2 mol * carbon              -> 24.0215 g (mass of 2 moles of carbon)
+#   60 g / carbon               -> 4.998 mol (moles in 60g of carbon)
+#   carbon / avogadro_constant  -> mass per carbon atom in grams
+#
+# Molecular formulas:
+#   water = 2*hydrogen + oxygen          -> 18.015 g/mol  (can't use H, but can use O)
+#   glucose = 6*carbon + 12*hydrogen + 6*oxygen  -> 180.156 g/mol
+#   salt = Na + Cl                       -> 58.443 g/mol (symbols work!)
+#
+# Note: For elements with variable isotopic composition, the value is either:
+#   - The midpoint of the standard atomic weight interval, or
+#   - The weighted average based on natural isotopic abundances
+#
+# For radioactive elements, the mass of the most stable or most common isotope is used.
+
+
+@aliases(Ac)
+unit actinium: Mass / AmountOfSubstance = 227.0277523000 g / mol
+
+@aliases(Al)
+unit aluminum: Mass / AmountOfSubstance = 26.9815385300 g / mol
+
+@aliases(Sb)
+unit antimony: Mass / AmountOfSubstance = 121.7597836735 g / mol
+
+@aliases(Ar)
+unit argon: Mass / AmountOfSubstance = 39.9477985636 g / mol
+
+@aliases(As)
+unit arsenic: Mass / AmountOfSubstance = 74.9215945700 g / mol
+
+@aliases(At)
+unit astatine: Mass / AmountOfSubstance = 209.9871479000 g / mol
+
+@aliases(Ba)
+unit barium: Mass / AmountOfSubstance = 137.3268916286 g / mol
+
+@aliases(Be)
+unit beryllium: Mass / AmountOfSubstance = 9.0121830650 g / mol
+
+@aliases(Bi)
+unit bismuth: Mass / AmountOfSubstance = 208.9803991000 g / mol
+
+unit boron: Mass / AmountOfSubstance = 10.8110280464 g / mol
+
+@aliases(Br)
+unit bromine: Mass / AmountOfSubstance = 79.9035277805 g / mol
+
+@aliases(Cd)
+unit cadmium: Mass / AmountOfSubstance = 112.4115578183 g / mol
+
+@aliases(Ca)
+unit calcium: Mass / AmountOfSubstance = 40.0780225110 g / mol
+
+unit carbon: Mass / AmountOfSubstance = 12.0107358967 g / mol
+
+@aliases(Ce)
+unit cerium: Mass / AmountOfSubstance = 140.1157307379 g / mol
+
+@aliases(Cs)
+unit cesium: Mass / AmountOfSubstance = 132.9054519610 g / mol
+
+@aliases(Cl)
+unit chlorine: Mass / AmountOfSubstance = 35.4529375826 g / mol
+
+@aliases(Cr)
+unit chromium: Mass / AmountOfSubstance = 51.9961317554 g / mol
+
+@aliases(Co)
+unit cobalt: Mass / AmountOfSubstance = 58.9331942900 g / mol
+
+@aliases(Cu)
+unit copper: Mass / AmountOfSubstance = 63.5460399458 g / mol
+
+@aliases(Dy)
+unit dysprosium: Mass / AmountOfSubstance = 162.4994728194 g / mol
+
+@aliases(Er)
+unit erbium: Mass / AmountOfSubstance = 167.2590826497 g / mol
+
+@aliases(Eu)
+unit europium: Mass / AmountOfSubstance = 151.9643781264 g / mol
+
+unit fluorine: Mass / AmountOfSubstance = 18.9984031627 g / mol
+
+@aliases(Fr)
+unit francium: Mass / AmountOfSubstance = 223.0197360000 g / mol
+
+@aliases(Gd)
+unit gadolinium: Mass / AmountOfSubstance = 157.2521306469 g / mol
+
+@aliases(Ga)
+unit gallium: Mass / AmountOfSubstance = 69.7230660726 g / mol
+
+@aliases(Ge)
+unit germanium: Mass / AmountOfSubstance = 72.6275501647 g / mol
+
+@aliases(Au)
+unit gold: Mass / AmountOfSubstance = 196.9665687900 g / mol
+
+@aliases(Hf)
+unit hafnium: Mass / AmountOfSubstance = 178.4849787234 g / mol
+
+@aliases(He)
+unit helium: Mass / AmountOfSubstance = 4.0026019321 g / mol
+
+@aliases(Ho)
+unit holmium: Mass / AmountOfSubstance = 164.9303288000 g / mol
+
+unit hydrogen: Mass / AmountOfSubstance = 1.0079407540 g / mol
+
+@aliases(In)
+unit indium: Mass / AmountOfSubstance = 114.8180866294 g / mol
+
+@aliases(I)
+unit iodine: Mass / AmountOfSubstance = 126.9044719000 g / mol
+
+@aliases(Ir)
+unit iridium: Mass / AmountOfSubstance = 192.2160516521 g / mol
+
+@aliases(Fe)
+unit iron: Mass / AmountOfSubstance = 55.8451444339 g / mol
+
+@aliases(Kr)
+unit krypton: Mass / AmountOfSubstance = 83.7979999953 g / mol
+
+@aliases(La)
+unit lanthanum: Mass / AmountOfSubstance = 138.9054688737 g / mol
+
+@aliases(Pb)
+unit lead: Mass / AmountOfSubstance = 207.2169080630 g / mol
+
+@aliases(Li)
+unit lithium: Mass / AmountOfSubstance = 6.9400366029 g / mol
+
+@aliases(Lu)
+unit lutetium: Mass / AmountOfSubstance = 174.9668149579 g / mol
+
+unit magnesium: Mass / AmountOfSubstance = 24.3050516198 g / mol
+
+@aliases(Mn)
+unit manganese: Mass / AmountOfSubstance = 54.9380439100 g / mol
+
+unit mercury: Mass / AmountOfSubstance = 200.5991670346 g / mol
+
+@aliases(Mo)
+unit molybdenum: Mass / AmountOfSubstance = 95.9597885412 g / mol
+
+@aliases(Nd)
+unit neodymium: Mass / AmountOfSubstance = 144.2415960318 g / mol
+
+@aliases(Ne)
+unit neon: Mass / AmountOfSubstance = 20.1800463805 g / mol
+
+@aliases(Np)
+unit neptunium: Mass / AmountOfSubstance = 237.0481736000 g / mol
+
+@aliases(Ni)
+unit nickel: Mass / AmountOfSubstance = 58.6933471099 g / mol
+
+@aliases(Nb)
+unit niobium: Mass / AmountOfSubstance = 92.9063730000 g / mol
+
+unit nitrogen: Mass / AmountOfSubstance = 14.0067032114 g / mol
+
+@aliases(Os)
+unit osmium: Mass / AmountOfSubstance = 190.2248596282 g / mol
+
+@aliases(O)
+unit oxygen: Mass / AmountOfSubstance = 15.9994049243 g / mol
+
+@aliases(Pd)
+unit palladium: Mass / AmountOfSubstance = 106.4153275073 g / mol
+
+@aliases(P)
+unit phosphorus: Mass / AmountOfSubstance = 30.9737619984 g / mol
+
+@aliases(Pt)
+unit platinum: Mass / AmountOfSubstance = 195.0844568649 g / mol
+
+@aliases(Pu)
+unit plutonium: Mass / AmountOfSubstance = 244.0642053000 g / mol
+
+@aliases(Po)
+unit polonium: Mass / AmountOfSubstance = 208.9824308000 g / mol
+
+unit potassium: Mass / AmountOfSubstance = 39.0983009101 g / mol
+
+@aliases(Pr)
+unit praseodymium: Mass / AmountOfSubstance = 140.9076576000 g / mol
+
+unit promethium: Mass / AmountOfSubstance = 144.9127559000 g / mol
+
+unit protactinium: Mass / AmountOfSubstance = 231.0358842000 g / mol
+
+@aliases(Ra)
+unit radium: Mass / AmountOfSubstance = 226.0254103000 g / mol
+
+@aliases(Rn)
+unit radon: Mass / AmountOfSubstance = 222.0175782000 g / mol
+
+@aliases(Re)
+unit rhenium: Mass / AmountOfSubstance = 186.2067045456 g / mol
+
+@aliases(Rh)
+unit rhodium: Mass / AmountOfSubstance = 102.9054980000 g / mol
+
+@aliases(Rb)
+unit rubidium: Mass / AmountOfSubstance = 85.4676635956 g / mol
+
+@aliases(Ru)
+unit ruthenium: Mass / AmountOfSubstance = 101.0649401392 g / mol
+
+@aliases(Sm)
+unit samarium: Mass / AmountOfSubstance = 150.3663557119 g / mol
+
+@aliases(Sc)
+unit scandium: Mass / AmountOfSubstance = 44.9559082800 g / mol
+
+@aliases(Se)
+unit selenium: Mass / AmountOfSubstance = 78.9593885570 g / mol
+
+@aliases(Si)
+unit silicon: Mass / AmountOfSubstance = 28.0854987058 g / mol
+
+@aliases(Ag)
+unit silver: Mass / AmountOfSubstance = 107.8681496346 g / mol
+
+@aliases(Na)
+unit sodium: Mass / AmountOfSubstance = 22.9897692820 g / mol
+
+@aliases(Sr)
+unit strontium: Mass / AmountOfSubstance = 87.6166444696 g / mol
+
+unit sulfur: Mass / AmountOfSubstance = 32.0647874061 g / mol
+
+@aliases(Ta)
+unit tantalum: Mass / AmountOfSubstance = 180.9478756362 g / mol
+
+@aliases(Tc)
+unit technetium: Mass / AmountOfSubstance = 97.9072124000 g / mol
+
+@aliases(Te)
+unit tellurium: Mass / AmountOfSubstance = 127.6031264847 g / mol
+
+@aliases(Tb)
+unit terbium: Mass / AmountOfSubstance = 158.9253547000 g / mol
+
+unit thallium: Mass / AmountOfSubstance = 204.3834128394 g / mol
+
+@aliases(Th)
+unit thorium: Mass / AmountOfSubstance = 232.0380558000 g / mol
+
+unit thulium: Mass / AmountOfSubstance = 168.9342179000 g / mol
+
+@aliases(Sn)
+unit tin: Mass / AmountOfSubstance = 118.7101125930 g / mol
+
+@aliases(Ti)
+unit titanium: Mass / AmountOfSubstance = 47.8667449627 g / mol
+
+unit tungsten: Mass / AmountOfSubstance = 183.8417775505 g / mol
+
+unit uranium: Mass / AmountOfSubstance = 238.0289104617 g / mol
+
+unit vanadium: Mass / AmountOfSubstance = 50.9414650374 g / mol
+
+@aliases(Xe)
+unit xenon: Mass / AmountOfSubstance = 131.2927614478 g / mol
+
+@aliases(Yb)
+unit ytterbium: Mass / AmountOfSubstance = 173.0541501663 g / mol
+
+@aliases(Y)
+unit yttrium: Mass / AmountOfSubstance = 88.9058403000 g / mol
+
+@aliases(Zn)
+unit zinc: Mass / AmountOfSubstance = 65.3777825295 g / mol
+
+@aliases(Zr)
+unit zirconium: Mass / AmountOfSubstance = 91.2236415971 g / mol
+
