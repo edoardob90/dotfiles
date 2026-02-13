@@ -11,175 +11,372 @@
 # LENGTH SCALES
 # ==============================================================================
 
+# ----------------------
 # Macroscopic scales
+# ----------------------
+
+# Earth's mean radius - used as reference for many planetary calculations
 let earth_radius: Length = 6.371e6 m
+
 let earth_diameter: Length = 2 * earth_radius
 
-let atmosphere_height: Length = 3e4 m  # Effective thickness
+# Effective thickness of Earth's atmosphere (order of magnitude estimate)
+# The troposphere (lowest layer containing 80% of atmospheric mass) varies:
+# - At equator: ~18 km
+# - At mid-latitudes: ~11 km  
+# - At poles: ~6 km
+# Using 30 km as a round order-of-magnitude estimate for practical Fermi calculations
+let atmosphere_height: Length = 3e4 m
 
+# ----------------------
 # Human scale
-let human_height: Length = 1.7 m  # Average adult
-let human_height_estimate: Length = 2 m  # For rough estimates
+# ----------------------
 
+# Average adult human height (global average varies by population)
+# For mental Fermi estimates: round to 2 m for easier calculation
+let human_height: Length = 1.7 m
+
+# ----------------------
 # Microscopic scales - Biology
-let cell_diameter: Length = 10 μm  # Typical animal cell
-let bacteria_length: Length = 1 μm  # E. coli
-let virus_diameter: Length = 100 nm  # Typical virus (COVID-19: 80-120 nm)
+# ----------------------
 
-let dna_helix_width: Length = 2 nm  # Watson-Crick double helix
-let wavelength_green: Length = 500 nm  # Middle of visible spectrum
+# Typical animal cell diameter (e.g., eukaryotic cells like fibroblasts, hepatocytes)
+# Cell sizes vary widely: red blood cells ~8 μm, neurons can be much larger
+let cell_diameter: Length = 10 μm
 
+# Length of E. coli bacteria (rod-shaped, typical prokaryote)
+let bacteria_length: Length = 1 μm
+
+# Typical virus diameter (e.g., SARS-CoV-2: 80-120 nm, influenza: ~100 nm)
+let virus_diameter: Length = 100 nm
+
+# Width of DNA double helix (Watson-Crick B-form DNA)
+let dna_helix_width: Length = 2 nm
+
+# Wavelength of green light - middle of visible spectrum (495-570 nm range)
+let wavelength_green: Length = 500 nm
+
+# ----------------------
 # Atomic scales
-let atom_diameter: Length = 1 angstrom
-let nucleus_diameter: Length = 1 fm  # Femtometer scale
+# ----------------------
 
+# Typical atomic diameter (1 angstrom = 0.1 nm)
+# Hydrogen atom ~1 Å, carbon ~1.5 Å, used as order of magnitude
+let atom_diameter: Length = 1 angstrom
+
+# Atomic nucleus diameter (femtometer scale, 1 fm = 10^-15 m)
+# Proton ~1.75 fm, varies by element
+let nucleus_diameter: Length = 1 fm
+
+# ----------------------
 # Technological scales
-let chip_feature_size_2023: Length = 10 nm  # Modern processor transistors
+# ----------------------
+
+# Modern semiconductor transistor feature size (as of 2023)
+# Leading-edge chips: 3-5 nm process nodes
+# This refers to manufacturing process, not actual transistor size
+let chip_feature_size_2023: Length = 10 nm
 
 # ==============================================================================
 # MASS SCALES
 # ==============================================================================
 
-let human_mass: Mass = 70 kg  # Average adult
-let human_mass_estimate: Mass = 70 kg
+# Average adult human mass (varies significantly by population and individual)
+# WHO reference: ~70 kg for males, ~60 kg for females
+# For mental estimates: 70 kg is already a convenient round number
+let human_mass: Mass = 70 kg
 
+# Mass of Earth (5.972 × 10^24 kg)
 let earth_mass: Mass = 5.972e24 kg
+
+# Mass of the Sun (1.989 × 10^30 kg, ~333,000 Earth masses)
 let sun_mass: Mass = 1.989e30 kg
 
-let atmosphere_mass: Mass = 5e18 kg  # Total atmospheric mass
+# Total mass of Earth's atmosphere
+# About 5.15 × 10^18 kg, roughly 1 millionth of Earth's mass
+let atmosphere_mass: Mass = 5.15e18 kg
 
 # ==============================================================================
 # TIME SCALES
 # ==============================================================================
 
-# Useful time conversions (exact)
-let seconds_per_year_approx: Time = pi 1e7 s  # Order of magnitude: π × 10^7
+# ----------------------
+# Useful time conversions
+# ----------------------
 
+# Approximate seconds per year (exact: 31,557,600 for Gregorian calendar year)
+# π × 10^7 ≈ 31.4 million seconds - useful mnemonic for Fermi estimates
+let seconds_per_year_approx: Time = pi 1e7 s
+
+# ----------------------
 # Human timescales
+# ----------------------
+
+# Average human lifetime in developed countries
+# Global life expectancy varies: ~70-85 years depending on region
 let human_lifetime: Time = 70 years
 
-let heartbeat: Time = 1 s  # ~60 bpm
-let heart_rate: Frequency = 1 Hz  # ~60 beats per minute
+# Average time between heartbeats at rest (~60 beats per minute)
+let heartbeat: Time = 1 s
 
-@aliases(br, rr)
-let breathing_rate: Frequency = 15 / 1 minute  # ~15 breaths per minute at rest
+# Resting heart rate - approximately 60 beats per minute
+# Normal range: 60-100 bpm for adults
+let heart_rate: Frequency = 1 Hz
 
-let breath_period: Time = 1 / breathing_rate
-let human_reaction_time: Time = 0.2 s  # Visual stimulus response
+@aliases(breaths)
+unit breath
 
+# Respiratory rate at rest - approximately 12-20 breaths per minute for adults
+# Using 15 as typical value
+@aliases(respiratory_rate, rr)
+let breathing_rate = 15 breath / 1 minute
+
+let breath_period = 1 / breathing_rate
+
+# Human visual stimulus reaction time
+# Simple reaction time: ~200 ms
+# Complex decision making: 300-500 ms
+let human_reaction_time: Time = 0.2 s
+
+# Duration of an eye blink (complete cycle)
 let eye_blink: Time = 100 ms
 
 # ==============================================================================
 # ENERGY SCALES
 # ==============================================================================
 
-let thermal_energy_room_temp: Energy = 0.025 eV  # kT at 300K (1/40 eV)
-let chemical_bond_energy: Energy = 1 eV  # Typical covalent bond (range: 1-10 eV)
+# Thermal energy at room temperature (kT at 300K)
+# Useful reference: 1/40 eV ≈ 0.025 eV
+# Important for understanding molecular motion, chemical reactions
+let thermal_energy_room_temp: Energy = 0.025 eV
 
-let food_calorie: Energy = 4.184e6 J  # 1 kcal (nutritional Calorie)
-let human_daily_energy: Energy = 8e6 J  # ~2000 kcal/day
+# Typical covalent chemical bond energy
+# Range varies: C-C bond ~3.6 eV, C-H bond ~4.3 eV, using 1 eV as order of magnitude
+let chemical_bond_energy: Energy = 1 eV
 
-let tnt_energy_density: Energy / Mass = 4.6e6 J/kg  # For explosion comparisons
+# Food calorie (nutritional Calorie, note: 1 Cal = 1000 cal)
+# 1 kcal = 4.184 kJ exactly (by definition)
+let food_calorie: Energy = 4.184e6 J
+
+# Average human daily energy expenditure
+# Approximately 2000 kcal/day for adults
+# Varies by activity level, body size, metabolism
+let human_daily_energy: Energy = 8e6 J
+
+# TNT energy density - standard reference for explosion comparisons
+# By convention: 1 gram TNT = 4.184 kJ = 1000 thermochemical calories
+# Actual detonation energy varies: 2.7-6.7 MJ/kg depending on conditions
+# Nuclear weapons measured in kilotons (kt) or megatons (Mt) of TNT equivalent
+let tnt_energy_density: Energy / Mass = 4.6e6 J/kg
 
 # ==============================================================================
 # AREAS AND VOLUMES
 # ==============================================================================
 
-let earth_surface_area: Area = 5.1e14 m²  # 4πR²
+# Total surface area of Earth (4πR²)
+# Approximately 510 million km²
+let earth_surface_area: Area = 5.1e14 m²
 
-let ocean_volume: Volume = 1.335e9 km³  # Total ocean water
+# Total volume of Earth's oceans
+# Approximately 1.335 billion km³ or 1.335 × 10^9 km³
+let ocean_volume: Volume = 1.335e9 km^3
 let ocean_volume_m3: Volume = round_in(m^3, ocean_volume)
 let ocean_volume_liter: Volume = round_in(litre, ocean_volume)
+
+# Approximate volume of Earth's atmosphere
+# Troposphere contains about 80% of atmospheric mass
+# Using 6 billion km³ as order of magnitude estimate
+let atmosphere_volume: Volume = 6e9 km^3
 
 # ==============================================================================
 # TEMPERATURES
 # ==============================================================================
 
-let human_body_temp: Temperature = 310 K  # 37°C
-let room_temperature: Temperature = 293 K  # 20°C
+# Normal human body temperature
+# 37°C = 310 K (98.6°F)
+# Varies slightly: core temperature ~37°C, skin ~33-34°C
+let human_body_temp: Temperature = 310 K
+
+# Standard room temperature
+# 20°C = 293 K (68°F)
+# Often used as reference for physical calculations
+let room_temperature: Temperature = 293 K
 
 # ==============================================================================
 # POWER AND ENERGY CONSUMPTION
 # ==============================================================================
 
-let human_power_resting: Power = 100 W  # Basal metabolic rate
-let human_power_active: Power = 200 W  # Light activity
+# Human basal metabolic rate (resting power consumption)
+# Approximately 100 watts for average adult
+# Equivalent to a standard incandescent light bulb
+let human_power_resting: Power = 100 W
+
+# Human power output during light activity (walking, light work)
+# Approximately 200 watts
+# Athletes can sustain ~300-400 W, peak bursts much higher
+let human_power_active: Power = 200 W
 
 # ==============================================================================
 # ASTRONOMICAL SCALES
 # ==============================================================================
 
+# ----------------------
 # Distances
-let nearest_star_distance: Length = 4.24 lightyear  # Proxima Centauri
+# ----------------------
 
+# Distance to Proxima Centauri (nearest star to the Sun)
+# 4.24 light-years ≈ 4.0 × 10^13 km
+let nearest_star_distance: Length = 4.24 lightyear
+
+# ----------------------
 # Sizes
+# ----------------------
+
+# Radius of the Sun
+# Approximately 696,000 km or ~109 Earth radii
 let sun_radius: Length = 6.96e8 m
+
 let sun_diameter: Length = 2 * sun_radius
 
+# ----------------------
 # Counts
-let milky_way_stars: Scalar = 1e11  # ~100 billion stars (order of magnitude)
+# ----------------------
+
+# Estimated number of stars in the Milky Way galaxy
+# Order of magnitude: 100-400 billion stars
+# Using 10^11 as round estimate
+let milky_way_stars: Scalar = 1e11
 
 # ==============================================================================
 # BIOLOGICAL AND HUMAN SCALES
 # ==============================================================================
 
+# ----------------------
 # Cellular and molecular
-let human_cell_count: Scalar = 3.7e13  # ~37 trillion cells
-let human_neuron_count: Scalar = 8.6e10  # ~86 billion neurons in brain
-let human_genome_base_pairs: Scalar = 3.2e9  # Human genome length
+# ----------------------
 
+# Total number of cells in adult human body
+# Recent estimates: 30-37 trillion cells
+# Varies by individual (body size, composition)
+# This count excludes bacteria (approximately equal number)
+# Dominated by red blood cells and platelets (~84% of total)
+let human_cell_count: Scalar = 3.7e13
+
+# Number of neurons in human brain
+# Approximately 86 billion neurons
+# Previously estimated at 100 billion, revised with better counting methods
+let human_neuron_count: Scalar = 8.6e10
+
+# Length of human genome in base pairs
+# Approximately 3.2 billion base pairs (haploid genome)
+# Full diploid genome: ~6.4 billion base pairs
+let human_genome_base_pairs: Scalar = 3.2e9
+
+# ----------------------
 # Human physiology
-let heart_rate_normal_min: Frequency = 50 / minute  # 50 bpm
-let heart_rate_normal_max: Frequency = 100 / minute  # 100 bpm
-let heart_rate_average: Frequency = 70 / minute  # ~70 bpm typical
+# ----------------------
 
-let tidal_volume: Volume = 0.5 L  # Normal breath volume at rest
-let tidal_volume_deep: Volume = 3 L  # Maximum during deep breathing
+# Resting heart rate range - lower bound
+let heart_rate_normal_min: Frequency = 50 / minute
+
+# Resting heart rate range - upper bound (normal)
+let heart_rate_normal_max: Frequency = 100 / minute
+
+# Typical resting heart rate for adults
+let heart_rate_average: Frequency = 70 / minute
+
+# Tidal volume - normal breath volume at rest
+# Approximately 500 mL (0.5 L) per breath
+let tidal_volume: Volume = 0.5 L
+
+# Maximum tidal volume during deep breathing
+# Approximately 3 liters (vital capacity ~4-6 L total)
+let tidal_volume_deep: Volume = 3 L
 
 # ==============================================================================
 # FREQUENCY AND WAVELENGTH SCALES
 # ==============================================================================
 
-let wifi_frequency_2_4: Frequency = 2.4 GHz  # Common WiFi band
-let wifi_frequency_5: Frequency = 5 GHz  # 5 GHz WiFi band
+# WiFi 2.4 GHz band (common frequency)
+# Wavelength ≈ 12.5 cm
+let wifi_frequency_2_4: Frequency = 2.4 GHz
 
-let cpu_clock_speed_typical: Frequency = 3 GHz  # Modern processor
+# WiFi 5 GHz band
+# Wavelength ≈ 6 cm, less interference, shorter range
+let wifi_frequency_5: Frequency = 5 GHz
+
+# Typical modern CPU clock speed
+# Consumer processors: 2-5 GHz (as of 2023)
+let cpu_clock_speed_typical: Frequency = 3 GHz
 
 # ==============================================================================
 # WORLD DATA (with year markers - may be outdated)
 # ==============================================================================
 
+# ----------------------
 # POPULATION (2023 estimates)
 # WARNING: These values change over time. Marked with year suffix.
+# ----------------------
 
+# World population as of 2023
+# Reached 8 billion in November 2022
+# Current growth rate: ~1% per year (declining)
 @aliases(world_pop_2023)
-let world_population_2023: Scalar = 8.0e9  # 8 billion people
+let world_population_2023: Scalar = 8.0e9
 
+# United States population as of 2023
+# Approximately 330-340 million
 @aliases(us_pop_2023)
-let us_population_2023: Scalar = 3.3e8  # ~330 million
+let us_population_2023: Scalar = 3.3e8
 
-let large_city_population: Scalar = 1e7  # NYC ~8M, Tokyo ~14M (order of magnitude)
-let small_city_population: Scalar = 1e5  # ~100,000 people
+# Order of magnitude for large city population
+# Examples: NYC ~8M, Tokyo metropolitan ~14M, London ~9M
+let large_city_population: Scalar = 1e7
 
-let global_birth_rate_2023: Frequency = 4 / second  # ~130 million births/year
+# Order of magnitude for small city population
+# Typical small city or large town
+let small_city_population: Scalar = 1e5
 
+# Global birth rate (2023)
+# Approximately 130-140 million births per year
+# ≈ 4 births per second
+let global_birth_rate_2023: Frequency = 4 / second
+
+# ----------------------
 # ECONOMIC DATA (2023 estimates)
 # WARNING: Currency values and economic data change rapidly
+# ----------------------
 
+# United States Gross Domestic Product (2023)
+# Approximately $25-27 trillion USD
+# Largest economy in the world
 @aliases(us_gdp_2023)
-let us_gdp_2023: Scalar = 2.5e13  # ~$25 trillion USD (dimensionless for flexibility)
+let us_gdp_2023: Scalar = 2.5e13
 
+# United States federal budget (2023)
+# Approximately $6-7 trillion USD
+# Includes discretionary and mandatory spending
 @aliases(us_budget_2023)
-let us_federal_budget_2023: Scalar = 6.1e12  # ~$6.1 trillion USD
+let us_federal_budget_2023: Scalar = 6.1e12
 
-let large_corp_revenue_2023: Scalar = 2e11  # Microsoft/Apple ~$200-400B (order of magnitude)
+# Large corporation annual revenue (order of magnitude, 2023)
+# Examples: Microsoft, Apple, Amazon ~$200-400 billion
+let large_corp_revenue_2023: Scalar = 2e11
 
-let us_household_income_median_2023: Scalar = 7e4  # ~$70,000 median
+# Median US household income (2023)
+# Approximately $70,000-75,000 per year
+# Varies significantly by region and demographics
+let us_household_income_median_2023: Scalar = 7e4
 
+# ----------------------
 # ENERGY CONSUMPTION (2023 data)
 # Per capita annual primary energy consumption
+# ----------------------
 
-let us_energy_per_capita_annual_2023: Energy = 3e11 J  # ~80 MWh/year per person
+# US per capita annual energy consumption
+# Approximately 300 GJ/year or ~80 MWh/year per person
+# Much higher than global average (~60 GJ/year)
+let us_energy_per_capita_annual_2023: Energy = 3e11 J
 
 # ==============================================================================
 # USAGE EXAMPLES
@@ -204,7 +401,7 @@ let us_energy_per_capita_annual_2023: Energy = 3e11 J  # ~80 MWh/year per person
 #   → ~2 months of continuous walking
 
 # Example 4: Molecular weight of air
-#   # See chemistry::compounds module for air_2023 definition
+#   # See init.nbt for air_2023 definition
 
 # Example 5: Number of people who have ever lived
 #   average_lifespan = 30 years  # Historical average
