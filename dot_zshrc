@@ -1,0 +1,153 @@
+# ── Completions ────────────────────────────────────────────────
+FPATH="$(brew --prefix)/share/zsh-abbr:$FPATH"
+autoload -Uz compinit && compinit
+
+# ── Plugins (via Homebrew) ────────────────────────────────────
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-autopair/autopair.zsh
+source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# ── Tool integrations ────────────────────────────────────────
+eval "$(zoxide init zsh)"
+eval "$(fzf --zsh)"
+eval "$(starship init zsh)"
+
+# ── fzf widgets ───────────────────────────────────────────────
+# Built-in (from `fzf --zsh`):
+#   Ctrl+R       — history search
+#   Ctrl+T       — file/directory search
+#   Alt+C        — cd into directory
+# Custom:
+#   Ctrl+Alt+P   — process search (insert PID)
+#   Ctrl+Alt+V   — variable search (insert $VAR)
+
+# Process search (Ctrl+Alt+P) — browse and insert PIDs
+fzf-process-widget() {
+  local pid
+  pid=$(ps -eo pid,user,%cpu,%mem,start,command | fzf --header-lines=1 --multi --preview 'ps -p {1} -o pid,ppid,user,%cpu,%mem,etime,command' | awk '{print $1}')
+  if [[ -n "$pid" ]]; then
+    LBUFFER+="$pid"
+  fi
+  zle reset-prompt
+}
+zle -N fzf-process-widget
+bindkey '\e^P' fzf-process-widget  # Ctrl+Alt+P
+
+# Variable search (Ctrl+Alt+V) — browse shell variables
+fzf-variable-widget() {
+  local var
+  var=$(set | fzf --preview 'echo {}' | cut -d= -f1)
+  if [[ -n "$var" ]]; then
+    LBUFFER+="\$$var"
+  fi
+  zle reset-prompt
+}
+zle -N fzf-variable-widget
+bindkey '\e^V' fzf-variable-widget  # Ctrl+Alt+V
+
+# ── Keymap & shell options ────────────────────────────────────
+bindkey -e  # emacs keymap (ZSH defaults to vi when EDITOR=nvim)
+setopt extended_glob
+setopt dot_glob
+
+# ── Aliases ───────────────────────────────────────────────────
+# ls → lsd
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+alias lrt='ls -lrth'
+
+# cat → bat
+alias cat='bat --theme DarkNeon'
+
+# editors
+alias vim='nvim'
+alias vi='nvim'
+
+# apps
+alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+alias ia='open -b pro.writer.mac -n'
+alias marked='open -b com.brettterpstra.marked2'
+alias wls='wolframscript'
+
+# ssh
+alias ssh-agent='/usr/bin/ssh-agent'
+alias ssh-add='/usr/bin/ssh-add'
+alias router='/usr/bin/ssh router'
+alias rbpi='/usr/bin/ssh rbpi'
+alias daint='ssh daint.alps.cscs.ch'
+alias eiger='ssh eiger.alps.cscs.ch'
+
+# safety
+alias rm='rm -i'
+
+# curl with resume
+alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
+
+# brew maintenance
+alias brew-up='brew update && brew upgrade && brew cleanup -s'
+
+# kepubify
+alias kepub='kepubify -i --calibre --hyphenate'
+
+# simple wrappers
+alias mk='open -a MarkEdit -n'
+alias o='open'
+alias py='python'
+alias pbc='pbcopy'
+alias hf='hyperfine'
+alias units='gunits'
+alias chez='chezmoi'
+
+# Kitty SSH
+if [[ "$TERM" == "xterm-kitty" ]]; then
+  alias ssh='kitten ssh'
+fi
+
+# ── Functions ─────────────────────────────────────────────────
+# History search
+hs() { fc -l 1 | grep "$@" }
+hsi() { hs -i "$@" }
+
+# Process query
+psq() { ps ax | grep -v grep | grep -iE "$@" }
+
+# Syntax-highlight clipboard as RTF
+keycode() {
+  local fontsize="$1" lang="$2" font="${3:-Inconsolata}"
+  pbpaste | highlight \
+    --font "$font" \
+    --font-size "$fontsize" \
+    --style fine_blue_darker \
+    --src-lang "$lang" \
+    --out-format rtf | pbcopy
+}
+
+# Johnny Decimal — cd into JD folder by index (e.g. `cdj 12.01` or `cdj 12.01 notes`)
+cdj() {
+  if [[ -z "$2" ]]; then
+    pushd ~/Documents/*/*/${1}*/
+  else
+    pushd ~/Documents/*/*/${1}*/*(#i)($2)**([1])
+  fi
+}
+
+# Beancount (conditional on $BEANCOUNT_LEDGER)
+bean-check() {
+  if [[ -z "$BEANCOUNT_LEDGER" ]]; then
+    echo "BEANCOUNT_LEDGER is not set" >&2
+    return 1
+  fi
+  command bean-check "$BEANCOUNT_LEDGER" "$@"
+}
+
+fava() {
+  if [[ -z "$BEANCOUNT_LEDGER" ]]; then
+    echo "BEANCOUNT_LEDGER is not set" >&2
+    return 1
+  fi
+  command fava "$BEANCOUNT_LEDGER" "$@"
+}
