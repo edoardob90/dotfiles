@@ -1,0 +1,5 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/bin/bash
+# .Brewfile hash: {{ include "dot_Brewfile" | sha256sum }}
+brew bundle install --global
+{{ end -}}
