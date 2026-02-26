@@ -2,11 +2,14 @@
 FPATH="$(brew --prefix)/share/zsh-abbr:$FPATH"
 autoload -Uz compinit && compinit
 
+# ── Keymap ───────────────────────────────────────────────────
+bindkey -e  # emacs keymap — must be set BEFORE plugins so they bind into it
+
 # ── Plugins (via Homebrew) ────────────────────────────────────
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-autopair/autopair.zsh
-source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
 
 # ── Tool integrations ────────────────────────────────────────
 eval "$(zoxide init zsh)"
@@ -46,8 +49,7 @@ fzf-variable-widget() {
 zle -N fzf-variable-widget
 bindkey '\e^V' fzf-variable-widget  # Ctrl+Alt+V
 
-# ── Keymap & shell options ────────────────────────────────────
-bindkey -e  # emacs keymap (ZSH defaults to vi when EDITOR=nvim)
+# ── Shell options ─────────────────────────────────────────────
 setopt extended_glob
 setopt dot_glob
 
@@ -101,11 +103,6 @@ alias pbc='pbcopy'
 alias hf='hyperfine'
 alias units='gunits'
 alias chez='chezmoi'
-
-# Kitty SSH
-if [[ "$TERM" == "xterm-kitty" ]]; then
-  alias ssh='kitten ssh'
-fi
 
 # ── Functions ─────────────────────────────────────────────────
 # History search
