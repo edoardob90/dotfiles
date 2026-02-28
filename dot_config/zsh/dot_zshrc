@@ -1,9 +1,48 @@
 # ── Completions ────────────────────────────────────────────────
 FPATH="$ZDOTDIR/completions:$(brew --prefix)/share/zsh-abbr:$FPATH"
-autoload -Uz compinit && compinit
+
+setopt always_to_end    # Move cursor to end of completed word
+setopt auto_list        # List choices on ambiguous completion
+setopt auto_menu        # Show completion menu on successive tab press
+setopt auto_param_slash # Add trailing slash for completed directories
+setopt complete_in_word # Complete from both ends of a word
+setopt path_dirs        # Perform path search even on commands with slashes
+setopt NO_flow_control  # Disable Ctrl-S/Ctrl-Q in shell editor
+setopt NO_menu_complete # Don't autoselect the first completion entry
+
+# Initialize completion with 20-hour dump cache (pattern from Zephyr)
+autoload -Uz compinit
+() {
+  local zcd="$ZDOTDIR/.zcompdump"
+  if [[ -f "$zcd" && -n "$zcd"(#qNmh-20) ]]; then
+    compinit -C -i -d "$zcd"             # -C: skip check, dump is fresh
+  else
+    compinit -i -d "$zcd" && touch "$zcd"
+  fi
+  [[ "$zcd.zwc" -ot "$zcd" ]] && zcompile "$zcd" &!  # background compile
+} 2>/dev/null
 
 # fzf-tab: Fish-like completion menu with descriptions (must be after compinit)
 source /opt/homebrew/opt/fzf-tab/share/fzf-tab/fzf-tab.zsh
+
+# ── History ───────────────────────────────────────────────────
+HISTFILE="$ZDOTDIR/.zsh_history"
+HISTSIZE=20000    # in-memory (session)
+SAVEHIST=100000   # on-disk
+
+setopt bang_hist              # Treat '!' for history expansion
+setopt extended_history       # Record timestamp + duration of each command
+setopt hist_expire_dups_first # Expire duplicates first when trimming history
+setopt hist_find_no_dups      # Don't show duplicates when searching
+setopt hist_ignore_all_dups   # Remove older duplicate entries
+setopt hist_ignore_dups       # Don't record if identical to previous command
+setopt hist_ignore_space      # Don't record commands prefixed with a space
+setopt hist_reduce_blanks     # Strip superfluous blanks before saving
+setopt hist_save_no_dups      # Don't write duplicates to history file
+setopt hist_verify            # Show expansion before executing (e.g. !!)
+setopt inc_append_history     # Write to history file immediately, not on exit
+setopt NO_hist_beep           # No beep when history list is exhausted
+setopt NO_share_history       # Each session independent (pairs with inc_append)
 
 # ── Keymap ───────────────────────────────────────────────────
 bindkey -e  # emacs keymap — must be set BEFORE plugins so they bind into it
