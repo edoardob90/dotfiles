@@ -7,156 +7,147 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "features": {
-    "edit_prediction_provider": "zed"
+  "relative_line_numbers": "wrapped",
+  "telemetry": {
+    "diagnostics": true,
+    "metrics": false,
   },
-  "icon_theme": "Material Icon Theme",
+  "agent_servers": {
+    "claude": {
+      "default_model": "sonnet",
+    },
+  },
+  "icon_theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Mocha",
+  },
   "ssh_connections": [
     {
       "host": "daint.alps.cscs.ch",
       "username": "ebaldi",
       "projects": [
         {
-          "paths": [
-            "/users/ebaldi/scratch"
-          ]
+          "paths": ["/users/ebaldi/scratch"],
         },
         {
-          "paths": [
-            "~/apps"
-          ]
+          "paths": ["~/apps"],
         },
         {
-          "paths": [
-            "~/apps/empa-spack"
-          ]
-        }
+          "paths": ["~/apps/empa-spack"],
+        },
       ],
-      "nickname": "Daint@Alps"
+      "nickname": "Daint@Alps",
     },
     {
       "host": "kirby",
       "projects": [
         {
-          "paths": [
-            "/var/www/dev.edoardob.blog"
-          ]
+          "paths": ["/var/www/dev.edoardob.blog"],
         },
         {
-          "paths": [
-            "/var/www/edoardob.blog"
-          ]
-        }
-      ]
+          "paths": ["/var/www/edoardob.blog"],
+        },
+      ],
     },
     {
       "host": "eiger.cscs.ch",
       "projects": [
         {
-          "paths": [
-            "/users/ebaldi/apps"
-          ]
+          "paths": ["/users/ebaldi/apps"],
         },
         {
-          "paths": [
-            "~/apps/empa-spack"
-          ]
-        }
+          "paths": ["~/apps/empa-spack"],
+        },
       ],
-      "nickname": "Eiger@Alps"
-    }
+      "nickname": "Eiger@Alps",
+    },
   ],
   "agent": {
+    "inline_assistant_model": {
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-6-latest",
+    },
     "default_profile": "ask",
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-sonnet-4"
-    }
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-6-latest",
+    },
+    "model_parameters": [],
   },
   "edit_predictions": {
+    "provider": "zed",
     "mode": "subtle",
-    "disabled_globs": [".env"]
+    "disabled_globs": [".env"],
   },
   "vim_mode": false,
   "vim": {
     "use_smartcase_find": true,
-    "toggle_relative_line_numbers": true
+    "toggle_relative_line_numbers": true,
   },
   "command_aliases": {
     "W": "w",
-    "Q": "q"
+    "Q": "q",
   },
   "base_keymap": "VSCode",
   "theme": {
     "mode": "system",
     "dark": "Flexoki Dark",
-    "light": "Flexoki Light"
+    "light": "Flexoki Light",
   },
   "buffer_font_size": 16,
   "buffer_font_family": "Berkeley Mono",
   "preferred_line_length": 80,
   "soft_wrap": "editor_width",
   "inlay_hints": {
-    "enabled": true
+    "enabled": true,
   },
   "languages": {
-    "Rust": {
-      "show_edit_predictions": true
+    "Beancount": {
+      "show_edit_predictions": false,
+      "show_completions_on_input": true,
+      "enable_language_server": true,
     },
     "Python": {
-      "show_edit_predictions": true,
-      "language_servers": ["pyright", "ruff"],
-      "format_on_save": "on",
-      "formatter": [
-        {
-          "code_actions": {
-            "source.organizeImports.ruff": true,
-            "source.fixAll.ruff": true
-          }
-        },
-        {
-          "language_server": {
-            "name": "ruff"
-          }
-        }
-      ]
+      "code_actions_on_format": {
+        "source.organizeImports.ruff": true,
+        "source.fixAll.ruff": true,
+      },
     },
     "Astro": {
       "prettier": {
         "allowed": true,
-        "plugins": ["prettier-plugin-astro"]
+        "plugins": ["prettier-plugin-astro"],
       },
-      "format_on_save": "on"
     },
     "CSS": {
       "tab_size": 2,
-      "format_on_save": "on"
     },
     "PHP": {
       "language_servers": ["intelephense", "!phpactor", "..."],
-      "formatter": "language_server"
+      "formatter": "language_server",
     },
     "YAML": {
       "formatter": "language_server",
-      "tab_size": 2
-    }
+      "tab_size": 2,
+    },
   },
   "lsp": {
     "yaml-language-server": {
       "settings": {
         "yaml": {
           "schemaStore": {
-            "enable": false
-          }
-        }
-      }
+            "enable": false,
+          },
+        },
+      },
     },
-    "pyright": {
+    "basedpyright": {
       "settings": {
         "python": {
-          "pythonPath": "~/.local/bin/python"
-        }
-      }
-    }
-  }
+          "pythonPath": "/Users/edoardo/.local/bin/python",
+        },
+      },
+    },
+  },
 }
