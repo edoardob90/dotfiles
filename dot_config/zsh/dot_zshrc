@@ -1,5 +1,5 @@
 # ── Completions ────────────────────────────────────────────────
-FPATH="$HOME/.zsh/completions:$(brew --prefix)/share/zsh-abbr:$FPATH"
+FPATH="$ZDOTDIR/completions:$(brew --prefix)/share/zsh-abbr:$FPATH"
 autoload -Uz compinit && compinit
 
 # fzf-tab: Fish-like completion menu with descriptions (must be after compinit)
