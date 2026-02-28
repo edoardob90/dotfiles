@@ -1,6 +1,9 @@
 # ── Completions ────────────────────────────────────────────────
-FPATH="$(brew --prefix)/share/zsh-abbr:$FPATH"
+FPATH="$HOME/.zsh/completions:$(brew --prefix)/share/zsh-abbr:$FPATH"
 autoload -Uz compinit && compinit
+
+# fzf-tab: Fish-like completion menu with descriptions (must be after compinit)
+source /opt/homebrew/opt/fzf-tab/share/fzf-tab/fzf-tab.zsh
 
 # ── Keymap ───────────────────────────────────────────────────
 bindkey -e  # emacs keymap — must be set BEFORE plugins so they bind into it
